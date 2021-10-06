@@ -75,4 +75,4 @@ CREATE TABLE TB_Chamada
 	Presenca		BIT,
 	PRIMARY KEY (Id_Instrucao, Id_Atirador)
 )
-Go
+GO
