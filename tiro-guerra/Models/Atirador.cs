@@ -1,6 +1,7 @@
 
 namespace TiroGuerra.Models
 {
+    //atirador
     public class Atirador
     {
         public int Id { get; set; }
