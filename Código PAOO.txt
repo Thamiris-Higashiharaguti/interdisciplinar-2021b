@@ -1,0 +1,127 @@
+#include <Servo.h>Servo palhetaE;
+Servo palhetaD;//variáveis globais de programa
+const int esquerda = 5; //porta digital servo motor esquerdo
+const int direita = 6; //porta digital servo motor direitoconst int inicialE = 150; //angulo inicial palheta esquerda
+const int inicialD = 30; //angulo inicial palheta direitaconst int btnON = 4; //botão LIGAR
+const int btnOFF = 3; //botão DESLIGAR
+const int btnVEL = 2; //botão VELOCIDADE
+int velocidade = 1; //1 = lento, 2 = médio, 3 = rápido
+boolean ligado = false; //indica se o limpador está ligado/desligado
+boolean direcao = false; //indica direção das palhetas
+//*********************void setup()
+{
+Serial.begin(9600);
+//Configuração portas digitais - botões
+pinMode(btnON, INPUT);
+pinMode(btnOFF, INPUT);
+pinMode(btnVEL, INPUT);
+//Acoplando servos motores
+palhetaE.attach(esquerda); //servo motor - Esquerdo
+palhetaD.attach(direita); //servo motor - Direito
+//inicialização do sistema
+ligado = false;
+velocidade = 1;
+inicializarLimpador();
+}
+
+//*********************
+//Funções do sistema limpador de parabrisas
+void inicializarLimpador() {
+palhetaE.write(inicialE);
+palhetaD.write(inicialD);
+delay(300);
+}
+
+void movimentarLimpador() {
+//lendo posição das palhetas...
+int anguloE = palhetaE.read();
+int anguloD = palhetaD.read();
+//definindo velocidade atual...
+int inc = 0; //variável auxiliar de incremento
+switch (velocidade) {
+case 1:
+inc = 3;
+break;
+case 2:
+inc = 6;
+break;
+case 3:
+inc = 12;
+break;
+}
+
+//movimentação individual da palheta direita
+if (anguloD < anguloE) {
+	palhetaD.write(anguloE);
+	delay(300);
+	return;
+}
+if (anguloD == anguloE) {
+	if (anguloD >= inicialE) {
+	//mudar direcao --->
+	//true é para direita
+	direcao = true;
+}
+if (anguloD <= inicialD) {
+//mudar direcao <---
+//false é para esquerda
+	direcao = false;
+}
+if (direcao == true) {
+	anguloD = (anguloD - inc);
+	anguloE = anguloD;
+	palhetaD.write(anguloD);
+	palhetaE.write(anguloE);
+	delay(50);
+	return;
+} else if (direcao == false) {
+	anguloD = (anguloD + inc);
+	anguloE = anguloD;
+	palhetaD.write(anguloD);
+	palhetaE.write(anguloE);
+	delay(50);
+	return;
+   }
+}
+}
+
+void mudarVelocidade() {
+if (velocidade == 3){
+velocidade = 1;
+} else {
+velocidade++;
+}
+Serial.println("A velocidade agora é: " + (String)velocidade);
+}
+//*********************
+
+void loop()
+{
+//Códigos de Controle dos Botões...
+if (digitalRead(btnON) == LOW) {
+//ligar limpador
+ligado = true;
+Serial.println("Limpador LIGADO...");
+inicializarLimpador();
+delay(500);
+}
+if (digitalRead(btnOFF) == LOW) {
+//desligar limpador
+ligado = false;
+Serial.println("Limpador DESLIGADO...");
+inicializarLimpador();
+delay(500);
+}
+if (digitalRead(btnVEL) == LOW) {
+//mudar a velocidade
+Serial.println("Limpador mudando VELOCIDADE...");
+mudarVelocidade();
+delay(500);
+}
+//**********************************************************
+if (ligado == true)
+{
+movimentarLimpador();
+}
+} //fim-função loop
+
