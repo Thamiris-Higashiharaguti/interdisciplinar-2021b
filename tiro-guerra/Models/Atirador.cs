@@ -9,7 +9,7 @@ namespace TiroGuerra.Models
         public string CPF { get; set; }
         public string RG { get; set; }
         public bool Status { get; set; }
-
+        public string Senha { get; set; }
         public int IdPelotao { get; set; }
         public string Formacao { get; set; }
         public string RA { get; set; }
