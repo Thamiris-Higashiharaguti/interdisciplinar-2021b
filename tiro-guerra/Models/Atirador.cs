@@ -1,4 +1,4 @@
-
+using System;
 namespace TiroGuerra.Models
 {
     //atirador
@@ -13,8 +13,8 @@ namespace TiroGuerra.Models
         public int IdPelotao { get; set; }
         public string Formacao { get; set; }
         public string RA { get; set; }
-        public date GDAVermelha { get; set; }
-        public date GDAPreta { get; set; }
+        public DateTime GDAVermelha { get; set; }
+        public DateTime GDAPreta { get; set; }
         public string Numero { get; set; }
 
         #region Foreign Key

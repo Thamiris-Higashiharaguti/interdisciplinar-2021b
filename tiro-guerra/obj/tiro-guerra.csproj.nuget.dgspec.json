@@ -1,24 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "c:\\dev\\tiro-guerra\\tiro-guerra.csproj": {}
+    "C:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj": {}
   },
   "projects": {
-    "c:\\dev\\tiro-guerra\\tiro-guerra.csproj": {
+    "C:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\dev\\tiro-guerra\\tiro-guerra.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj",
         "projectName": "tiro-guerra",
-        "projectPath": "c:\\dev\\tiro-guerra\\tiro-guerra.csproj",
-        "packagesPath": "C:\\Users\\TAMIRIS\\.nuget\\packages\\",
-        "outputPath": "c:\\dev\\tiro-guerra\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\TAMIRIS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
