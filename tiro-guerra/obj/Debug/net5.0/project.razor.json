@@ -15624,6 +15624,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\Views\\Atirador\\CadastroAtirador.cshtml",
+      "TargetPath": "Views\\Atirador\\CadastroAtirador.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\Views\\Atirador\\CadastroInstrutor.cshtml",
+      "TargetPath": "Views\\Atirador\\CadastroInstrutor.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\Views\\Atirador\\login.cshtml",
       "TargetPath": "Views\\Atirador\\login.cshtml",
       "FileKind": "mvc"
