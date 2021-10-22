@@ -15619,8 +15619,8 @@
   "RootNamespace": "tiro_guerra",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\views\\Atirador\\login.cshtml",
-      "TargetPath": "views\\Atirador\\login.cshtml",
+      "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\Views\\Atirador\\login.cshtml",
+      "TargetPath": "Views\\Atirador\\login.cshtml",
       "FileKind": "mvc"
     }
   ],
