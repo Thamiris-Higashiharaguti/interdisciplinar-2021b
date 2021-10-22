@@ -9,5 +9,15 @@ namespace TiroGuerra.Controllers
         {
             return View();
         }
+
+        public ActionResult cadastrarAtirador()
+        {
+            return View("CadastroAtirador");
+        }
+
+        public ActionResult cadastrarInstrutor()
+        {
+            return View("CadastroInstrutor");
+        }
     }
 }

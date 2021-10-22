@@ -22,16 +22,18 @@ C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\inter
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.pdb
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.genruntimeconfig.cache
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\bin\Debug\net5.0\tiro-guerra.Views.dll
+C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.csproj.CopyComplete
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\bin\Debug\net5.0\tiro-guerra.Views.pdb
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.RazorAssemblyInfo.cache
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.RazorAssemblyInfo.cs
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.TagHelpers.input.cache
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.TagHelpers.output.cache
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.RazorCoreGenerate.cache
+C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Atirador\login.cshtml.g.cs
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.RazorTargetAssemblyInfo.cs
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.Views.pdb
-C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.csproj.CopyComplete
-C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\views\Atirador\login.cshtml.g.cs
+<<<<<<< HEAD
+=======
 C:\dev\interdisciplinar-2021b\tiro-guerra\bin\Debug\net5.0\appsettings.Development.json
 C:\dev\interdisciplinar-2021b\tiro-guerra\bin\Debug\net5.0\appsettings.json
 C:\dev\interdisciplinar-2021b\tiro-guerra\bin\Debug\net5.0\tiro-guerra.exe
@@ -68,3 +70,8 @@ C:\dev\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.genruntim
 C:\dev\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\tiro-guerra.csproj.CopyComplete
 C:\dev\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Chamada\chamada.cshtml.g.cs
 C:\dev\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Index\index.cshtml.g.cs
+>>>>>>> 095b92a7cb266f2871c7d4bbc1c10fa7d9e1cfec
+C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Atirador\CadastroAtirador.cshtml.g.cs
+C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Atirador\CadastroInstrutor.cshtml.g.cs
+C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Chamada\chamada.cshtml.g.cs
+C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Index\index.cshtml.g.cs
