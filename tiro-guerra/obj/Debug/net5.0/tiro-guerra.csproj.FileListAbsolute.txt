@@ -75,3 +75,5 @@ C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\inter
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Atirador\CadastroInstrutor.cshtml.g.cs
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Chamada\chamada.cshtml.g.cs
 C:\Users\User\Desktop\Andre\Fatec\4ºSemestre\ProgramacaoOrientada_Objetos\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Index\index.cshtml.g.cs
+C:\dev\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Atirador\CadastroAtirador.cshtml.g.cs
+C:\dev\interdisciplinar-2021b\tiro-guerra\obj\Debug\net5.0\Razor\Views\Atirador\CadastroInstrutor.cshtml.g.cs
