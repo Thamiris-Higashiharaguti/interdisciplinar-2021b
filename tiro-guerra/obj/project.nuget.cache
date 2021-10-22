@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VdMx66YXHLqg+f/7zbjaE/HYJeIJvwmwavQ2+OXwQc6/sCIw+BholXJrHQPOW9vG+BEHSZUtqUmBQ+5KLgVPRQ==",
+  "dgSpecHash": "aWzTHSBiFrflaM6GyWhGYhqH52r52TYP7CptcJxSN6pgp7uz8JbPsQI1TXFBHz9+MDOTLdC59w/0bpIT70gCcg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj",
+  "projectFilePath": "C:\\dev\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
