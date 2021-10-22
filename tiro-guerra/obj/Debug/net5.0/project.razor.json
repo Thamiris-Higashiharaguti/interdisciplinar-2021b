@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj",
+  "FilePath": "c:\\dev\\interdisciplinar-2021b\\tiro-guerra\\tiro-guerra.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,8 +15619,18 @@
   "RootNamespace": "tiro_guerra",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\User\\Desktop\\Andre\\Fatec\\4ºSemestre\\ProgramacaoOrientada_Objetos\\interdisciplinar-2021b\\tiro-guerra\\views\\Atirador\\login.cshtml",
-      "TargetPath": "views\\Atirador\\login.cshtml",
+      "FilePath": "c:\\dev\\interdisciplinar-2021b\\tiro-guerra\\Views\\Index\\index.cshtml",
+      "TargetPath": "Views\\Index\\index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\interdisciplinar-2021b\\tiro-guerra\\Views\\Chamada\\chamada.cshtml",
+      "TargetPath": "Views\\Chamada\\chamada.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\dev\\interdisciplinar-2021b\\tiro-guerra\\Views\\Atirador\\login.cshtml",
+      "TargetPath": "Views\\Atirador\\login.cshtml",
       "FileKind": "mvc"
     }
   ],
