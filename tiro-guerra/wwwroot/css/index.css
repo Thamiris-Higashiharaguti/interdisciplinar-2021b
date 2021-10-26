@@ -1,3 +1,58 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+.navbar{
+    /*position: fixed;*/
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+nav li{
+    display: inline-block;
+}
+
+nav a{
+    color: white;
+    padding: 8px 12px;
+}
+
+.dropdown{
+    text-decoration: underline;
+}
+
 .banner{
     background-image: url('../images/exercito.jpg');
+    width: 100%;
+    height: 30vw;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
+.funcoes{
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    background-position: center;
+    width: 300px;
+    height: 300px;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    padding-bottom: 5px;
+}
+
+
+

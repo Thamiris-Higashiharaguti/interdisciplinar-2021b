@@ -5,41 +5,55 @@
         <link rel="stylesheet" href="~/css/index.css"></link>
     </head>
     <body>
-        
-    <section class="banner">
-        <h2>Bem vindo!</h2>
-        <p>Esse é um site desenvolvido para auxiliar o tiro de guerra em suas atividades rotineiras</p>
-    </section>
+        <nav class="navbar">
+            <a href="" class="logo">LOGO</a>
+            <ul>
+                <li><a href="chamada">Chamada</a></li>
+                <li><a href="guarnicao">Guarnição</a></li>
+                <li><a href="notificacao">Notificação</a></li>
+                <li class="dropdown"><a href="">Cadastro</a>
+                    <div class="dropdown-content">
+                        <a href="cadastroInstrutor">Cadastro de Instrutor</a>
+                        <a href="cadastroAtirador">Cadastro de Atirador</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
 
-    <section class="funcoes">
-        <div class="item">
-            <div class="icon">
-                <img src="" alt=""> <!--icone de chamada-->
+        <section class="banner">
+            <h2>Bem vindo!</h2>
+            <p>Esse é um site desenvolvido para auxiliar o tiro de guerra em suas atividades rotineiras</p>
+        </section>
+
+        <section class="funcoes" >
+            <div class="item">
+                <div class="icon">
+                    <img src="../images/iconeChamada.png" alt=""/><!--icone de chamada-->
+                </div>
+                <div class="down-content">
+                    <h4>Chamada</h4>
+                    <p>Chamada realizada diariamente na instrução</p>
+                </div>
             </div>
-            <div class="down-content">
-                <h4>Chamada</h4>
-                <p>Chamada realizada diariamente na instrução</p>
+                
+            <div class="item">
+                <div class="icon">
+                    <img src="../images/iconeChamada.png" alt=""/> <!--icone da guarnição-->
+                </div>
+                <div class="down-content">
+                    <h4>Guarnição</h4>
+                    <p>Guarnição referente as guardas realizadas diariamente</p>
+                </div>
             </div>
-        </div>
-            
-        <div class="item">
-            <div class="icon">
-                <img src="" alt=""> <!--icone da guarnição-->
+            <div class="item">
+                <div class="icon">
+                    <img src="../images/iconeChamada.png" alt=""/> <!--icone de notificação-->
+                </div>
+                <div class="down-content">
+                    <h4>Notificação</h4>
+                    <p>Notificações e mensagens</p>
+                </div>
             </div>
-            <div class="down-content">
-                <h4>Guarnição</h4>
-                <p>Guarnição referente as guardas realizadas diariamente</p>
-            </div>
-        </div>
-        <div class="item">
-            <div class="icon">
-                <img src="" alt=""> <!--icone de notificação-->
-            </div>
-            <div class="down-content">
-                <h4>Notificação</h4>
-                <p>Notificações e mensagens</p>
-            </div>
-        </div>
-  </section>
+        </section>
     </body>
 </html>
