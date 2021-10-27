@@ -50,16 +50,7 @@ namespace tiro_guerra
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Index}/{action=index}");
-
-                endpoints.MapControllerRoute(
-                    name: "login",
-                    pattern: "{controller=Atirador}/{action=login}");
-                    
-                endpoints.MapControllerRoute(
-                    name: "chamada",
-                    pattern: "{controller=Chamada}/{action=chamada}");
-                
+                    pattern: "{controller=Home}/{action=index}");
                 
             });
         }

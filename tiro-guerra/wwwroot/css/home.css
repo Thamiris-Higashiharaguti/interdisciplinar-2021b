@@ -13,7 +13,6 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px;
 }
 
 nav li{
@@ -22,11 +21,36 @@ nav li{
 
 nav a{
     color: white;
-    padding: 8px 12px;
+    padding: 8px;
 }
 
-.dropdown{
-    text-decoration: underline;
+nav a:hover {
+	color: rgb(247, 0, 255);
+}
+
+.submenu{
+    display: none; /* esconde o submenu dropdown */
+    position: absolute;
+    width: 100%;
+}
+
+.dropdown:hover .submenu{
+    display: block;
+}
+
+.submenu li{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /*left: 0;*/
+    top: 100%;
+    width: 100%;
+ }
+
+ .submenu a{
+    padding: 12px;
+    display: block;
+    /*text-align: left;*/
 }
 
 .banner{

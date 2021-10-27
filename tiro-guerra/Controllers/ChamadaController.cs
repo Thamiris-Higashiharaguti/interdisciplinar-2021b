@@ -5,7 +5,7 @@ namespace TiroGuerra.Controllers
 {
     public class Chamada:Controller
     {
-        public ActionResult chamada()
+        public ActionResult index()
         {
             return View();
         }
