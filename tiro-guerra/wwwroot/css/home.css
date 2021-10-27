@@ -42,7 +42,7 @@ nav a:hover {
     position: absolute;
     display: flex;
     flex-direction: column;
-    /*left: 0;*/
+    left: 0;
     top: 100%;
     width: 100%;
  }
@@ -50,7 +50,7 @@ nav a:hover {
  .submenu a{
     padding: 12px;
     display: block;
-    /*text-align: left;*/
+    text-align: left;
 }
 
 .banner{
