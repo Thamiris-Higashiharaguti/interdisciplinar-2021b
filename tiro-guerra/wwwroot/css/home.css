@@ -89,20 +89,21 @@ nav a:hover {
     align-items: center;
     justify-items: center;
     text-align: center;
-    width: 300px;
-    height: 150px;
+    width: 50%;
+    height: 200px;
     
     word-break: normal;
 }
 .item p{
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 8vw;
+    padding-right: 8vw;
     
 }
 
 .icon{
     width: 20px;
     height: 20px;
+
     padding-bottom: 5px;
 }
 
