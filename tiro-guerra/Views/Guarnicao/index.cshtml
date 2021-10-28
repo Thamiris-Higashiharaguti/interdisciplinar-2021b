@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/code.js"></script>
+    <title>Chamadas</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img class="logo" width="20" height="30" alt="">
+          </a>
+        <a class="nav-item nav-link active" href="#">Guardas</a>
+        <a class="nav-item nav-link" href="#">Chamadas</a>
+        <a class="nav-item nav-link" href="#">Instuções</a>
+        
+        <a class="navbar-brand" href="#">
+            <img src="eb.png" alt="">
+          </a>
+    </nav>
+    <div class="geral">
+        <div class="menu">
+            <div class="modal fade" id="modal-mensagem">
+                <div class="modal-dialog">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                             <h4 class="modal-title">Formulário de cadastro diário</h4>
+                         </div>
+                         <div class="modal-body">
+                            <label for="fiscal">Fiscal de dia:</label>
+                            <select name="comandante" id="comandante">
+                               <option value="Amaro">Amaro</option>
+                               <option value="João">João</option>
+                               <option value="José">José</option>
+                            </select>
+                            <br>
+                             <label for="Comandante">Comandante:</label>
+                             <select name="comandante" id="comandante">
+                                <option value="Amaro">Amaro</option>
+                                <option value="João">João</option>
+                                <option value="José">José</option>
+                             </select>
+                             <br>
+                             <label for="Cabo">Cabo da guarda:</label>
+                             <select name="cabo" id="comandante">
+                                <option value="Amaro">Amaro</option>
+                                <option value="João">João</option>
+                                <option value="José">José</option>
+                             </select>
+                             <br>
+                             <label for="sentinela">Sentinela:</label>
+                             <select name="sentinela" id="sentinela">
+                                <option value="Amaro">Amaro</option>
+                                <option value="João">João</option>
+                                <option value="José">José</option>
+                             </select>
+                            <input type="button" value="Adicionar" id="btnAdd" onclick="addSentinela();">
+
+                            <ul id="myList">
+
+                            </ul>
+                            
+                         </div>
+                         <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+                        </div>
+                         <div class="modal-footer">
+                             <button type="button" class="close" data-dismiss="modal">Fechar</button>
+                         </div>
+                         
+                     </div>
+                 </div>
+             </div>
+
+             <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Outubro</th>
+                      <th scope="col">11/10/2021</th>
+                      <th scope="col">12/10/2021</th>
+                      <th scope="col">13/10/2021</th>
+                      <th scope="col">14/10/2021</th>
+                      <th scope="col">15/10/2021</th>
+                      <th scope="col">16/10/2021</th>
+                      <th scope="col">17/10/2021</th>
+                    </tr>
+                  </thead>
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Função</th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Segunda</button></th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Terça</button></th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Quarta</button></th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Quinta</button></th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Sexta</button></th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Sabádo</button></th>
+                    <th scope="col"><button class="btn btn-primary" data-toggle="modal" data-target="#modal-mensagem">Domingo</button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Fiscal de Dia</th>
+                        <td>Vinicius</td>
+                        <td>Vinicius</td>
+                        <td>Vinicius</td>
+                        <td>Vinicius</td>
+                        <td>Vinicius</td>
+                        <td>Vinicius</td>
+                        <td>Vinicius</td>
+                        </tr>
+                    <tr>
+                        <th scope="row">Comandante da Guarda</th>
+                        <td>Amaro</td>
+                        <td>Amaro</td>
+                        <td>Amaro</td>
+                        <td>Amaro</td>
+                        <td>Amaro</td>
+                        <td>Amaro</td>
+                        <td>Amaro</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cabo da Guarda</th>
+                        <td>Reis</td>
+                        <td>Reis</td>
+                        <td>Reis</td>
+                        <td>Reis</td>
+                        <td>Reis</td>
+                        <td>Reis</td>
+                        <td>Reis</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sentinela</th>
+                        <td>José</td>
+                        <td>José</td>
+                        <td>José</td>
+                        <td>José</td>
+                        <td>José</td>
+                        <td>José</td>
+                        <td>José</td>
+                        
+                  </tr>
+                    <tr>
+                        <th scope="row">Sentinela</th>
+                        <td>Alves</td>
+                        <td>Alves</td>
+                        <td>Alves</td>
+                        <td>Alves</td>
+                        <td>Alves</td>
+                        <td>Alves</td>
+                        <td>Alves</td>
+                    
+                    </tr>
+                        <tr>
+                        <th scope="row">Sentinela</th>
+                        <td>João</td>
+                        <td>João</td>
+                        <td>João</td>
+                        <td>João</td>
+                        <td>João</td>
+                        <td>João</td>
+                        <td>João</td>
+                        
+                    </tr>
+                    <tr>
+                        <th scope="row">Sentinela</th>
+                        <td>Zanella</td>
+                        <td>Zanella</td>
+                        <td>Zanella</td>
+                        <td>Zanella</td>
+                        <td>Zanella</td>
+                        <td>Zanella</td>
+                        <td>Zanella</td>
+                        
+                </tr>
+                    <tr>
+                        <th scope="row">Sentinela</th>
+                        <td>Almeida</td>
+                        <td>Almeida</td>
+                        <td>Almeida</td>
+                        <td>Almeida</td>
+                        <td>Almeida</td>
+                        <td>Almeida</td>
+                        <td>Almeida</td>
+                        
+            </tr>   
+                    <tr>
+                        <th scope="row">Sentinela</th>
+                        <td>Gouveia</td>
+                        <td>Gouveia</td>
+                        <td>Gouveia</td>
+                        <td>Gouveia</td>
+                        <td>Gouveia</td>
+                        <td>Gouveia</td>
+                        <td>Gouveia</td>
+                        
+                </tr>   
+                
+                        
+                </tbody>
+              </table>
+              
+              
+             
+           
+        </div>
+        <div class="lateral">
+          <span>
+            <input type="text"class="nome" name="nome" id="nome"> 
+            <button class="glyphicon glyphicon-search"></button>
+        </span>
+
+        
+        <div class="info">
+            
+            
+            <div class="top">
+            <p>Nome: Amaro</p>
+
+            <p>folgas: 15</p>
+        </div>
+        </div>
+          
+        </div>
+    </div>
+
+</body>
+</html>
