@@ -3,21 +3,21 @@ using Microsoft.AspNetCore.Http;
 
 namespace TiroGuerra.Controllers
 {
-    public class Atirador:Controller
+    public class Cadastro : Controller
     {
         public ActionResult login()
         {
             return View();
         }
 
-        public ActionResult cadastrarAtirador()
+        public ActionResult Atirador()
         {
-            return View("CadastroAtirador");
+            return View();
         }
 
-        public ActionResult cadastrarInstrutor()
+        public ActionResult Instrutor()
         {
-            return View("CadastroInstrutor");
+            return View();
         }
     }
 }
