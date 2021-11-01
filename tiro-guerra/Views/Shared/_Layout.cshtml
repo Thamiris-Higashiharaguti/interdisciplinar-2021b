@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TiroGuerra</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/home.css"></link>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/home" class="logo">LOGO</a>
+            <ul>
+                <li><a href="/chamada">Chamada</a></li>
+                <li><a href="/guarnicao">Guarnição</a></li>
+                <li><a href="notificacao">Notificação</a></li>
+                <li class="dropdown"><a href="">Cadastro</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="/atirador/cadastrarInstrutor">Cadastro de Instrutor</a>
+                            <a href="/atirador/cadastrarAtirador">Cadastro de Atirador</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a>Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - TiroGuerra - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
