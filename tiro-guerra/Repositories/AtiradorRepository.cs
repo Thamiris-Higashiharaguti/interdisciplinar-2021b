@@ -14,8 +14,6 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-               
-
                 cmd.CommandText = "CREATE_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -51,8 +49,9 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
-            }catch(Exception ex) {
-                
+            }catch(Exception ex) 
+            {
+                  Console.WriteLine(ex.Message);    
             }
             finally {
                 Dispose();
@@ -79,7 +78,9 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
-            }catch(Exception ex) {
+            }catch(Exception ex) 
+            {
+                  Console.WriteLine(ex.Message);
                 // Armazenar a exceção em um log.
             }
             finally {
@@ -111,9 +112,6 @@ namespace TiroGuerra.Repositories
                     atirador.RA = reader.GetString(6);
                     atirador.Numero = reader.GetString(7);
                     
-                    
-
-
                     atirador.Pelotao = new Pelotao {
                         Nome = reader.GetString(10)
                     };
@@ -172,6 +170,7 @@ namespace TiroGuerra.Repositories
             }
             catch(Exception ex) 
             {
+                Console.WriteLine(ex.Message);
                 throw new Exception("Atirador não encontrada.");
             }
             finally {

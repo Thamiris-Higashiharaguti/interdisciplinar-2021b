@@ -13,11 +13,12 @@ namespace TiroGuerra.Controllers
     {
         private IAtiradorRepository repository;
 
+/*
         public Atirador(IAtiradorRepository repository) 
         {
             this.repository = repository;
         }
-
+*/
         public ActionResult login()
         {
             List<Models.Atirador> atiradores = repository.ReadAll();
@@ -26,14 +27,10 @@ namespace TiroGuerra.Controllers
             return View();
         }
 
-        public ActionResult cadastrarAtirador()
+        public ActionResult Cadastrar()
         {
-            return View("CadastroAtirador");
+            return View("Cadastro");
         }
 
-        public ActionResult cadastrarInstrutor()
-        {
-            return View("CadastroInstrutor");
-        }
     }
 }
