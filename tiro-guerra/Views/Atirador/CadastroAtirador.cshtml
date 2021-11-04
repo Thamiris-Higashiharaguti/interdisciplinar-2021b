@@ -1,3 +1,8 @@
+@using TiroGuerra.Models
+@model List<Pelotao>
+@{
+    ViewBag.Title = "Cadastro Atirador";
+}
 <!doctype html>
 <html lang="en">
   <head>
@@ -76,9 +81,12 @@
                   <label class="form-label">Pelotão:</label>
                   <select class="form-select" aria-label="Default select example">
                     <option selected>Selecione o Pelotão do Atirador</option>
-                    <option value="1">Azul</option>
-                    <option value="2">Amarelo</option>
-                    <option value="3">Vermelho</option>
+                    @foreach(var pelotao in Model)
+                    {
+                      <option value="1">@pelotao.Nome</option>
+                            
+                      
+                    }
                   </select>
                 </div>
             </div>

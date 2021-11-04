@@ -76,3 +76,23 @@ CREATE TABLE TB_Chamada
 	PRIMARY KEY (Id_Instrucao, Id_Atirador)
 )
 GO
+
+CREATE PROCEDURE CREATE_ATIRADOR(
+	Declare @Id_Usuario int
+    @Nome varchar(200),
+	@CPF varchar(12),
+	@RG varchar(12),
+	@Status BIT,
+	@Senha varchar(50),
+	@Id_Pelotao int,
+	@Formacao varchar(50),
+	@RA varchar(50),
+	@Numero varchar(50),
+
+    
+) AS BEGIN
+	Insert into TB_Usuario values (@Nome, @Status,@CPF, @RG)
+	SET @Id_Usuario = (Select id From TB_Usuario where CPF = @CPF)
+	Insert into TB_Atirador values (@Id_Usuario, @Id_Pelotao, @Formacao, @RA,null,null,@Numero)
+    
+END
