@@ -25,6 +25,7 @@ namespace tiro_guerra
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IAtiradorRepository, AtiradorRepository>();
+            services.AddTransient<IInstrutorRepository, InstrutorRepository>();
 
              services.AddSession(options =>
                 {

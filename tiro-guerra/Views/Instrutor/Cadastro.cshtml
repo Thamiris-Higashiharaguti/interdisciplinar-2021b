@@ -13,7 +13,7 @@
    <style type="text/css">
      body
      {
-       padding-top: 100px;
+       padding-top: 20%;
        
      }
    </style>
@@ -21,7 +21,7 @@
   </head>
   <body>
     <div class="container" style="text-align: left;">
-        <form>
+        <form action="/instrutor/cadastrar" method="POST">
             <div class="row"> 
                 <div class="col-sm-5 offset-sm-4">
                     <h1>Cadastro Instrutor</h1>
@@ -38,7 +38,7 @@
 
                 <div class="col-sm-5">
                     <label for="textoCPF" class="form-label">CPF</label>
-                    <input type="text" class="form-control" id="cpf" aria-describedby="cpf">
+                    <input type="text" name="cpf" class="form-control" id="cpf" aria-describedby="cpf">
                     <div id="CPFhelp" class="form-text">O CPF será necessário para fazer login</div>
                 </div>
             </div>
@@ -48,17 +48,17 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <label class="form-label">RG</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="rg" class="form-control">
                     <div id="RGhelp" class="form-text">Número do RG do Instrutor</div>
                 </div>
                 
                 <div class="col-sm-5">
                   <label class="form-label">Graduação:</label>
-                  <select class="form-select" aria-label="Default select example">
+                  <select name="graduacao" class="form-select" aria-label="Default select example">
                     <option selected>Selecione uma das formações</option>
-                    <option value="1">General</option>
-                    <option value="2">Tenente</option>
-                    <option value="3">Subtnente</option>
+                    <option value="General">General</option>
+                    <option value="Tenente">Tenente</option>
+                    <option value="Subtnente">Subtnente</option>
                   </select>
                 </div>
                 
@@ -69,13 +69,13 @@
           <div class="row">
             <div class="col-sm-5 offset-sm-1">
               <label class="form-label">Senha:</label>
-              <input type="password" class="form-control">
+              <input type="password" name="senha" class="form-control">
               <div id="Passwordhelp" class="form-text">Senha necessária para o Instrutor acessar a plataforma</div>
             </div>
             
             <div class="col-sm-5">
               <label class="form-label">Confirme a Senha:</label>
-              <input type="password" class="form-control">
+              <input type="password" name="senha2" class="form-control">
             </div>
           </div>
           <br>
