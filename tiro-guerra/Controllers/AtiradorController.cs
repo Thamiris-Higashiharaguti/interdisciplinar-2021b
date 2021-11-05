@@ -9,7 +9,7 @@ using TiroGuerra.Controllers;
 
 namespace TiroGuerra.Controllers
 {
-    public class Atirador:Controller
+    public class AtiradorController:Controller
     {
         private IAtiradorRepository repository;
 
