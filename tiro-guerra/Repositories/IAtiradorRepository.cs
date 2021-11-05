@@ -8,6 +8,7 @@ namespace TiroGuerra.Repositories
     {
         void Create(Atirador model);
         List<Atirador> ReadAll();
+        List<Atirador> ReadAllPelotoes();
         Atirador Read(int id);
         void Update(int id, Atirador model);
         void Delete(int id);

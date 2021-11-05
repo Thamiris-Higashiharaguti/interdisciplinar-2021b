@@ -20,15 +20,13 @@ namespace TiroGuerra.Controllers
 
         public ActionResult login()
         {
-            List<Models.Atirador> atiradores = repository.ReadAll();
-            
-
             return View();
         }
 
-        public ActionResult cadastrarAtirador()
+        public ActionResult cadastroAtirador()
         {
-            return View("CadastroAtirador");
+            List<Models.Atirador> atiradores = repository.ReadAllPelotoes();
+            return View(atiradores);
         }
 
         public ActionResult cadastrarInstrutor()

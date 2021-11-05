@@ -131,6 +131,39 @@ namespace TiroGuerra.Repositories
             }
         }
 
+        public List<Atirador> ReadAllPelotoes()
+        {
+            try {
+                List<Atirador> lista = new List<Atirador>();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "Select * from TB_Pelotao";
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while(reader.Read()) 
+                {
+                    Atirador atirador = new Atirador();            
+                    atirador.Pelotao = new Pelotao {
+                        Id = reader.GetInt32(0),
+                        Nome = reader.GetString(1),
+                    };
+
+                    lista.Add(atirador);
+                }
+
+                return lista;
+            }catch(Exception ex) {
+                // Armazenar a exceção em um log.
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
+        }
+
         public Atirador Read(int id)
         {
             try 
@@ -180,3 +213,4 @@ namespace TiroGuerra.Repositories
         }       
     }
 }
+

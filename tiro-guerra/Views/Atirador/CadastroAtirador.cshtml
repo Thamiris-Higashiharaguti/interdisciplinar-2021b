@@ -1,5 +1,5 @@
 @using TiroGuerra.Models
-@model List<Pelotao>
+@model List<Atirador>
 @{
     ViewBag.Title = "Cadastro Atirador";
 }
@@ -26,7 +26,7 @@
   </head>
   <body>
     <div class="container" style="text-align: left;">
-        <form>
+        <form method="POST" action=/atirador/cadastrar>
             <div class="row"> 
                 <div class="col-sm-5 offset-sm-4">
                     <h1>Cadastro de Atirador</h1>
@@ -37,13 +37,13 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <label class="form-label">Nome:</label>
-                    <input type="text"  class="form-control" name="nome">
+                    <input type="text" class="form-control" name="nome">
                     <div id="CPFhelp" class="form-text">O nome do Atirador</div>
                 </div>
 
                 <div class="col-sm-5">
                     <label for="textoCPF" class="form-label">CPF</label>
-                    <input type="email" class="form-control" id="cpf" aria-describedby="cpf">
+                    <input type="text" name="CPF" class="form-control" id="cpf" aria-describedby="cpf">
                     <div id="CPFhelp" class="form-text">O CPF será necessário para fazer login</div>
                 </div>
             </div>
@@ -53,13 +53,13 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <label class="form-label">RG</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="RG" class="form-control">
                     <div id="RGhelp" class="form-text">Número do RG do Atirador</div>
                 </div>
                 
                 <div class="col-sm-5">
                     <label class="form-label">RA</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="RA" class="form-control">
                     <div id="RAhelp" class="form-text">Número do RA do Atirador</div>
                 </div>
             </div>
@@ -69,24 +69,26 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                   <label class="form-label">Formação:</label>
-                  <select class="form-select" aria-label="Default select example">
+                  <select class="form-select" name="Formacao" aria-label="Default select example">
                     <option selected>Selecione uma das formações</option>
-                    <option value="1">Atirador</option>
-                    <option value="2">Comandante</option>
-                    <option value="3">Cabo</option>
+                    <option value="Atirador">Atirador</option>
+                    <option value="Comandante">Comandante</option>
+                    <option value="Cabo">Cabo</option>
                   </select>
                 </div>
                 
                 <div class=" col-sm-5">
                   <label class="form-label">Pelotão:</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecione o Pelotão do Atirador</option>
+                  <select class="form-select" name="Pelotao" required aria-label="Default select example">
+                     <option selected disabled>Selecione o Pelotão do Atirador</option>
                     @foreach(var pelotao in Model)
                     {
-                      <option value="1">@pelotao.Nome</option>
+                      <option value=@pelotao.Pelotao.Id>@pelotao.Pelotao.Nome</option>
                             
                       
                     }
+                   
+                    
                   </select>
                 </div>
             </div>
