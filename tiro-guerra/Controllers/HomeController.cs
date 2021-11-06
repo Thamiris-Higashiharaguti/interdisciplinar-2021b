@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace TiroGuerra.Controllers
 {
-    public class Home:Controller
+    public class HomeController:Controller
     {
-        public ActionResult index()
+        public ActionResult Index()
         {
             return View();
         }

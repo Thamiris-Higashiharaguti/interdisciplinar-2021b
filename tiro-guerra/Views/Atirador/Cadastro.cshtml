@@ -1,5 +1,5 @@
 @using TiroGuerra.Models
-@model List<Atirador>
+
 @{
     ViewBag.Title = "Cadastro Atirador";
 }
@@ -37,13 +37,13 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <label class="form-label">Nome:</label>
-                    <input type="text" class="form-control" name="nome">
+                    <input type="text" class="form-control" name="nome" required="true">
                     <div id="CPFhelp" class="form-text">O nome do Atirador</div>
                 </div>
 
                 <div class="col-sm-5">
                     <label for="textoCPF" class="form-label">CPF</label>
-                    <input type="text" name="CPF" class="form-control" id="cpf" aria-describedby="cpf">
+                    <input type="text" name="CPF" required="true" class="form-control" id="cpf" aria-describedby="cpf">
                     <div id="CPFhelp" class="form-text">O CPF será necessário para fazer login</div>
                 </div>
             </div>
@@ -53,13 +53,13 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                     <label class="form-label">RG</label>
-                    <input type="text" name="RG" class="form-control">
+                    <input type="text" name="RG" required="true" class="form-control">
                     <div id="RGhelp" class="form-text">Número do RG do Atirador</div>
                 </div>
                 
                 <div class="col-sm-5">
                     <label class="form-label">RA</label>
-                    <input type="text" name="RA" class="form-control">
+                    <input type="text" name="RA" required="true" class="form-control">
                     <div id="RAhelp" class="form-text">Número do RA do Atirador</div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-sm-5 offset-sm-1">
                   <label class="form-label">Formação:</label>
-                  <select class="form-select" name="Formacao" aria-label="Default select example">
+                  <select class="form-select" name="Formacao" required="true" aria-label="Default select example">
                     <option selected>Selecione uma das formações</option>
                     <option value="Atirador">Atirador</option>
                     <option value="Comandante">Comandante</option>
@@ -79,38 +79,31 @@
                 
                 <div class=" col-sm-5">
                   <label class="form-label">Pelotão:</label>
-                  <select class="form-select" name="Pelotao" required aria-label="Default select example">
+                  <select class="form-select" name="IdPelotao" required="true" aria-label="Default select example">
                      <option selected disabled>Selecione o Pelotão do Atirador</option>
-                    @foreach(var pelotao in Model)
+                    @foreach(var pelotao in ViewBag.pelotoes)
                     {
-                      <option value=@pelotao.Pelotao.Id>@pelotao.Pelotao.Nome</option>
+                      <option value="@pelotao.Id">@pelotao.Nome</option>
                             
                       
                     }
                    
                     
                   </select>
+                  <div class="col-sm-5">
+                    <label class="form-label">Número</label>
+                    <input type="text" name="Numero" required="true" class="form-control">
+                    <div id="RAhelp" class="form-text">Número do Atirador</div>
+                  </div>
                 </div>
             </div>
 
           <br>
 
-          <div class="row">
-            <div class="col-sm-5 offset-sm-1">
-              <label class="form-label">Senha:</label>
-              <input type="password" class="form-control">
-              <div id="Passwordhelp" class="form-text">Senha necessária para o Atirador acessar a plataforma</div>
-            </div>
-            
-            <div class="col-sm-5">
-              <label class="form-label">Confirme a Senha:</label>
-              <input type="password" class="form-control">
-            </div>
-          </div>
           <br>
           <div class="row">
             <div class=" col-sm-2 offset-sm-1">
-              <input type="submit" class="btn btn-primary form-control" value="Cadastrar">
+              <button class="btn btn-primary">Salvar</button>
             </div>
           </div>
     

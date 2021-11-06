@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace TiroGuerra.Controllers
 {
-    public class Guarnicao:Controller
+    public class GuarnicaoController:Controller
     {
         public ActionResult index()
         {

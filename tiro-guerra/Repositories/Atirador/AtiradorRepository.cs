@@ -13,9 +13,7 @@ namespace TiroGuerra.Repositories
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-
-               
-
+                Console.WriteLine(model.IdPelotao);
                 cmd.CommandText = "CREATE_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -23,7 +21,6 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@CPF", model.CPF);
                 cmd.Parameters.AddWithValue("@RG", model.RG);
                 cmd.Parameters.AddWithValue("@Status", model.Status);
-                cmd.Parameters.AddWithValue("@Senha", model.Senha);
                 cmd.Parameters.AddWithValue("@Id_Pelotao", model.IdPelotao);
                 cmd.Parameters.AddWithValue("@Formacao", model.Formacao);
                 cmd.Parameters.AddWithValue("@RA", model.RA);
@@ -51,8 +48,9 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
-            }catch(Exception ex) {
-                
+            }catch(Exception ex) 
+            {
+                  Console.WriteLine(ex.Message);    
             }
             finally {
                 Dispose();
@@ -79,7 +77,9 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
-            }catch(Exception ex) {
+            }catch(Exception ex) 
+            {
+                  Console.WriteLine(ex.Message);
                 // Armazenar a exceção em um log.
             }
             finally {
@@ -111,9 +111,6 @@ namespace TiroGuerra.Repositories
                     atirador.RA = reader.GetString(6);
                     atirador.Numero = reader.GetString(7);
                     
-                    
-
-
                     atirador.Pelotao = new Pelotao {
                         Nome = reader.GetString(10)
                     };
@@ -131,38 +128,7 @@ namespace TiroGuerra.Repositories
             }
         }
 
-        public List<Atirador> ReadAllPelotoes()
-        {
-            try {
-                List<Atirador> lista = new List<Atirador>();
-
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = connection;
-
-                cmd.CommandText = "Select * from TB_Pelotao";
-
-                SqlDataReader reader = cmd.ExecuteReader();
-                
-                while(reader.Read()) 
-                {
-                    Atirador atirador = new Atirador();            
-                    atirador.Pelotao = new Pelotao {
-                        Id = reader.GetInt32(0),
-                        Nome = reader.GetString(1),
-                    };
-
-                    lista.Add(atirador);
-                }
-
-                return lista;
-            }catch(Exception ex) {
-                // Armazenar a exceção em um log.
-                throw new Exception(ex.Message);
-            }
-            finally {
-                Dispose();
-            }
-        }
+        
 
         public Atirador Read(int id)
         {
@@ -205,6 +171,7 @@ namespace TiroGuerra.Repositories
             }
             catch(Exception ex) 
             {
+                Console.WriteLine(ex.Message);
                 throw new Exception("Atirador não encontrada.");
             }
             finally {

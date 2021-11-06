@@ -9,29 +9,37 @@ using TiroGuerra.Controllers;
 
 namespace TiroGuerra.Controllers
 {
-    public class Atirador:Controller
+    public class AtiradorController:Controller
     {
         private IAtiradorRepository repository;
+        private IPelotaoRepository Pelotaorepository;
 
-        public Atirador(IAtiradorRepository repository) 
+        public AtiradorController(IAtiradorRepository repository, IPelotaoRepository Pelotaorepository) 
         {
             this.repository = repository;
+            this.Pelotaorepository = Pelotaorepository;
         }
 
         public ActionResult login()
         {
             return View();
         }
-
-        public ActionResult cadastroAtirador()
+        [HttpGet]
+        public ActionResult Cadastrar()
         {
-            List<Models.Atirador> atiradores = repository.ReadAllPelotoes();
-            return View(atiradores);
+            
+            
+            ViewBag.pelotoes = Pelotaorepository.ReadAll();
+            return View("Cadastro");
         }
 
-        public ActionResult cadastrarInstrutor()
+         [HttpPost]
+        public ActionResult Cadastrar(Atirador model)
         {
-            return View("CadastroInstrutor");
+            repository.Create(model);
+            return RedirectToAction("Index", "Home");
         }
+
+
     }
 }
