@@ -39,6 +39,7 @@ namespace TiroGuerra.Repositories
         }
         public void Update(int id, Instrutor model)
         {
+            
 
         }
 
