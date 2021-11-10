@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* navbar */
+header{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+
+}
+
+.logo img{
+    height: 50px;
+}
+.drop,.logo{
+    background-color: black;
+    color: white;
+}
+
+/* Links do navbar*/
+
+a{
+    text-decoration: none;
+}
+
+.menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+
+}
+
+.menu ul li{
+    display: inline-block;
+    margin-left: 20px;
+
+}
+
+.menu ul li a{
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+
+}
+
+.menu ul li a:hover{
+    background-color: yellow;
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.menu ul li a img{
+    height: 40px;
+}
+
+a:hover.link{
+    background-color: black !important;
+}
+
+/* controle do dropdown*/
+
+img.icone-dropdown{
+    height: 35px;
+}
+.dropdown{
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 20px;
+    visibility: hidden;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: #f9f9f9;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+padding: 12px 16px;
+z-index: 1;
+
+}
+
+.dropdown-content a{
+    right: 10%;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+/* Quando a dimensão da tela for menor que 780px*/
+@media screen and (max-width: 780px)
+{
+   header{
+       padding: 0px;
+   }
+
+    /* responsividade das linhas e campos*/
+    .linha{
+        font-size: 16px; /*tamanho das fontes diminuem*/
+
+    }
+    .wd100{
+       margin-top: -5%;
+    }
+
+    .wd50, .endForm{ /*botão salvar ocupa mais espaço na tela*/
+        width: 100%;
+
+    }
+
+    .wd33{
+        display: inline-block; /* aumenta area de click */
+    }
+
+    /* Responsividade do navbar */
+
+    .logo{
+        width: 50%;
+        text-align: left;
+        padding: 10px 20px;
+    }
+
+    .drop{
+        width: 50%;
+        text-align: center;
+        padding: 10px 20px;
+    }
+    .dropdown{
+       visibility: visible;
+    }
+    
+    /* apagando o fundo do menu*/
+    .menu{
+        width: 100%;
+        background-color: white;
+    }
+
+    /* tirando a visibilidade dos itens e bloqueando acesso*/
+    .menu ul{
+        visibility: hidden;
+    }
+
+
+}
