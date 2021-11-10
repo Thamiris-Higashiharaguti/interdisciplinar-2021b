@@ -1,75 +1,33 @@
+
+ 
+
+
 body{
     background-color: black;
     color: white;
 }
 
-a{
-    text-decoration: none;
-}
 
-.navbar{
-    /*position: fixed;*/
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-nav li{
-    display: inline-block;
-}
-
-nav a{
-    color: white;
-    padding: 8px;
-}
-
-nav a:hover {
-	color: rgb(247, 0, 255);
-}
-
-.submenu{
-    display: none; /* esconde o submenu dropdown */
-    position: absolute;
-    width: 100%;
-}
-
-.dropdown:hover .submenu{
-    display: block;
-}
-
-.submenu li{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    top: 100%;
-    width: 100%;
- }
-
- .submenu a{
-    padding: 12px;
-    display: block;
-    text-align: left;
-}
 
 .banner{
     background-image: url('../images/exercito.jpg');
     opacity: 0.8;
-    width: 100%;
-    height: 50vw;
+    width: 80%;
+    height: 650px;
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0 auto;
 }
 .banner h2{
     padding-top: 5vw;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 8vw;
+    font-size: 45px;
+    padding-bottom: 3vw;
 }
 .banner p{
     width: 45%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 3vw;
+    font-size: 30px;
     top: -6vw;
     position: relative;
 
@@ -84,28 +42,50 @@ nav a:hover {
 }
 
 .item{
-    display: flex;
-    flex-direction: column;
+    padding-top: 5%;
+    flex-wrap: wrap;
     align-items: center;
-    justify-items: center;
     text-align: center;
-    width: 50%;
+    width: 33%;
     height: 200px;
+ 
+}
+
+img{
+    padding: 10 auto;
+    text-align: center;
     
-    word-break: normal;
-}
-.item p{
-    padding-left: 8vw;
-    padding-right: 8vw;
     
 }
 
-.icon{
-    width: 20px;
-    height: 20px;
 
-    padding-bottom: 5px;
+@media screen and (max-width: 768px)
+{
+      /* apagando o fundo do menu*/
+    .menu{
+        width: 100%;
+        background-color: black;
+    }
+
+    .banner{
+        width: 80%;
+        height: 350px;
+        background-size: cover;
+        margin: 0 auto;
+    }
+    
+    .banner h2{
+        padding-top: 5vw;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 32px;
+        padding-bottom: 3vw;
+    }
+    .banner p{
+        width: 45%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 18px;
+        top: -6vw;
+        position: relative;
+    
+    }
 }
-
-
-

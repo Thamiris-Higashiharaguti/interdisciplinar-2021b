@@ -10,8 +10,7 @@ using TiroGuerra.Controllers;
 namespace TiroGuerra.Controllers
 {
     public class PelotaoController:Controller
-    {
-        private IPelotaoRepository repository;
+    {   private IPelotaoRepository repository;
         public PelotaoController(IPelotaoRepository repository) 
         {
             this.repository = repository;
