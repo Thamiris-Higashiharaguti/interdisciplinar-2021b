@@ -13,7 +13,7 @@ namespace TiroGuerra.Repositories
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-
+                Console.WriteLine(model.IdPelotao);
                 cmd.CommandText = "CREATE_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -21,7 +21,6 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@CPF", model.CPF);
                 cmd.Parameters.AddWithValue("@RG", model.RG);
                 cmd.Parameters.AddWithValue("@Status", model.Status);
-                cmd.Parameters.AddWithValue("@Senha", model.Senha);
                 cmd.Parameters.AddWithValue("@Id_Pelotao", model.IdPelotao);
                 cmd.Parameters.AddWithValue("@Formacao", model.Formacao);
                 cmd.Parameters.AddWithValue("@RA", model.RA);
@@ -129,6 +128,8 @@ namespace TiroGuerra.Repositories
             }
         }
 
+        
+
         public Atirador Read(int id)
         {
             try 
@@ -179,3 +180,4 @@ namespace TiroGuerra.Repositories
         }       
     }
 }
+

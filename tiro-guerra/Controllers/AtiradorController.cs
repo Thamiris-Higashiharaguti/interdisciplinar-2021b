@@ -10,7 +10,8 @@ using TiroGuerra.Controllers;
 namespace TiroGuerra.Controllers
 {
     public class AtiradorController:Controller
-    {        private IAtiradorRepository repository;
+    {
+        private IAtiradorRepository repository;
         private IPelotaoRepository Pelotaorepository;
 
         public AtiradorController(IAtiradorRepository repository, IPelotaoRepository Pelotaorepository) 
@@ -26,6 +27,8 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult Cadastrar()
         {
+            
+            
             ViewBag.pelotoes = Pelotaorepository.ReadAll();
             return View("Cadastro");
         }

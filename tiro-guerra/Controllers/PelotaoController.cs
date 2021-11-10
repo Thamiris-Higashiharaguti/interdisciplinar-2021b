@@ -23,7 +23,5 @@ namespace TiroGuerra.Controllers
             return (pelotoes);
         }
 
-        
-
     }
 }
