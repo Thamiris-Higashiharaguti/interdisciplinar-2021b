@@ -1,2 +1,3 @@
 tiro-guerra/bin/
 tiro-guerra/obj/
+tiro-guerra/Repositories/BDContext.cs
