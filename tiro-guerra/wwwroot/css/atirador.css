@@ -1,0 +1,75 @@
+.linha{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    flex-wrap:wrap;
+    margin: 0 auto;
+ }
+ 
+ .wd100{
+     text-align: center;
+     width: 100%;
+     margin-top: 2%;
+    /* background-color: aquamarine;*/
+ }
+
+ .wd50{
+     width: 50%;
+    /* background-color: rgb(18, 54, 42);*/
+     padding: 10px 20px;
+ }
+
+ .wd33{
+    width: 50%;
+    /* background-color: rgb(18, 54, 42);*/
+     padding: 10px 20px;
+ }
+
+ /* Especifico */
+ h2.title{
+     margin: 0 auto;;
+ }
+
+ .wd50 label{
+     color: rgb(0, 0, 0);
+ }
+
+ .endForm {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+ }
+
+ .endForm button{
+     background-color: green;
+     border-color: green;
+     font-size: 20px;
+     width: 30%;
+ }
+
+/* Quando a dimensão da tela for menor que 780px*/
+@media screen and (max-width: 780px)
+{
+   header{
+       padding: 0px;
+   }
+
+    /* responsividade das linhas e campos*/
+    .linha{
+        font-size: 16px; /*tamanho das fontes diminuem*/
+
+    }
+    .wd100{
+       margin-top: -5%;
+    }
+
+    .wd50, .endForm{ /*botão salvar ocupa mais espaço na tela*/
+        width: 100%;
+
+    }
+
+    .wd33{
+        display: inline-block; /* aumenta area de click */
+    }
+}

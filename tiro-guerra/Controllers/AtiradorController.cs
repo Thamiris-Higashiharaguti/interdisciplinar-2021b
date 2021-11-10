@@ -26,9 +26,7 @@ namespace TiroGuerra.Controllers
         }
         [HttpGet]
         public ActionResult Cadastrar()
-        {
-            
-            
+        {   
             ViewBag.pelotoes = Pelotaorepository.ReadAll();
             return View("Cadastro");
         }

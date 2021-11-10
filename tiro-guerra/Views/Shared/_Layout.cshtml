@@ -9,7 +9,9 @@
     <!--<link rel="stylesheet" href="~/css/site.css" /> -->
     <!-- <link rel="stylesheet" href="~/css/home.css"></link>-->
 
-   <link rel="stylesheet" href="~/css/navbar.css"></link>
+   <link rel="stylesheet" href="~/css/navbar.css"> </link>
+   <link rel="stylesheet" href='@ViewData["css"]'> </link>
+
 </head>
 <body>
     <header>
@@ -24,10 +26,10 @@
             <div class="dropdown">
                 <span><img src="../images/menu.png" class="icone-dropdown"> </span>
                 <div class="dropdown-content">
-                    <a href="#"> Home </a>
+                    <a href="/"> Home </a>
                     <a href="#"> Sobre</a> 
                     <a href="#"> Instrutor</a> 
-                    <a href="cadastrar/atirador"> Atirador</a>
+                    <a href="/atirador/cadastrar"> Atirador</a>
                     <a href="#"> Perfil</a>
                 </div>
             </div>
@@ -36,10 +38,10 @@
         <div class="menu">
             <ul>
         
-                <li> <a href="#"> Home</a> </li>
+                <li> <a href="/"> Home</a> </li>
                 <li> <a href="#"> Sobre</a> </li>
                 <li> <a href="#"> Instrutor</a> </li>
-                <li> <a href="#"> Atirador</a> </li>
+                <li> <a href="/atirador/cadastrar"> Atirador</a> </li>
                 <li> <a href="#" class="link"> <img src="../images/perfil.png"></a> </li>
 
             </ul>
@@ -48,13 +50,13 @@
     </header>
 
     <body>
-         @RenderBody();
+         @RenderBody()
     </body>
    
 
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="footer">
-            &copy; 2021 - TiroGuerra - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+             2021 - TiroGuerra - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

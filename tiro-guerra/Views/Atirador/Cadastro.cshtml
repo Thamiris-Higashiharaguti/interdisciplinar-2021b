@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Cadastro Atirador";
-    ViewBag.css = "atirador.css";
+    ViewBag.css = "/css/atirador.css";
 }
     
     <section class="linha">
@@ -17,28 +17,24 @@
             <section class="linha">
                 <div class="wd50">
                     <label for="textoCPF" class="form-label">Nome</label>
-                    <input type="text" name="Nome" required="true" class="form-control" id="nome" aria-describedby="cpf">
-                    <div id="NomeHelp" class="form-text">Insira o nome do Atirador</div>
+                    <input type="text" name="Nome" required="true" class="form-control" id="nome" aria-describedby="cpf" placeholder="Insira o nome do Atirador">
                 </div>
 
                 <div class="wd50">
                     <label for="textoCPF" class="form-label">CPF</label>
-                    <input type="text" name="CPF" required="true" class="form-control" id="cpf" aria-describedby="cpf">
-                    <div id="CPFhelp" class="form-text">Insira o CPF do Atirador</div>
+                    <input type="text" name="CPF" required="true" class="form-control" id="cpf" aria-describedby="cpf" placeholder="Insira o CPF do Atirador">
                 </div>
             </section>
 
             <section class="linha">
                 <div class="wd50">
                     <label class="form-label">RG</label>
-                    <input type="text" name="RG" required="true" class="form-control">
-                    <div id="RGhelp" class="form-text">Número do RG do Atirador</div>
+                    <input type="text" name="RG" required="true" class="form-control" placeholder="Insira o número do RG do Atirador">
                 </div>
 
                 <div class="wd50">
                     <label class="form-label">RA</label>
-                    <input type="text" name="RA" required="true" class="form-control">
-                    <div id="RAhelp" class="form-text">Número do RA do Atirador</div>
+                    <input type="text" name="RA" required="true" class="form-control" placeholder="Insira o número do RA do Atirador">
                 </div>
             </section>
 
