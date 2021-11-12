@@ -1,3 +1,6 @@
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +23,7 @@
         <div class="logo">
             <a href=""><img src="../images/exercitologo.png"></a>
         </div>
-
+        
         
         <div class="drop">
             <div class="dropdown">
@@ -30,7 +33,8 @@
                     <a href="#"> Sobre</a> 
                     <a href="#"> Instrutor</a> 
                     <a href="/atirador/cadastrar"> Atirador</a>
-                    <a href="#"> Perfil</a>
+                    
+                    
                 </div>
             </div>
         </div>
@@ -40,9 +44,16 @@
         
                 <li> <a href="/"> Home</a> </li>
                 <li> <a href="#"> Sobre</a> </li>
-                <li> <a href="#"> Instrutor</a> </li>
+                <li> <a href="/instrutor/cadastrar"> Instrutor</a> </li>
                 <li> <a href="/atirador/cadastrar"> Atirador</a> </li>
-                <li> <a href="#" class="link"> <img src="../images/perfil.png"></a> </li>
+                
+                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome"))){
+                    //<li> <a href="/atirador/login" class="link"> <img src="../images/perfil.png"></a> </li>
+                    <li> <a href="/atirador/login"> Entrar</a> </li>
+                }else{
+                    <a href="#">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a>
+                }   
+                
 
             </ul>
 
