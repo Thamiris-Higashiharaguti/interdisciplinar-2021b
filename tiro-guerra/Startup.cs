@@ -24,13 +24,14 @@ namespace tiro_guerra
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddTransient<IAtiradorRepository, AtiradorRepository>();
             services.AddTransient<IInstrutorRepository, InstrutorRepository>();
             services.AddTransient<IPelotaoRepository, PelotaoRepository>();
-
+            
              services.AddSession(options =>
                 {
-                    options.IdleTimeout = TimeSpan.FromSeconds(3600);
+                    options.IdleTimeout = TimeSpan.FromMinutes(15);
                     options.Cookie.HttpOnly = true;
                     options.Cookie.IsEssential = true;
                 });
@@ -53,9 +54,9 @@ namespace tiro_guerra
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

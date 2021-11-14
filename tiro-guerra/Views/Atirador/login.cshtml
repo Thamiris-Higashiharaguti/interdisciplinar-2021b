@@ -1,5 +1,4 @@
-@using TiroGuerra.Models;
-@model List<Atirador>
+@using TiroGuerra.Models
 @{
     ViewBag.Title = "Lista de Atiradores";
 }
@@ -26,7 +25,7 @@
   <body>
     <div class="container" style="text-align: left;">
       
-        <form>
+        
           
             <div class="row"> 
               <div class="col-sm-2 offset-sm-5">
@@ -34,38 +33,35 @@
               </div>  
             </div>
           
+        <form method="POST" action="/atirador/login">
+          <section class="linha">
+                <div class="wd50">
+                    <label for="textoCPF" class="form-label">CPF</label>
+                    <input type="text" name="CPF" required="true" class="form-control" id="cpf" aria-describedby="cpf" placeholder="Insira o CPF do Atirador">
+                </div>
 
-          <div class="row">
-            <div class="col-sm-5 offset-sm-3">
-              <label for="textoCPF" class="form-label">CPF</label>
-              <input type="email" class="form-control" id="cpf" aria-describedby="cpf">
-              <div id="CPFhelp" class="form-text">Utilize seu CPF para fazer login</div>
-            </div>
-          </div>
-
-          <br>
-
-          <div class="row">
-            <div class="col-sm-5 offset-sm-3">
-              <label for="exampleInputPassword1" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="senha">
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-sm-5 offset-sm-3">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
-            </div>
+                <div class="wd50">
+                    <label class="form-label">RA</label>
+                    <input type="text" name="RA" required="true" class="form-control" placeholder="Insira o número do RA do Atirador">
+                </div>
+            </section>
+          
+          
 
           <br>
 
           <div class="row">
             <div class="col-sm-2 offset-sm-3">
-              <button type="submit" class="btn btn-primary">Entrar</button>
+              <button class="btn btn-primary">Salvar</button>
             </div>
           </div>
         </form>
+        <br>
+          <div class="row">
+            <div class="col-sm-5 offset-sm-3">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
+            </div>
         <br>
         <div class="row">
           <div class="col-sm-5 offset-sm-3">
