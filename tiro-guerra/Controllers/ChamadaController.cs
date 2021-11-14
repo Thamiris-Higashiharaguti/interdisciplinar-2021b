@@ -11,10 +11,19 @@ namespace TiroGuerra.Controllers
 {
     public class ChamadaController:Controller
     {
-        private IChamadaRepository repository;
+        //private IChamadaRepository repository;
+        private IAtiradorRepository repository;
+
+        public ChamadaController(IAtiradorRepository repository) 
+        {
+            this.repository = repository;
+        }
+
+        [HttpGet]
         public ActionResult index()
         {
-            return View();
+            List<Atirador> atiradores = repository.ReadAll();
+            return View(atiradores);
         }
     }
 }
