@@ -16,64 +16,57 @@
    <link rel="stylesheet" href='@ViewData["css"]'> </link>
 
 </head>
-<body>
-    <header>
+        <header>
+        <nav>
+            <a class="logo" href="#"> <img src="../images/exercitologo.png">  </a>
 
-        
-        <div class="logo">
-            <a href=""><img src="../images/exercitologo.png"></a>
-        </div>
-        
-        
-        <div class="drop">
-            <div class="dropdown">
-                <span><img src="../images/menu.png" class="icone-dropdown"> </span>
-                <div class="dropdown-content">
-                    <a href="/"> Home </a>
-                    <a href="#"> Sobre</a> 
-                    <a href="#"> Instrutor</a> 
-                    <a href="/atirador/cadastrar"> Atirador</a>
-                    
-                    
-                </div>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
             </div>
-        </div>
 
-        <div class="menu">
-            <ul>
-        
-                <li> <a href="/"> Home</a> </li>
-                <li> <a href="#"> Sobre</a> </li>
-                <li> <a href="/instrutor/cadastrar"> Instrutor</a> </li>
-                <li> <a href="/atirador/cadastrar"> Atirador</a> </li>
+            <ul class="nav-list">
+                <li><a href="/">Home     </a></li>
                 
-                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome"))){
-                    //<li> <a href="/atirador/login" class="link"> <img src="../images/perfil.png"></a> </li>
-                    <li> <a href="/atirador/login"> Entrar</a> </li>
-                }else{
-                    <a href="#">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a>
-                }   
-                
+                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
+                {
+                   <li><a href="/atirador/login">Login</a></li>
+                }
+                else{
+                    <li><a href="#">Chamada  </a></li>
+                    <li><a href="#">Guarnição</a></li>
+                    <li><a href="/atirador/create">Atirador </a></li>
+                    <li><a href="/instrutor/create">Insrutor </a></li>
+                    <li><a href="#">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a></li>
 
+                }
+                
             </ul>
-
-        </div>
+        </nav>
     </header>
 
     <body>
          @RenderBody()
-    </body>
-   
 
+   
     <footer>
-        <div class="footer">
-             2021 - TiroGuerra - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <span>André, Matheus, Paulo e Thamiris</span>
+        <span> Nos siga nas redes sociais</span>
+        <div class="redes">
+            <a href="#"> <img class="rede-social" src="../images/twiter.png">    </a>
+            <a href="#"> <img class="rede-social" src="../images/facebook.png">  </a>
+            <a href="#"> <img class="rede-social" src="../images/instagram.png"> </a>
         </div>
+        
     </footer>
+
+    <script src="~/js/navbar.js"></script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
-</body>
+
+    </body>
 </html>

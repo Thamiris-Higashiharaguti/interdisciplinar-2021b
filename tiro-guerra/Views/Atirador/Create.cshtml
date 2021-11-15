@@ -1,0 +1,85 @@
+@using TiroGuerra.Models
+
+@{
+    ViewBag.Title = "Cadastro Atirador";
+    ViewBag.css = "/css/atirador.css";
+}
+    
+    <div class="background-image"></div>
+
+    <div class="content">
+
+        <section class="flex-row">
+            <div class="col-wd-100">
+                <h1 class="title">Cadastro de Atirador</h1>
+            </div>
+        </section>
+
+        <form method="POST" action="/atirador/create">
+
+            <section class="flex-row">
+                <div class="col-wd-50">
+                    <label for="textoCPF">Nome:</label>
+                    <input type="text" name="nome" placeholder="Insira o nome do atirador" required> 
+                </div>
+
+                <div class="col-wd-50">
+                    <label for="textoCPF" class="form-label">CPF:</label>
+                    <input type="text" name="CPF" placeholder="Insira o número de CPF" required="true">
+                </div>
+            </section>
+
+            <section class="flex-row">
+                <div class="col-wd-50">
+                    <label class="form-label">RG</label>
+                    <input type="text" name="RG" placeholder="Insira o número do RG" required="true">
+                </div>
+
+                <div class="col-wd-50">
+                    <label class="form-label">RA</label>
+                    <input type="text" name="RA" placeholder="insira o número do RA" required="true">
+                </div>
+            </section>
+
+            <section class="flex-row">
+                <div class="col-wd-50">
+                    <label>Formação:</label>
+                    <select name="Formacao" required="true">
+                        <option selected>Selecione uma formação</option>
+                        <option value="Atirador">Atirador</option>
+                        <option value="Comandante">Comandante</option>
+                        <option value="Cabo">Cabo</option>
+                    </select>
+                </div>
+
+                <div class="col-wd-50">
+                    <label>Pelotão:</label>
+                    <select name="IdPelotao" required="true">
+                        <option selected disabled>Selecione um Pelotão</option>                
+                        @foreach(var pelotao in ViewBag.pelotoes)
+                        {                
+                          <option value="@pelotao.Id">@pelotao.Nome</option>    
+                        }
+                    </select>
+                </div>
+            </section>
+
+            <section class="flex-row">
+                <div class="col-wd-50">
+                    <label>Número</label>
+                    <input type="text" name="Numero" placeholder="Insira o número do atirador" required="true">
+                </div>
+
+                <div class="col-wd-50">
+                    <label>Senha</label>
+                    <input type="password" name="Senha" placeholder="Insira a senha do atirador" required="true">
+                </div>
+
+            </section>
+
+            <section class="endForm">
+                <button class="btn-salvar">Salvar</button>
+            </section>
+
+        </form>
+    </div>
