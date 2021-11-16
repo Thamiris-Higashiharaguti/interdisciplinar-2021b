@@ -9,5 +9,7 @@ namespace TiroGuerra.Models
         public bool Status  { get; set; } = true;
         public string Graduacao { get; set; }
 
+        public string Senha {get; set;}
+
     }
 }

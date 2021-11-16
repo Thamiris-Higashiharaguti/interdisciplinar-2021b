@@ -27,7 +27,7 @@ namespace TiroGuerra.Controllers
         [HttpPost]
         public ActionResult Login(Atirador model)
         {
-            Console.WriteLine(model.CPF, model.Senha);
+           // Console.WriteLine(model.CPF, model.Senha);
             Atirador atirador = repository.Read(model.CPF, model.Senha);
             if(atirador == null)
             {
