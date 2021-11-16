@@ -19,13 +19,13 @@ namespace TiroGuerra.Controllers
         }
 
         [HttpGet]
-        public ActionResult Cadastrar()
+        public ActionResult Create()
         {
-            return View("Cadastro");
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(Instrutor model)
+        public ActionResult Create(Instrutor model)
         {
             repository.Create(model);
             return RedirectToAction("Index","Home");

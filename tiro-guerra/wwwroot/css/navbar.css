@@ -43,6 +43,8 @@ a{
 
 a:hover{
     opacity: 0.7;
+    /*color: yellow;*/
+    
 }
 
 .logo img{
