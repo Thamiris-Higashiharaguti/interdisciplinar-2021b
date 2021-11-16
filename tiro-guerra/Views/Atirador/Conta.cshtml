@@ -1,0 +1,63 @@
+@using TiroGuerra.Models
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+@{
+    ViewBag.Title = "Conta";
+    ViewBag.css = "/css/atirador.css";
+}
+    
+    <section class="linha">
+        <div class="wd100">
+            <h2 class="title">Cadastro de Atirador</h2>
+        </div>
+    </section>
+        
+    
+        <form method="POST" action="/atirador/logout">
+
+            <section class="linha">
+                <div class="wd50">
+                    <label for="textoCPF" class="form-label">Nome: @HttpContextAccessor.HttpContext.Session.GetString("Nome")</label>
+                </div>
+
+                <div class="wd50">
+                    <label for="textoCPF" class="form-label">CPF: @HttpContextAccessor.HttpContext.Session.GetString("CPF")</label>
+                </div>
+            </section>
+
+            <section class="linha">
+                <div class="wd50">
+                    <label class="form-label">RG: @HttpContextAccessor.HttpContext.Session.GetString("RG")</label>
+                </div>
+
+                <div class="wd50">
+                    <label class="form-label">RA: @HttpContextAccessor.HttpContext.Session.GetString("RA")</label>
+                </div>
+            </section>
+
+            <section class="linha">
+                <div class="wd50">
+                    <label class="form-label">Formação: @HttpContextAccessor.HttpContext.Session.GetString("Formacao")</label>
+                    
+                </div>
+
+                <div class="wd50">
+                    <label class="form-label">Pelotão: @HttpContextAccessor.HttpContext.Session.GetString("Pelotao")</label>
+                   
+                </div>
+            </section>
+
+            <section class="linha">
+                <div class="wd50">
+                    <label class="form-label">Número: @HttpContextAccessor.HttpContext.Session.GetString("Numero")</label>
+                   
+                </div>
+            </section>
+
+            <section class="endForm">
+                <button class="btn btn-primary">Sair</button>
+            </section>
+
+
+        </form>    
+    

@@ -33,7 +33,12 @@
                     <a href="#"> Sobre</a> 
                     <a href="#"> Instrutor</a> 
                     <a href="/atirador/cadastrar"> Atirador</a>
-                    
+                    @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome"))){
+                    //<li> <a href="/atirador/login" class="link"> <img src="../images/perfil.png"></a> </li>
+                    <li> <a href="/atirador/login">Entrar</a> </li>
+                    }else{
+                        <li><a href="/atirador/conta">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a></li>
+                    }  
                     
                 </div>
             </div>
@@ -51,7 +56,7 @@
                     //<li> <a href="/atirador/login" class="link"> <img src="../images/perfil.png"></a> </li>
                     <li> <a href="/atirador/login"> Entrar</a> </li>
                 }else{
-                    <a href="#">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a>
+                    <li><a href="/atirador/conta">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a></li>
                 }   
                 
 
