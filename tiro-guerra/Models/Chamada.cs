@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Http;
+
+
 namespace TiroGuerra.Models
 {
     public class Chamada
@@ -5,7 +8,7 @@ namespace TiroGuerra.Models
         public int IdAtirador { get; set; }
         public int IdInstrucao { get; set; }
         public int IdResponsavel { get; set; }
-        public bool Presenca { get; set; }
+        public bool Presenca { get; set; } = false;
 
         #region Foreign Key
             public Atirador Atirador { get; set; }

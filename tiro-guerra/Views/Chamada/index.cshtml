@@ -1,3 +1,9 @@
+@using TiroGuerra.Models
+
+@{
+    ViewBag.Title = "Cadastro chamada";
+    
+}
 <!doctype html>
 <html lang="pt">
     <head>
@@ -19,16 +25,21 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                @foreach (var atirador in Model)
-                {
-                    
-                }
-                    <tr>
-                        <td>a</td>
-                        <td>66</td>
-                        <td><input type="checkbox"></td>
+                <form action="/chamada/create" method="POST">
+                @foreach(var atirador in ViewBag.atiradores)
+                {     
+                    <tr> 
+                    <td><input type="text" id="IdAtirador" name="IdAtirador" value="@atirador.Id"></td>          
+                    <td>@atirador.Nome</td>
+                    <td>@atirador.Numero</td>
+                    <td><input id="Presenca" name="Presenca" value="false" type="checkbox"></td>
                     </tr>
+                       
+                }
+                    <button class="btn btn-primary">Salvar</button>
+                </form>   
+                        
+                        
                 </tbody>
             </table>
             

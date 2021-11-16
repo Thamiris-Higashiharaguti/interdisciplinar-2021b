@@ -13,17 +13,32 @@ namespace TiroGuerra.Controllers
     {
         //private IChamadaRepository repository;
         private IAtiradorRepository repository;
+        private IChamadaRepository chamadaRepository;
 
-        public ChamadaController(IAtiradorRepository repository) 
+        public ChamadaController(IAtiradorRepository repository,  IChamadaRepository chamadaRepository) 
         {
             this.repository = repository;
+            this.chamadaRepository = chamadaRepository;
         }
 
         [HttpGet]
         public ActionResult index()
         {
-            List<Atirador> atiradores = repository.ReadAll();
-            return View(atiradores);
+            ViewBag.atiradores = repository.ReadAll();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult create(List<Chamada> model)
+        {
+            var id = HttpContext.Session.GetInt32("id");
+            Console.WriteLine(model.Count);
+            foreach(var chamada in model){
+                
+                chamadaRepository.Create(chamada,(int)id);
+            
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
