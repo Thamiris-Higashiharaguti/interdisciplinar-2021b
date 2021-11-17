@@ -47,6 +47,10 @@ a:hover{
     
 }
 
+ul{
+    margin-bottom: 0;
+}
+
 .logo img{
     height: 50px;
 }
@@ -78,6 +82,7 @@ nav{
 .nav-list li{
     letter-spacing: 3px;
     margin-left: 32px;
+   /* margin-top: 10%;*/
 }
 
 .mobile-menu{
@@ -140,6 +145,7 @@ nav{
     .nav-list li{
         margin-left: 0;
         opacity: 0;
+        margin-top: 0;
     }
     
     .mobile-menu{

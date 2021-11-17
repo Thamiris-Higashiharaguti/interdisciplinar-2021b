@@ -19,6 +19,13 @@ namespace TiroGuerra.Controllers
             this.repository = repository;
             this.Pelotaorepository = Pelotaorepository;
         }
+
+
+        public ActionResult index()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult login()
         {
