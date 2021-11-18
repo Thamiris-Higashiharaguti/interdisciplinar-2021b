@@ -1,176 +1,200 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif/* Mexer no font family aqui*/
 }
-/* navbar */
-header{
-    font-size: 25px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
-    flex-wrap:wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: black;
-    color: white;
 
+body{
+    min-height: 100%;
+}
+.content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25%;
+    z-index: 2;
+}
+footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+    color: #FFF;
+    width: 100%;
+    height: 5%;    
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+footer span{
+    margin: 20px 20px;
+}
+
+
+footer .redes{
+    margin-right: 5%;
+}
+
+img.rede-social{
+    height: 32px;
+    width: auto;
+}
+
+/* Estilização Navbar*/
+a{
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover{
+    opacity: 0.7;
+    /*color: yellow;*/
+    
 }
 
 .logo img{
     height: 50px;
 }
-.drop,.logo{
-    background-color: black;
-    color: white;
-}
 
-/* Links do navbar*/
-
-a{
-    text-decoration: none;
-}
-
-.menu ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    
-
-}
-
-.menu ul li{
-    display: inline-block;
-  
-    margin-left: 20px;
-
-}
-
-.menu ul li a{
-    border-radius: 5px;
-    padding: 5px;
-    color: white;
-
-}
-
-.menu ul li a:hover{
-    background-color: yellow;
-    color: black;
-    border-radius: 5px;
-    padding: 5px;
-    text-decoration: none;
-
-}
-
-.menu ul li a img{
-    height: 40px;
-}
-
-a:hover.link{
-    background-color: black !important;
-}
-
-/* controle do dropdown*/
-
-img.icone-dropdown{
+.perfil img{
     height: 35px;
 }
-.dropdown{
-    position: relative;
-    display: inline-block;
-    margin-left: 20px;
-    margin-right: 20px;
-    visibility: hidden;
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    align-items: center;
+    background: black;
+    height: 8%;
+    z-index: 3;
 }
 
-.dropdown-content {
-display: none;
-position: absolute;
-background-color: black;
-color: white;
-min-width: 160px;
-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-padding: 12px 16px;
-z-index: 1;
-
+.main{
+    height: 80%;
 }
 
-.dropdown-content a{
-    right: 10%;
-    text-decoration: none;
-    color: white;
-
+.nav-list {
+    list-style: none;
+    display: flex;
 }
 
-.dropdown:hover .dropdown-content {
-display: block;
+.nav-list li{
+    letter-spacing: 3px;
+    margin-left: 32px;
 }
 
-/* rodpé */
+.mobile-menu{
+    display: none; /* Não aparecera por padrao*/
+    cursor: pointer;
+}
 
-div.footer{
-    padding-top: 30px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    bottom: 0;
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+.mobile-menu.active .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2{
+    opacity: 0;    
 }
 
 
-/* Quando a dimensão da tela for menor que 780px*/
-@media screen and (max-width: 780px)
+.mobile-menu.active .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+/* Responsividade*/
+@media (max-width: 780px)
 {
-   header{
-       padding: 0px;
-   }
 
-    /* responsividade das linhas e campos*/
-    .linha{
-        font-size: 16px; /*tamanho das fontes diminuem*/
-
-    }
-    .wd100{
-       margin-top: -5%;
+    body{
+        overflow-x: hidden; /*não deixa mais a tela transbordar e aparecer a barra de rolagem*/
+        overflow-y: scroll;
+        background-color: black;
     }
 
-    .wd50, .endForm{ /*botão salvar ocupa mais espaço na tela*/
+    nav{
+        position: fixed;
         width: 100%;
-
+        height: 10%;
     }
 
-    .wd33{
-        display: inline-block; /* aumenta area de click */
+    .nav-list{
+        position: absolute; /*ficar onde quisermos*/
+        top: 100%; /*espaçamento do tamanho da navbar*/
+        right: 0;
+        width: 50%; /* Tamanho da caixa do menu suspenso*/
+        height: 30vh;
+        background: black;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around; /*espaço entre os itens*/
+        visibility: hidden;
+        transition: transform 0.3s ease-in;
+        opacity: 1 !important;
     }
 
-    /* Responsividade do navbar */
-
-    .logo{
-        width: 50%;
-        text-align: left;
-        padding: 10px 20px;
-    }
-
-    .drop{
-        width: 50%;
-        text-align: center;
-        padding: 10px 20px;
-    }
-    .dropdown{
-       visibility: visible;
+    .nav-list li{
+        margin-left: 0;
+        opacity: 0;
     }
     
-    /* apagando o fundo do menu*/
-    .menu{
-        width: 100%;
-        background-color: white;
+    .mobile-menu{
+        display: block;
     }
 
-    /* tirando a visibilidade dos itens e bloqueando acesso*/
-    .menu ul{
-        visibility: hidden;
+    footer{
+        flex-direction: column;
+        height: 100px;
+        margin: 0;
+        position: fixed;
     }
 
+    footer span{
+        margin: 5px auto;
+    }
 
+    footer .redes {
+        margin-right: 0px;
+    }
 
+    /*Classe que sera adicionada via JS*/
+    .nav-list.active{
+        visibility: visible;
+        z-index: 3;
+    }
+
+    .endForm{
+        height: 150px;
+    }
+    .btn-salvar{
+        margin-top: 5%;
+      
+    }
+    
 }
+
+
+
+@keyframes navLinkFade 
+{
+    from{
+        opacity: 0;    
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
+

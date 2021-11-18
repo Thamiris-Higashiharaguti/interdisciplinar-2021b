@@ -13,7 +13,7 @@ namespace TiroGuerra.Repositories
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-                Console.WriteLine(model.IdPelotao);
+                
                 cmd.CommandText = "CREATE_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -25,6 +25,7 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@Formacao", model.Formacao);
                 cmd.Parameters.AddWithValue("@RA", model.RA);
                 cmd.Parameters.AddWithValue("@Numero", model.Numero);
+                cmd.Parameters.AddWithValue("@Senha", model.Senha);
 
                 cmd.ExecuteNonQuery();
 
@@ -179,21 +180,23 @@ namespace TiroGuerra.Repositories
             }
         } 
 
-        public Atirador Read(string CPF, string RA)
+        public Atirador Read(string CPF, string Senha)
         {
             try 
             {
-                Console.WriteLine(CPF);
+                
                 Atirador atirador = new Atirador();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG,A.Formacao, A.RA, A.Numero, P.Nome "+
-                "FROM TB_Atirador A INNER Join TB_Usuario  U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao P "+
-                "ON A.Id_Pelotao = P.Id Where U.CPF = @CPF AND A.RA = @RA";
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG,A.Formacao, A.RA, A.Numero, P.Nome "
+                +"FROM TB_Atirador A "
+                +"INNER JOIN TB_Usuario  U ON (A.Id_Usuario = U.Id) "
+                +"INNER JOIN TB_Pelotao P ON (A.Id_Pelotao = P.Id) "
+                +"Where U.CPF = @CPF AND U.Senha = @Senha";
 
                 cmd.Parameters.AddWithValue("@CPF", CPF);
-                cmd.Parameters.AddWithValue("@RA", RA);
+                cmd.Parameters.AddWithValue("@Senha", Senha);
                 
 
                 SqlDataReader reader = cmd.ExecuteReader();

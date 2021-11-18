@@ -8,25 +8,23 @@ namespace TiroGuerra.Repositories
 {
     public class ChamadaRepository : BDContext, IChamadaRepository
     {
-        public void Create(Chamada model,int Id_Responsavel)
+        public void Create(int Id_Atirador,int Id_Responsavel, bool Presenca)
         {
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-               
-                
                 cmd.CommandText = "create_chamada";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Id_Atirador", model.IdAtirador);
+                cmd.Parameters.AddWithValue("@Id_Atirador", Id_Atirador);
                 cmd.Parameters.AddWithValue("@Id_Responsavel", Id_Responsavel);
-                cmd.Parameters.AddWithValue("@Presenca", model.Presenca);
+                cmd.Parameters.AddWithValue("@Presenca", Presenca);
+            
+                
 
 
                 cmd.ExecuteNonQuery();
-                
-                
 
             }catch(Exception ex) {
                 // Armazenar a exceção em um log.

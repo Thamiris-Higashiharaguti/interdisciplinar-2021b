@@ -29,7 +29,7 @@ namespace TiroGuerra.Controllers
         public ActionResult Login(Atirador model)
         {
             
-            Atirador atirador = repository.Read(model.CPF, model.RA);
+            Atirador atirador = repository.Read(model.CPF, model.Senha);
             if(atirador == null)
             {
                 Console.WriteLine("Usuário não encontrado.");
@@ -53,14 +53,14 @@ namespace TiroGuerra.Controllers
 
 
         [HttpGet]
-        public ActionResult Cadastrar()
+        public ActionResult Create()
         {   
             ViewBag.pelotoes = Pelotaorepository.ReadAll();
-            return View("Cadastro");
+            return View();
         }
 
          [HttpPost]
-        public ActionResult Cadastrar(Atirador model)
+        public ActionResult Create(Atirador model)
         {
             repository.Create(model);
             return RedirectToAction("Index", "Home");

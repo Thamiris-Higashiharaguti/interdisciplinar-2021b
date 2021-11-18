@@ -24,20 +24,36 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult index()
         {
-            ViewBag.atiradores = repository.ReadAll();
-            return View();
+            List<Chamada> lista = new List<Chamada>();
+            var atiradores = repository.ReadAll();
+            foreach(var i in atiradores){
+                lista.Add(new Chamada{
+                    IdAtirador = i.Id,
+                    Atirador = i,
+                    Presenca = false
+                    
+
+                });
+            }
+            return View(lista);
         }
 
         [HttpPost]
-        public ActionResult create(List<Chamada> model)
+        public ActionResult create([Bind("IdAtirador, Presenca")]List<Chamada> model)
         {
-            var id = HttpContext.Session.GetInt32("id");
-            Console.WriteLine(model.Count);
-            foreach(var chamada in model){
-                
-                chamadaRepository.Create(chamada,(int)id);
-            
+            if (ModelState.IsValid)
+            {
+                model.Count();
             }
+
+            var id = HttpContext.Session.GetInt32("Id");
+            Console.WriteLine(model[0].IdAtirador);
+            for(int i = 0; i < model.Count;i++)
+            {     
+                
+                chamadaRepository.Create(model[i].IdAtirador,(int)id, model[i].Presenca);
+            }
+            
             return RedirectToAction("Index", "Home");
         }
     }

@@ -1,5 +1,6 @@
 @using TiroGuerra.Models
-
+@using System.Linq
+@model List<Chamada>
 @{
     ViewBag.Title = "Cadastro chamada";
     
@@ -14,7 +15,7 @@
     </head>
     <body>
         <h3>Chamada Online</h3>
-
+        <div class="content">
         <div class="table-responsive-sm">
             <table class="table table-hover">
                 <thead>
@@ -26,17 +27,18 @@
                 </thead>
                 <tbody>
                 <form action="/chamada/create" method="POST">
-                @foreach(var atirador in ViewBag.atiradores)
+                
+                @for(int i = 0; i < Model.Count;i++)
                 {     
                     <tr> 
-                    <td><input type="text" id="IdAtirador" name="IdAtirador" value="@atirador.Id"></td>          
-                    <td>@atirador.Nome</td>
-                    <td>@atirador.Numero</td>
-                    <td><input id="Presenca" name="Presenca" value="false" type="checkbox"></td>
+                    <td><input asp-for="@Model[i].IdAtirador" type="text" /></td>          
+                    <td>@Model[i].Atirador.Nome</td>
+                    <td>@Model[i].Atirador.Numero</td>
+                    <td><td><input asp-for="@Model[i].Presenca" type="Checkbox" /></td>   </td>
                     </tr>
                        
                 }
-                    <button class="btn btn-primary">Salvar</button>
+                    <button class="btn btn-primary">salvar</button>
                 </form>   
                         
                         
@@ -44,6 +46,6 @@
             </table>
             
         </div>
-        
+        </div>
     </body>
 </html>
