@@ -112,11 +112,11 @@ left: 0;
 right: 0;
 z-index: 1;
 display: block;
-background-image: url("../images/fundo.jpg");
+background-image: url("../images/3.jpeg");
 width: 100%;
 height: 100%;
 filter: brightness(35%);
-background-size: contain;
+background-size: cover;
 }
 
 .content {

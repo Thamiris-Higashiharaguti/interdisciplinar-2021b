@@ -1,0 +1,29 @@
+@using TiroGuerra.Models
+@{
+    ViewBag.Title = "Login";
+    ViewBag.css = "/css/atirador_index.css";
+}
+
+<div class="content">
+
+
+    <form method="POST" action="/atirador/search">
+        <table class="tabela">
+        <tr>
+            <th>Atirador</th>
+            <th>Numero</th>
+            <th>Função</th>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+        </table>
+    </form>
+</div>

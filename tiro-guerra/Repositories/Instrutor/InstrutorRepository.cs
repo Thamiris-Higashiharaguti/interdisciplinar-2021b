@@ -15,7 +15,7 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd= new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "Cadastrar_Instrutor";
+                cmd.CommandText = "CREATE_INSTRUTOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@nome", model.Nome);
@@ -23,6 +23,7 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@cpf",model.CPF);
                 cmd.Parameters.AddWithValue("@rg",model.RG);
                 cmd.Parameters.AddWithValue("@graduacao",model.Graduacao);
+                cmd.Parameters.AddWithValue("@senha",model.Senha);
                 cmd.ExecuteNonQuery();
 
             }

@@ -20,6 +20,13 @@ namespace TiroGuerra.Controllers
             this.repository = repository;
             this.Pelotaorepository = Pelotaorepository;
         }
+
+
+        public ActionResult index()
+        {
+            return View();
+        }
+
         [HttpGet]
         public ActionResult login()
         {
@@ -28,7 +35,7 @@ namespace TiroGuerra.Controllers
         [HttpPost]
         public ActionResult Login(Atirador model)
         {
-            
+           // Console.WriteLine(model.CPF, model.Senha);
             Atirador atirador = repository.Read(model.CPF, model.Senha);
             if(atirador == null)
             {
