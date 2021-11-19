@@ -13,7 +13,7 @@ namespace TiroGuerra.Repositories
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-                Console.WriteLine(model.IdPelotao);
+                
                 cmd.CommandText = "CREATE_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 

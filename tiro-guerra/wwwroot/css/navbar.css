@@ -7,7 +7,13 @@
 body{
     min-height: 100%;
 }
-
+.content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25%;
+    z-index: 2;
+}
 footer {
     display: flex;
     position: fixed;

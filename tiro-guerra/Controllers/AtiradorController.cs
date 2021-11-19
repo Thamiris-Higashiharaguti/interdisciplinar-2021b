@@ -7,6 +7,7 @@ using System.Linq;
 using TiroGuerra.Repositories;
 using TiroGuerra.Controllers;
 
+
 namespace TiroGuerra.Controllers
 {
     public class AtiradorController:Controller
@@ -71,6 +72,18 @@ namespace TiroGuerra.Controllers
             repository.Create(model);
             return RedirectToAction("Index", "Home");
         }
+        
+        [HttpGet]
+        public ActionResult Conta()
+        {   
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult Logout()
+        {   
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

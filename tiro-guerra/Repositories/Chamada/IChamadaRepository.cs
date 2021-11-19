@@ -6,7 +6,7 @@ namespace TiroGuerra.Repositories
 {
     public interface IChamadaRepository
     {
-        void Create(Chamada model);
+        void Create(int Id_Atirador,int Id_Responsavel, bool Presenca);
         List<Chamada> ReadAll();
 
     }
