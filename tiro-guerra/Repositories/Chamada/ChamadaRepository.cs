@@ -11,6 +11,7 @@ namespace TiroGuerra.Repositories
         public void Create(int Id_Atirador,int Id_Responsavel, bool Presenca)
         {
             try {
+                Console.WriteLine(Id_Atirador);
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
@@ -20,9 +21,6 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@Id_Atirador", Id_Atirador);
                 cmd.Parameters.AddWithValue("@Id_Responsavel", Id_Responsavel);
                 cmd.Parameters.AddWithValue("@Presenca", Presenca);
-            
-                
-
 
                 cmd.ExecuteNonQuery();
 
