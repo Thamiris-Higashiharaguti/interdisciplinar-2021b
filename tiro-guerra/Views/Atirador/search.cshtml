@@ -1,0 +1,97 @@
+@using TiroGuerra.Models
+
+@{
+    ViewBag.Title = "Cadastro Atirador";
+    ViewBag.css = "/css/search_atirador.css";
+    
+}
+    
+
+    <div class="content">
+
+        
+        <section class="flex-row">
+           <label class="title"> Atiradores</label>
+        </section>
+
+        <section class="flex-row">
+
+            <div class="col-wd-100">
+                <span class="data-title">Nome do Atirador:</span> <input type="text" name="busca" class="search">
+                <input class="btn-search" type="submit" value="Procurar" name="search">
+            </div>
+
+        </section>
+
+        <form method="POST" action="#">
+            <section class="flex-row">
+                <div class="col-wd-100-content">
+
+                    <div class="linha-cabecalho">
+                        <label class="subtitle" >Nome Completo:</label>
+                        <label class="subtitle" id="presenca">Ações</label>    
+                    </div>
+                    
+
+                    <div class="linha">
+                        <label class="nomes-chamada"> Abner da Silva de Moraes</label>
+                        <div class="botoes">
+                            <input class="btn-editar" type="button" value="Editar" name="editar">
+                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
+                        </div>
+                        
+                    </div>
+
+                    <div class="linha">
+                        <label class="nomes-chamada"> Aline Lamaneres De Moraes</label>
+                        <div class="botoes">
+                            <input class="btn-editar" type="button" value="Editar" name="editar">
+                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
+                        </div>
+                        
+                    </div>
+
+                    <div class="linha">
+                        <label class="nomes-chamada"> Cristiane Regia</label>
+                        <div class="botoes">
+                            <input class="btn-editar" type="button" value="Editar" name="editar">
+                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label class="nomes-chamada"> Fátima Cristina Gonçalves Jepes</label>
+                        <div class="botoes">
+                            <input class="btn-editar" type="button" value="Editar" name="editar">
+                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
+                        </div>
+                    </div>
+
+                    <div class="linha">
+                        <label class="nomes-chamada"> Katharine Camelo Campos</label>
+                        <div class="botoes">
+                            <input class="btn-editar" type="button" value="Editar" name="editar">
+                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+
+        </form>
+
+                    <section class="flex-row">
+                <div class="col-wd-50">
+                    <div class="caixa-botao">
+                      <a href="/atirador/create">  <button class="btn-novo">Novo atirador</button></a>
+                    </div>
+                </div>
+
+            </section>
+        
+    </div>
