@@ -47,7 +47,7 @@ namespace TiroGuerra.Controllers
             }
 
             var id = HttpContext.Session.GetInt32("Id");
-            Console.WriteLine(model[0].IdAtirador);
+            
             for(int i = 0; i < model.Count;i++)
             {     
                 
