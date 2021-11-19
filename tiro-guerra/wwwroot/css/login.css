@@ -86,7 +86,6 @@ label.cred{
 }
 
 label.title{
-    margin-top: 10%;
     font-size: 40px;
     font-weight: bold;
 }
@@ -195,11 +194,4 @@ header{
         margin:0 20%;
     }
  
-}
-
-@media (max-width: 500px)
-{
-    h1.title{
-        margin-top: 10%;
-    }
 }

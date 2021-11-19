@@ -1,0 +1,181 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+
+}
+
+
+.content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    top:10%;
+    }
+    
+
+.flex-row{
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    }
+
+#presenca{
+    text-align: center;
+}
+
+    .flex-row-title{
+        margin-top: 3%;
+        margin-left: 5%;
+        margin-right: 5%;
+        display: flex;
+    }
+        
+        
+    .col-wd-100{
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .linha{
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .linha-cabecalho{
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+    
+    }
+
+    .linha:hover{
+        background-color:burlywood;
+    }
+
+    .col-wd-50{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    }
+
+    .col-wd-50-titles{
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .col-wd-50-content{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .col-wd-33{
+    width: 33.3%;
+    padding: 10px 20px;
+    }
+    
+    input.data-title{
+        display: inline;
+        margin: 0 auto;
+      
+    }
+
+    span.data-title{
+        font-weight: bold;
+        width: 30%;
+    }
+
+    label.pelotao-title{
+        display: inline;
+        margin: 0 auto;
+    }
+
+    span.pelotao-title{
+        font-weight: bold;
+        width: 30%;
+    }
+
+    .pelotao-title{
+        display: inline;
+        
+    }
+
+    select.pelotao-title{
+        margin: 0 auto;
+    }
+
+    .subtitle{
+        width: 50%;
+    }
+
+    #presenca{
+        text-align: center;
+    }
+
+  
+    label.nomes-chamada{
+        margin-bottom: 1vh;
+        margin-top: 1vh;
+        width: 33%;
+        
+    }
+
+    input.checkbox-input{
+        margin: auto 0;
+        text-align: right;
+        width: 33%;
+    }
+
+    .title{
+        font-size: 24px;
+        font-weight: 300;
+        color:#698197;
+    }
+
+    .subtitle{
+        font-weight: bold;
+    }
+
+    .caixa-botao{
+        text-align: end;
+    }
+
+    .btn-salvar{
+        background-color:black;
+        color: white;
+        font-size: 20px;
+        margin-top: 5%;
+        margin-right: 10%;
+        width: 200px;
+        height: 40px;
+        border-radius: 20%;
+        border-style: none;
+    }
+
+ 
+
+    @media screen and (max-width:768px)
+    {
+        .col-wd-50-titles{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 5%;
+        }
+
+        .flex-row-title{
+            display: inline;
+        }
+
+        span.data-title {
+            margin-left: 5%;
+        }
+
+
+    span.pelotao-title {
+        margin-left: 5%;
+    }
+}

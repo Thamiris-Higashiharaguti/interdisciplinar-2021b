@@ -72,6 +72,12 @@ namespace TiroGuerra.Controllers
             repository.Create(model);
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View();
+        }
         
         [HttpGet]
         public ActionResult Conta()
