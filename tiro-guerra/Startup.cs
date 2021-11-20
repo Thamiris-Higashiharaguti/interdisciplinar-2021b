@@ -29,6 +29,7 @@ namespace tiro_guerra
             services.AddTransient<IInstrutorRepository, InstrutorRepository>();
             services.AddTransient<IPelotaoRepository, PelotaoRepository>();
             services.AddTransient<IChamadaRepository, ChamadaRepository>();
+            services.AddTransient<IGuarnicaoRepository, GuarnicaoRepository>();
             
              services.AddSession(options =>
                 {

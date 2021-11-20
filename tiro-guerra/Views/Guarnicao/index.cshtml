@@ -1,4 +1,5 @@
 @using TiroGuerra.Models
+@model List<Atirador>
 @{
     ViewBag.Title = "Guarnição";
     ViewBag.css = "/css/guarnicao.css";
@@ -152,30 +153,37 @@
                          <div class="modal-body">
                             <label for="fiscal" id="fiscal-dia">Fiscal de dia:</label>
                             <select name="fiscal" id="fiscal">
-                               <option value="Amaro">Amaro</option>
-                               <option value="João">João</option>
-                               <option value="José">José</option>
+                            
+                            @for(int i = 0; i < Model.Count;i++)
+                            {
+                                
+                               <option value='@Model[i].Nome'>@Model[i].Nome</option>
+                            }
                             </select>
                             <br>
                              <label for="Comandante" id="comandante-dia">Comandante:</label>
                              <select name="comandante" id="comandante">
-                                <option value="Amaro">Amaro</option>
-                                <option value="João">João</option>
-                                <option value="José">José</option>
+                                 
+                            @for(int i = 0; i < Model.Count;i++)
+                            {
+                                
+                               <option value='@Model[i].Nome'>@Model[i].Nome</option>
+                            }  
+
                              </select>
                              <br>
                              <label for="Cabo" id="cabo-dia">Cabo da guarda:</label>
                              <select name="cabo" id="cabo">
-                                <option value="Amaro">Amaro</option>
-                                <option value="João">João</option>
-                                <option value="José">José</option>
+                                     @for(int i = 0; i < Model.Count;i++)
+                                     {
+                                        <option value='@Model[i].Nome'>@Model[i].Nome</option>
+                                    }  
                              </select>
                              <br>
                              <label for="sentinela" id="sentinela-dia">Sentinela:</label>
                              <select name="sentinela" id="sentinela">
-                                <option value="Amaro">Amaro</option>
-                                <option value="João">João</option>
-                                <option value="José">José</option>
+                                
+
                              </select>
                            
                              <input type="submit" class="adicionar" value="Adicionar">
@@ -191,7 +199,7 @@
                                             <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
                                         </div>
                                     </div>-->
-                                    
+
                                 </div>
                             </ul>
                             
