@@ -2,14 +2,14 @@
 @using System.Linq
 
 @{
-    ViewBag.Title = "Guarnição Create";
+    ViewBag.Title = "Guarnição ";
     ViewBag.css = "/css/escalaGuarda.css";
 }
 
 
     <div class="content">
             <div class="geral">
-                <h1 class="titulo-guarnicao">Alterar Guarnição Semanal</h1>
+                <h1 class="titulo-guarnicao">Guarnição Semanal</h1>
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
@@ -89,17 +89,17 @@
                          <div class="modal-header">
                              <h4 class="modal-title">Formulário de Registro de Problema</h4>
                          </div>
-
+                        <form method="POST" action="/guarnicao/request/">
                          <div class="modal-body">
-                            <label for="Problema" id="prob">Digite seu problema com a escala atual</label>
-                           <textarea>
-
-                           </textarea>
- 
+                            <label for="Problema" id="prob">Digite sua justificativa</label>
+                           <input type="text" name="tese1" >
+                            <input type="text" name="teste" >
+                            <input type="text" name="exemplo" >
                          </div>
 
                          <div class="modal-footer">
                             <input type="submit" class="save" value="Enviar" id="Enviar">
+                        </form>
                             <input type="submit" class="close" value="Fechar" id="fechar" onclick="disposeModal()">
                         </div>
                </div>

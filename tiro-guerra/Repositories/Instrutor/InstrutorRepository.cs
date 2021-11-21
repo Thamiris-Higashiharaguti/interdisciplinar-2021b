@@ -200,5 +200,37 @@ namespace TiroGuerra.Repositories
 
         }
 
+        public String readEmail()
+        {
+             try {
+                    List<Instrutor> Instrutores = new List<Instrutor>();
+                    SqlDataReader reader;
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SELECT U.Email from TB_Instrutor I INNER Join TB_Usuario U ON I.Id_Usuario = U.Id Where I.Id_Usuario > 22";
+                    
+                    reader = cmd.ExecuteReader();
+                
+                    if(reader.Read())
+                    {
+                        var email = reader.GetString(0);
+                        return email;
+                    }
+
+                    return null;
+             
+                
+                }catch(Exception ex) {
+                    // Armazenar a exceção em um log.
+                    throw new Exception(ex.Message);
+                }
+                finally {
+                    Dispose();
+                }
+
+        }
+
     }
 }

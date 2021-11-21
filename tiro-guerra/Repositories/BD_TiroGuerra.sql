@@ -359,13 +359,11 @@ CREATE PROCEDURE update_chamada
 ) AS BEGIN 
     UPDATE TB_Chamada SET Presenca=@Presenca 
     FROM TB_Chamada as C inner join TB_Instrucao as I on C.Id_Instrucao = I.Id 
-    WHERE CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23);     
+    WHERE CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23) AND C.Id_Atirador = @id;     
 END 
 
-EXEC update_chamada 0,1;
-
 insert into TB_Pelotao values ('Caxias',2021)
-select * from TB_Chamada
+delete from TB_Chamada
 
 SELECT U.id, C.Presenca from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id Inner Join TB_Chamada C ON U.Id = C.Id_Atirador Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id where A.Id_Pelotao = 1
                
