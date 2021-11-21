@@ -4,11 +4,22 @@ var atiradoresLista = [];
 var lista_nova=[];
 var id_dia;
 
-//Pegar o id do botão que representa o dia que vamos alterar
-function getId( id)
+
+//modal
+
+function showModal(idModal)
 {
-    id_dia = id;   
+    id_dia = idModal;   
+    var element = document.getElementById("modal");
+    element.classList.add("show-modal");
 }
+
+function disposeModal()
+{
+    var element = document.getElementById("modal");
+    element.classList.remove("show-modal");
+}
+
 
 function deleteItem(atirador)
 {
@@ -24,8 +35,17 @@ function deleteItem(atirador)
      {
          if(item != atirador)
          {
-            listaAtiradores.innerHTML +="<li id='"+item+"'>"+ item+"<span onClick="+"deleteItem('"+item+"')> X </span></li>"
-         }
+            listaAtiradores.innerHTML +=`
+            <div class="linha-lista">
+                <div class="list-space">
+                    <li class='item-lista' id='`+item+`'> `+item+`</li>
+                </div>
+        
+                <div class="list-space">
+                    <span  class='span-item-lista' onClick="deleteItem('`+item+`')"> X </span>
+                </div> 
+            </div>`
+        }
      });
 
      buscar_por = atirador;
@@ -62,8 +82,28 @@ document.querySelector('input[value=Adicionar]').addEventListener('click',() =>
         });
 
         let listaAtiradores = document.querySelector('.myList');
-        listaAtiradores.innerHTML += "<li id='"+value+"'>"+ value+"<span onClick="+"deleteItem('"+value+"')> X </span></li>";
+        listaAtiradores.innerHTML += `
+        <div class="linha-lista">
+            <div class="list-space">
+                <li class='item-lista' id='`+value+`'> `+value+`</li>
+            </div>
+
+            <div class="list-space">
+                <span  class='span-item-lista' onClick="deleteItem('`+value+`')"> X </span>
+            </div> 
+        </div>`
+        
+         
        //  <li id="Amaro">Teste  <span onclick="deleteItem('Amaro')">X</span> </li>  
+
+       /*
+          <div class="list-space">
+                                        <li class="item-lista" id="Teste">Teste   </li>
+                                    </div>
+                                    <div class="list-space">
+                                         <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
+                                    </div> 
+       */
     }
 
     select = "";
@@ -85,7 +125,7 @@ document.querySelector('input[value=Limpar]').addEventListener('click',() =>
 });
 
 //Recebe as informações dos sentinelas e dos outros membros da guarda
-document.querySelector('input[value=salvar]').addEventListener('click',() =>
+document.querySelector('input[class=save]').addEventListener('click',() =>
 {
     var select = document.getElementById('fiscal');
     var Fiscal = select.options[select.selectedIndex].value;
@@ -112,6 +152,8 @@ document.querySelector('input[value=salvar]').addEventListener('click',() =>
         funcao: 'Cabo'
     });
     
+
+    console.log(atiradoresLista);
 
     let comandante;
     let fiscal;
@@ -141,6 +183,7 @@ document.querySelector('input[value=salvar]').addEventListener('click',() =>
          
     });
 
+    console.log(atiradoresLista);
       
     var index = id_dia -1;
 
@@ -175,5 +218,7 @@ document.querySelector('input[value=salvar]').addEventListener('click',() =>
      atiradoresLista = [];
      id_dia = "";
      contador =1;
+
+     disposeModal();
 
 });
