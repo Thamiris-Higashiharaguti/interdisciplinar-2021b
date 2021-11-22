@@ -76,6 +76,7 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult Search()
         {
+            ViewBag.atiradores = repository.ReadAll();
             return View();
         }
         
@@ -90,6 +91,13 @@ namespace TiroGuerra.Controllers
         {   
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult Fatd(int id)
+        {
+            ViewBag.atirador = repository.Read(id);
+            return View("Fatd");
         }
     }
 }

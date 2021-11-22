@@ -140,10 +140,11 @@ namespace TiroGuerra.Repositories
         {
             try 
             {
+
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome from TB_Atirador AS A INNER Join TB_Usuario AS U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao AS P ON A.Id_Pelotao = P.Id WHERE U.Id = @id";
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, P.Nome from TB_Atirador AS A INNER Join TB_Usuario AS U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao AS P ON A.Id_Pelotao = P.Id WHERE U.id = @id";
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -160,13 +161,11 @@ namespace TiroGuerra.Repositories
                     atirador.Formacao = reader.GetString(5);
                     atirador.RA = reader.GetString(6);
                     atirador.Numero = reader.GetString(7);
-                    atirador.GDAPreta = reader.GetDateTime(8);
-                    atirador.GDAVermelha = reader.GetDateTime(9);
                     
 
 
                     atirador.Pelotao = new Pelotao {
-                        Nome = reader.GetString(10)
+                        Nome = reader.GetString(8)
                     };
 
                     return atirador;

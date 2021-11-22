@@ -32,7 +32,7 @@
 
         </section>
 
-        <form method="POST" action="#">
+        <form method="POST" action="/chamada/create">
             <section class="flex-row">
                 <div class="col-wd-100-content">
 
@@ -45,9 +45,10 @@
                      @for(int i = 0; i < Model.Count;i++)
                     {  
                         <div class="linha">
+                            <input readonly="readonly"  class="nomes-chamada" asp-for="@Model[i].IdAtirador" type="hidden" />
                             <label class="nomes-chamada"> @Model[i].Atirador.Nome</label>
                             <label class="nomes-chamada"> @Model[i].Atirador.Numero</label>
-                            <input type="checkbox" checked="checked" class="checkbox-input">
+                            <input class="nomes-chamada" asp-for="@Model[i].Presenca" type="Checkbox" />
                         </div>
                     }
                 
