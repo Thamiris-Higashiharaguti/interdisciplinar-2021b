@@ -6,135 +6,142 @@
 
 
     <div class="content">
-         <div class="geral">
-        
-             <table class="table">
-                <thead class="thead-dark">
+
+        <form action="/guarnicao/create" method="POST">
+            <div class="geral">
+            
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Outubro</th>
+                        <th scope="col">11/10/2021</th>
+                        <th scope="col">12/10/2021</th>
+                        <th scope="col">13/10/2021</th>
+                        <th scope="col">14/10/2021</th>
+                        <th scope="col">15/10/2021</th>
+                        <th scope="col">16/10/2021</th>
+                        <th scope="col">17/10/2021</th>
+                        </tr>
+                    </thead>
+                    <thead class="thead-dark">
                     <tr>
-                      <th scope="col">Outubro</th>
-                      <th scope="col">11/10/2021</th>
-                      <th scope="col">12/10/2021</th>
-                      <th scope="col">13/10/2021</th>
-                      <th scope="col">14/10/2021</th>
-                      <th scope="col">15/10/2021</th>
-                      <th scope="col">16/10/2021</th>
-                      <th scope="col">17/10/2021</th>
+                        <th scope="col">Função</th>
+                        <th class="dia" onclick="showModal(1)">Segunda</button></th>
+                        <th class="dia" onclick="showModal(2)">Segunda</button></th>
+                        <th class="dia" onclick="showModal(3)">Segunda</button></th>
+                        <th class="dia" onclick="showModal(4)">Segunda</button></th>
+                        <th class="dia" onclick="showModal(5)">Segunda</button></th>
+                        <th class="dia" onclick="showModal(6)">Segunda</button></th>
+                        <th class="dia" onclick="showModal(7)">Segunda</button></th>
                     </tr>
-                  </thead>
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Função</th>
-                    <th class="dia" onclick="showModal(1)">Segunda</button></th>
-                    <th class="dia" onclick="showModal(2)">Segunda</button></th>
-                    <th class="dia" onclick="showModal(3)">Segunda</button></th>
-                    <th class="dia" onclick="showModal(4)">Segunda</button></th>
-                    <th class="dia" onclick="showModal(5)">Segunda</button></th>
-                    <th class="dia" onclick="showModal(6)">Segunda</button></th>
-                    <th class="dia" onclick="showModal(7)">Segunda</button></th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr id="linha-fiscal">
-                        <th scope="row">Fiscal de Dia</th>
+                    </thead>
+                    <tbody>
+                        <tr id="linha-fiscal">
+                            <th scope="row">Fiscal de Dia</th>
+                            <td class="campo">
+                                <input value="andre" type="text">
+                                <input value="fiscal" type="hidden">
+                                <input value="segunda" type="hidden">
+                            </td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>
+                        <tr id="linha-comandante">
+                            <th scope="row">Comandante da Guarda</th>
+                            <td class="campo">Andre</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>
+                        <tr id="linha-cabo">
+                            <th scope="row">Cabo da Guarda</th>
                         <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>
-                    <tr id="linha-comandante">
-                        <th scope="row">Comandante da Guarda</th>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>
+                        <tr id="linha-sentinela01">
+                            <th scope="row">Sentinela</th>
                         <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            
                     </tr>
-                    <tr id="linha-cabo">
-                        <th scope="row">Cabo da Guarda</th>
-                       <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>
-                    <tr id="linha-sentinela01">
-                        <th scope="row">Sentinela</th>
-                       <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        
-                  </tr>
-                    <tr id="linha-sentinela02">
-                        <th scope="row">Sentinela</th>
-                       <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>
-
-                    <tr id="linha-sentinela03">
-                        <th scope="row">Sentinela</th>
-                       <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>
-
-                    <tr id="linha-sentinela04">
-                        <th scope="row">Sentinela</th>
-                       <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>
-
-                    <tr id="linha-sentinela05">
-                        <th scope="row">Sentinela</th>
+                        <tr id="linha-sentinela02">
+                            <th scope="row">Sentinela</th>
                         <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>  
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>
 
-                    <tr id="linha-sentinela06">
-                        <th scope="row">Sentinela</th>
-                      <td class="campo">Andre</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                        <td class="campo">Vinicius</td>
-                    </tr>   
-                </tbody>
-              </table>
-        </div>
+                        <tr id="linha-sentinela03">
+                            <th scope="row">Sentinela</th>
+                        <td class="campo">Andre</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>
 
-        <input class="btn-salvar" type="button" value="salvar">
+                        <tr id="linha-sentinela04">
+                            <th scope="row">Sentinela</th>
+                        <td class="campo">Andre</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>
 
+                        <tr id="linha-sentinela05">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">Andre</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>  
+
+                        <tr id="linha-sentinela06">
+                            <th scope="row">Sentinela</th>
+                        <td class="campo">Andre</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                            <td class="campo">Vinicius</td>
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+
+            <input class="btn-salvar" type="submit" value="salvar">
+
+        </form>
         <div class="modal" id="modal">
             
             <div class="modal-content">
