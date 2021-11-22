@@ -1,4 +1,4 @@
-@using TiroGuerra.Models
+@using TiroGuerra.Models;
 @{
     ViewBag.Title = "Guarnição";
     ViewBag.css = "/css/guarnicao.css";
@@ -131,10 +131,6 @@
                     </tr>   
                 </tbody>
               </table>
-              
-              
-             
-           
         </div>
 
         <input class="btn-salvar" type="button" value="salvar">
@@ -152,30 +148,50 @@
                          <div class="modal-body">
                             <label for="fiscal" id="fiscal-dia">Fiscal de dia:</label>
                             <select name="fiscal" id="fiscal">
-                               <option value="Amaro">Amaro</option>
-                               <option value="João">João</option>
-                               <option value="José">José</option>
+                              
+                              @foreach (Instrutor instrutor in Model.Instrutores)
+                            {
+                                
+                               <option value='@instrutor.Nome'>@instrutor.Nome</option>
+                            }  
+                                 
                             </select>
                             <br>
                              <label for="Comandante" id="comandante-dia">Comandante:</label>
                              <select name="comandante" id="comandante">
-                                <option value="Amaro">Amaro</option>
-                                <option value="João">João</option>
-                                <option value="José">José</option>
+                                 
+                            @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                
+                               if(@atirador.Formacao == "Comandante")
+                                {
+                                    <option value='@atirador.Nome'>@atirador.Nome</option>
+                                }
+                            }  
+
                              </select>
                              <br>
                              <label for="Cabo" id="cabo-dia">Cabo da guarda:</label>
                              <select name="cabo" id="cabo">
-                                <option value="Amaro">Amaro</option>
-                                <option value="João">João</option>
-                                <option value="José">José</option>
+                             @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                if(@atirador.Formacao == "Cabo")
+                                {
+                                    <option value='@atirador.Nome'>@atirador.Nome</option>
+                                }
+                            }   
                              </select>
                              <br>
                              <label for="sentinela" id="sentinela-dia">Sentinela:</label>
                              <select name="sentinela" id="sentinela">
-                                <option value="Amaro">Amaro</option>
-                                <option value="João">João</option>
-                                <option value="José">José</option>
+                              @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                if(@atirador.Formacao == "Sentinela")
+                                {
+                                    <option value='@atirador.Nome'>@atirador.Nome</option>
+                                }
+                            }   
+
                              </select>
                            
                              <input type="submit" class="adicionar" value="Adicionar">
@@ -191,7 +207,7 @@
                                             <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
                                         </div>
                                     </div>-->
-                                    
+
                                 </div>
                             </ul>
                             

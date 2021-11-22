@@ -92,11 +92,15 @@ namespace TiroGuerra.Repositories
         {
             try {
                 List<Atirador> lista = new List<Atirador>();
+               
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome from TB_Atirador AS A INNER Join TB_Usuario AS U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao AS P ON A.Id_Pelotao = P.Id";
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome "+
+                "from TB_Atirador A "+
+                "INNER Join TB_Usuario U ON A.Id_Usuario = U.Id "+
+                "Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id";
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
@@ -120,6 +124,7 @@ namespace TiroGuerra.Repositories
                 }
 
                 return lista;
+                
             }catch(Exception ex) {
                 // Armazenar a exceção em um log.
                 throw new Exception(ex.Message);

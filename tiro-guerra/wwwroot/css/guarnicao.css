@@ -1,4 +1,8 @@
 
+body{
+    overflow-x: hidden;
+}
+
 .content {
     position: absolute;
     left: 0;

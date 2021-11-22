@@ -11,5 +11,7 @@ namespace TiroGuerra.Repositories
         void Update(int id, Instrutor model);
 
         void Delete(int id);
+
+         List<Instrutor> ReadAll();
     }
 }
