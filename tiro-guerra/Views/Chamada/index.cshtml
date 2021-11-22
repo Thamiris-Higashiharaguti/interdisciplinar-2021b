@@ -3,49 +3,100 @@
 @model List<Chamada>
 @{
     ViewBag.Title = "Cadastro chamada";
+    ViewBag.css = "/css/chamada.css";
     
 }
-<!doctype html>
-<html lang="pt">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Chamada</title>
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-    <body>
-        <h3>Chamada Online</h3>
         <div class="content">
-        <div class="table-responsive-sm">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Número</th>
-                        <th>Presença</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <form action="/chamada/create" method="POST">
-                
-                @for(int i = 0; i < Model.Count;i++)
-                {     
-                    <tr> 
-                    <td><input asp-for="@Model[i].IdAtirador" type="text" /></td>          
-                    <td>@Model[i].Atirador.Nome</td>
-                    <td>@Model[i].Atirador.Numero</td>
-                    <td><td><input asp-for="@Model[i].Presenca" type="Checkbox" /></td>   </td>
-                    </tr>
-                       
-                }
-                    <button class="btn btn-primary">salvar</button>
-                </form>   
-                        
-                        
-                </tbody>
-            </table>
+
+
             
+        <section class="flex-row">
+           <label class="title"> Chamada Online</label>
+        </section>
+
+        <section class="flex-row-title">
+
+            <div class="col-wd-50-titles">
+                <span class="data-title">Data:</span> <input type="date" name="data" class="data-title">
+            </div>
+
+            <div class="col-wd-50-titles">
+                <span class="pelotao-title">Pelotão:</span>  
+                <select class="pelotao-title" name="Formacao" required="true">
+                    <option selected>Selecione um pelotão</option>
+                    <option value="Pelotao1">Pelotão 1</option>
+                    <option value="Pelotao2">Pelotão 2</option>
+                    <option value="Pelotao3">Pelotão 3</option>
+                </select>
+            </div>
+
+        </section>
+
+        <form method="POST" action="/chamada/create">
+            <section class="flex-row">
+                <div class="col-wd-100-content">
+
+                    <div class="linha-cabecalho">
+                        <label class="subtitle" >Nome Completo:</label>
+                        <label class="subtitle" >Número:</label>
+                        <label class="subtitle" id="presenca" >Presença:</label>    
+                    </div>
+                    
+                     @for(int i = 0; i < Model.Count;i++)
+                    {  
+                        <div class="linha">
+                            <input readonly="readonly"  class="nomes-chamada" asp-for="@Model[i].IdAtirador" type="hidden" />
+                            <label class="nomes-chamada"> @Model[i].Atirador.Nome</label>
+                            <label class="nomes-chamada"> @Model[i].Atirador.Numero</label>
+                            <input class="nomes-chamada" asp-for="@Model[i].Presenca" type="Checkbox" />
+                        </div>
+                    }
+                
+
+                </div>
+
+            </section>
+
+            <section class="flex-row">
+                <div class="col-wd-100">
+                    <div class="caixa-botao">
+                        <button class="btn-salvar">Salvar</button>
+                    </div>
+                </div>
+            </section>
+
+
+        </form>
+           
+           <!-- <div class="table-responsive-sm">
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Número</th>
+                            <th>Presença</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <form action="/chamada/create" method="POST">
+                    
+                    @for(int i = 0; i < Model.Count;i++)
+                    {     
+                        <tr> 
+                        <td><input asp-for="@Model[i].IdAtirador" type="text" /></td>          
+                        <td>@Model[i].Atirador.Nome</td>
+                        <td>@Model[i].Atirador.Numero</td>
+                        <td><td><input asp-for="@Model[i].Presenca" type="Checkbox" /></td>   </td>
+                        </tr>
+                        
+                    }
+                        <button class="btn btn-primary">salvar</button>
+                    </form>   
+                            
+                            
+                    </tbody>
+                </table>-->
+                
+            </div>
         </div>
-        </div>
-    </body>
-</html>

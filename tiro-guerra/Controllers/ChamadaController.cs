@@ -48,11 +48,10 @@ namespace TiroGuerra.Controllers
 
             var id = HttpContext.Session.GetInt32("Id");
             
-            for(int i = 0; i < model.Count;i++)
-            {     
+            
                 
-                chamadaRepository.Create(model[i].IdAtirador,(int)id, model[i].Presenca);
-            }
+            chamadaRepository.Create(model, (int)id);
+            
             
             return RedirectToAction("Index", "Home");
         }

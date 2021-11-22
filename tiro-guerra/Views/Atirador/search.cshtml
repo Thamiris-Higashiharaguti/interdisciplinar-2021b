@@ -1,0 +1,64 @@
+@using TiroGuerra.Models
+
+@{
+    ViewBag.Title = "Cadastro Atirador";
+    ViewBag.css = "/css/search_atirador.css";
+    
+}
+    
+
+    <div class="content">
+
+        
+        <section class="flex-row">
+           <label class="title"> Atiradores</label>
+        </section>
+
+        <section class="flex-row">
+
+            <div class="col-wd-100">
+                <span class="data-title">Nome do Atirador:</span> <input type="text" name="busca" class="search">
+                <input class="btn-search" type="submit" value="Procurar" name="search">
+            </div>
+
+        </section>
+
+        
+            <section class="flex-row">
+                <div class="col-wd-100-content">
+
+                    <div class="linha-cabecalho">
+                        <label class="subtitle" >Nome Completo:</label>
+                        <label class="subtitle" id="presenca">Ações</label>    
+                    </div>
+                    
+                    @foreach(var atirador in ViewBag.atiradores)
+                        {                
+                            <div class="linha">
+                            <label class="nomes-chamada">@atirador.Nome</label>
+                            <div class="botoes">
+                                <a href="/atirador/delete/@atirador.Id" class="btn btn-sm btn-danger">Apagar</a>
+                                <a href="/atirador/update/@atirador.Id" class="btn btn-sm btn-primary">Editar</a>
+                                <a href="/atirador/fatd/@atirador.Id" class="btn btn-sm btn-primary">FATD</a>
+                            </div>
+                            
+                            </div>
+                           
+                        }
+                </div>
+
+            </section>
+
+
+
+
+                    <section class="flex-row">
+                <div class="col-wd-50">
+                    <div class="caixa-botao">
+                      <a href="/atirador/create">  <button class="btn-novo">Novo atirador</button></a>
+                    </div>
+                </div>
+
+            </section>
+        
+    </div>
