@@ -12,25 +12,33 @@ namespace TiroGuerra.Controllers
     public class GuarnicaoController:Controller
     {
 
-        private IAtiradorRepository repository;
+        private IAtiradorRepository atirador_repository;
+        private IInstrutorRepository instrutor_repository;
         private IGuarnicaoRepository guarnicaoRepository;
 
-        public GuarnicaoController(IAtiradorRepository repository,  IGuarnicaoRepository chamadaRepository) 
+
+        public GuarnicaoController(IAtiradorRepository atirador_repository,  IGuarnicaoRepository guarnicaoRepository, IInstrutorRepository instrutor_repository) 
         {
-            this.repository = repository;
-            this.guarnicaoRepository = chamadaRepository;
+            this.atirador_repository = atirador_repository;
+            this.guarnicaoRepository = guarnicaoRepository;
+            this.instrutor_repository = instrutor_repository;
         }
 
 
         [HttpGet]
         public ActionResult index()
         {
-            
-            List<Atirador> lista = new List<Atirador>();
 
-            var atiradores = repository.ReadAll();
+            var atiradores = atirador_repository.ReadAll();
+            var instrutores = instrutor_repository.ReadAll();
            
-            return View(atiradores);
+            ViewModel mymodel = new ViewModel();
+
+            mymodel.Instrutores = instrutores;
+            mymodel.Atiradores = atiradores; 
+
+
+            return View(mymodel);
             
         }
     }

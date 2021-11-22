@@ -127,6 +127,9 @@ document.querySelector('input[value=Limpar]').addEventListener('click',() =>
 //Recebe as informações dos sentinelas e dos outros membros da guarda
 document.querySelector('input[class=save]').addEventListener('click',() =>
 {
+
+    
+
     var select = document.getElementById('fiscal');
     var Fiscal = select.options[select.selectedIndex].value;
 
@@ -151,9 +154,6 @@ document.querySelector('input[class=save]').addEventListener('click',() =>
         nome: Cabo,
         funcao: 'Cabo'
     });
-    
-
-    console.log(atiradoresLista);
 
     let comandante;
     let fiscal;

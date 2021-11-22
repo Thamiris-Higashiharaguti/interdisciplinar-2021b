@@ -1,5 +1,4 @@
-@using TiroGuerra.Models
-@model List<Atirador>
+@using TiroGuerra.Models;
 @{
     ViewBag.Title = "Guarnição";
     ViewBag.css = "/css/guarnicao.css";
@@ -132,10 +131,6 @@
                     </tr>   
                 </tbody>
               </table>
-              
-              
-             
-           
         </div>
 
         <input class="btn-salvar" type="button" value="salvar">
@@ -153,36 +148,49 @@
                          <div class="modal-body">
                             <label for="fiscal" id="fiscal-dia">Fiscal de dia:</label>
                             <select name="fiscal" id="fiscal">
-                            
-                            @for(int i = 0; i < Model.Count;i++)
+                              
+                              @foreach (Instrutor instrutor in Model.Instrutores)
                             {
                                 
-                               <option value='@Model[i].Nome'>@Model[i].Nome</option>
-                            }
+                               <option value='@instrutor.Nome'>@instrutor.Nome</option>
+                            }  
+                                 
                             </select>
                             <br>
                              <label for="Comandante" id="comandante-dia">Comandante:</label>
                              <select name="comandante" id="comandante">
                                  
-                            @for(int i = 0; i < Model.Count;i++)
+                            @foreach (Atirador atirador in Model.Atiradores)
                             {
                                 
-                               <option value='@Model[i].Nome'>@Model[i].Nome</option>
+                               if(@atirador.Formacao == "Comandante")
+                                {
+                                    <option value='@atirador.Nome'>@atirador.Nome</option>
+                                }
                             }  
 
                              </select>
                              <br>
                              <label for="Cabo" id="cabo-dia">Cabo da guarda:</label>
                              <select name="cabo" id="cabo">
-                                     @for(int i = 0; i < Model.Count;i++)
-                                     {
-                                        <option value='@Model[i].Nome'>@Model[i].Nome</option>
-                                    }  
+                             @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                if(@atirador.Formacao == "Cabo")
+                                {
+                                    <option value='@atirador.Nome'>@atirador.Nome</option>
+                                }
+                            }   
                              </select>
                              <br>
                              <label for="sentinela" id="sentinela-dia">Sentinela:</label>
                              <select name="sentinela" id="sentinela">
-                                
+                              @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                if(@atirador.Formacao == "Sentinela")
+                                {
+                                    <option value='@atirador.Nome'>@atirador.Nome</option>
+                                }
+                            }   
 
                              </select>
                            
