@@ -15,13 +15,15 @@ namespace TiroGuerra.Controllers
         private IAtiradorRepository atirador_repository;
         private IInstrutorRepository instrutor_repository;
         private IGuarnicaoRepository guarnicaoRepository;
+        private IGuardaRepository guardaRepository;
 
 
-        public GuarnicaoController(IAtiradorRepository atirador_repository,  IGuarnicaoRepository guarnicaoRepository, IInstrutorRepository instrutor_repository) 
+        public GuarnicaoController(IAtiradorRepository atirador_repository,  IGuarnicaoRepository guarnicaoRepository, IInstrutorRepository instrutor_repository, IGuardaRepository guarda_repository) 
         {
             this.atirador_repository = atirador_repository;
             this.guarnicaoRepository = guarnicaoRepository;
             this.instrutor_repository = instrutor_repository;
+            this.guardaRepository = guarda_repository;
         }
 
 
@@ -40,6 +42,19 @@ namespace TiroGuerra.Controllers
 
             return View(mymodel);
             
+        }
+
+        [HttpPost]
+        public ActionResult create(List<Guarda> model)
+        {   
+            //receber id do atirador e função
+
+
+            Console.WriteLine(model.Count);
+            //chamar o create chamada com loop
+            //Guarnicao guarnicao = guarnicaoRepository.Create(model);
+
+             return RedirectToAction("Index", "Home");
         }
     }
 }
