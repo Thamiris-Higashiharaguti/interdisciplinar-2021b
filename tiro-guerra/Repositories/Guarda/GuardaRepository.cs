@@ -6,27 +6,12 @@ using System.Data;
 
 namespace TiroGuerra.Repositories
 {
-    public class GuarnicaoRepository: BDContext, IGuarnicaoRepository
+    public class GuardaRepository: BDContext, IGuardaRepository
     {
-        public Guarnicao Create(List<Guarda> model)
+        public void Create(Guarda model)
         {
             try
             {
-
-                //percorre os models
-                for(int i = 0; i < model.Count;i++)
-                {
-
-                     Console.WriteLine(model[i].IdAtirador);
-                     Console.WriteLine(model[i].Funcao);
-                }
-
-                //split a cada cria uma lista com os 7 dias da semana
-
-                //cria uma guarnição para cadas lista
-
-                //cadastra cada lista de guarda para uma guarnicao
-
                 /*
                 SqlCommand cmd= new SqlCommand();
                 cmd.Connection = connection;
@@ -43,28 +28,19 @@ namespace TiroGuerra.Repositories
                 cmd.ExecuteNonQuery();
                 */
                 
-                Guarnicao gua = new Guarnicao();
-
-                return gua;
-
-
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex);
-
-                 Guarnicao gua = new Guarnicao();
-
-                return gua;
             }
 
         }
-        public Guarnicao Read(int id)
+        public Guarda Read(int id)
         {
 
             return null;
         }
-        public void Update(int id, Guarnicao model)
+        public void Update(int id, Guarda model)
         {
             
 

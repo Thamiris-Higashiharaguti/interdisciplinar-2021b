@@ -6,8 +6,10 @@ namespace TiroGuerra.Repositories
 {
     public interface IGuarnicaoRepository
     {
-        void Create(Guarnicao model);
+        Guarnicao Create(List<Guarda> model);
+
         Guarnicao Read(int id);
+
         void Update(int id, Guarnicao model);
 
         void Delete(int id);

@@ -1,4 +1,5 @@
 @using TiroGuerra.Models;
+@using System.Linq
 @{
     ViewBag.Title = "Guarnição";
     ViewBag.css = "/css/guarnicao.css";
@@ -7,7 +8,7 @@
 
     <div class="content">
 
-        <form action="/guarnicao/create" method="POST">
+        <form method="POST" action="/guarnicao/create" >
             <div class="geral">
             
                 <table class="table">
@@ -39,9 +40,16 @@
                         <tr id="linha-fiscal">
                             <th scope="row">Fiscal de Dia</th>
                             <td class="campo">
-                                <input value="andre" type="text">
-                                <input value="fiscal" type="hidden">
-                                <input value="segunda" type="hidden">
+
+                                @foreach (Atirador atirador in Model.Atiradores)
+                                {
+                                <input name="IdAtirador" type="text" asp-for="@atirador.Id">
+                                <input  name="Formacao" type="hidden" asp-for="@atirador.Formacao">
+                                }  
+
+                                
+                                
+                               
                             </td>
                             <td class="campo">Vinicius</td>
                             <td class="campo">Vinicius</td>
