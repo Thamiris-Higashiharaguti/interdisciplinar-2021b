@@ -16,7 +16,7 @@ namespace TiroGuerra.Repositories
         // Construtor
         public BDContext()
         {
-            var strConnection = "Data Source = localhost; Integrated Security = False; User=sa; Password=teste123; Initial Catalog = BD_TiroGuerra";
+            var strConnection = "Data Source = Localhost; Integrated Security = False; User=sa; Password=teste123; Initial Catalog = BD_TiroGuerra";
             connection = new SqlConnection(strConnection);
             connection.Open();
             

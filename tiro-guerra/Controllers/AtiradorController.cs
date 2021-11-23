@@ -37,17 +37,17 @@ namespace TiroGuerra.Controllers
         public ActionResult Login(Atirador model)
         {
            // Console.WriteLine(model.CPF, model.Senha);
-            Atirador atirador = repository.Read(model.CPF, model.Senha);
+            Atirador atirador = repository.Read(model.Usuario.CPF, model.Usuario.Senha);
             if(atirador == null)
             {
                 Console.WriteLine("Usuário não encontrado.");
                 return View();
             }
 
-            HttpContext.Session.SetInt32("Id", (int)atirador.Id);   
-            HttpContext.Session.SetString("Nome", atirador.Nome); 
-            HttpContext.Session.SetString("CPF", atirador.CPF); 
-            HttpContext.Session.SetString("RG", atirador.RG); 
+            HttpContext.Session.SetInt32("Id", (int)atirador.Usuario.Id);   
+            HttpContext.Session.SetString("Nome", atirador.Usuario.Nome); 
+            HttpContext.Session.SetString("CPF", atirador.Usuario.CPF); 
+            HttpContext.Session.SetString("RG", atirador.Usuario.RG); 
             HttpContext.Session.SetString("Formacao", atirador.Formacao); 
             HttpContext.Session.SetString("RA", atirador.RA); 
             HttpContext.Session.SetString("Numero", atirador.Numero); 
@@ -127,7 +127,7 @@ namespace TiroGuerra.Controllers
             string data = diasemana + ", " + dia + " de " + mes + " de " + ano;*/
         
             
-            repository.Update(model.Id,model);
+            repository.Update(model.Usuario.Id,model);
             return RedirectToAction("Index", "Home");
         }
 

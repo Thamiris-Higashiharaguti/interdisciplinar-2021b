@@ -28,7 +28,7 @@ namespace TiroGuerra.Controllers
             var atiradores = repository.ReadAll();
             foreach(var i in atiradores){
                 lista.Add(new Chamada{
-                    IdAtirador = i.Id,
+                    IdAtirador = i.Usuario.Id,
                     Atirador = i,
                     Presenca = false
                     

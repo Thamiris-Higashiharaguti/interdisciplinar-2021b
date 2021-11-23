@@ -18,10 +18,10 @@ namespace TiroGuerra.Repositories
                 cmd.CommandText = "CREATE_INSTRUTOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@NOME", model.Nome);
-                cmd.Parameters.AddWithValue("@STATUS",model.Status);
-                cmd.Parameters.AddWithValue("@CPF",model.CPF);
-                cmd.Parameters.AddWithValue("@RG",model.RG);
+                cmd.Parameters.AddWithValue("@NOME", model.Usuario.Nome);
+                cmd.Parameters.AddWithValue("@STATUS",model.Usuario.Status);
+                cmd.Parameters.AddWithValue("@CPF",model.Usuario.CPF);
+                cmd.Parameters.AddWithValue("@RG",model.Usuario.RG);
                 cmd.Parameters.AddWithValue("@GRADUACAO",model.Graduacao);
                 cmd.Parameters.AddWithValue("@SENHA",model.Senha);
                 cmd.ExecuteNonQuery();
@@ -67,11 +67,11 @@ namespace TiroGuerra.Repositories
                 while(reader.Read()) 
                 {
                     Instrutor instrutor = new Instrutor();
-                    instrutor.Id = reader.GetInt32(0);
-                    instrutor.Nome = reader.GetString(1);
-                    instrutor.CPF = reader.GetString(2);
-                    instrutor.RG = reader.GetString(3);
-                    instrutor.Status = reader.GetBoolean(4);
+                    instrutor.Usuario.Id = reader.GetInt32(0);
+                    instrutor.Usuario.Nome = reader.GetString(1);
+                    instrutor.Usuario.CPF = reader.GetString(2);
+                    instrutor.Usuario.RG = reader.GetString(3);
+                    instrutor.Usuario.Status = reader.GetBoolean(4);
                     instrutor.Graduacao = reader.GetString(5);
 
                     lista.Add(instrutor);

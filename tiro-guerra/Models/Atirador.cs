@@ -4,12 +4,7 @@ namespace TiroGuerra.Models
     //atirador
     public class Atirador
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public string RG { get; set; }
-        public bool Status { get; set; } = true;
-        public string Senha { get; set; }
+        
         public int IdPelotao { get; set; }
         public string Formacao { get; set; }
         public string RA { get; set; }
@@ -19,6 +14,10 @@ namespace TiroGuerra.Models
 
         #region Foreign Key
             public Pelotao Pelotao { get; set; }
+        #endregion
+
+        #region Foreign Key
+            public Usuario Usuario { get; set; }
         #endregion
     }
 }
