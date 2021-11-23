@@ -44,7 +44,8 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "DELETE FROM TB_Atirador WHERE Id = @id";
+                cmd.CommandText = "DELETE_ATIRADOR";
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -63,14 +64,14 @@ namespace TiroGuerra.Repositories
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-
+                cmd.Parameters.Clear();
                 cmd.CommandText = "UPDATE_ATIRADOR";
+                cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Nome", model.Nome);
                 cmd.Parameters.AddWithValue("@CPF", model.CPF);
                 cmd.Parameters.AddWithValue("@RG", model.RG);
                 cmd.Parameters.AddWithValue("@Status", model.Status);
-                cmd.Parameters.AddWithValue("@Senha", model.Senha);
                 cmd.Parameters.AddWithValue("@Id_Pelotao", model.IdPelotao);
                 cmd.Parameters.AddWithValue("@Formacao", model.Formacao);
                 cmd.Parameters.AddWithValue("@RA", model.RA);
@@ -92,11 +93,15 @@ namespace TiroGuerra.Repositories
         {
             try {
                 List<Atirador> lista = new List<Atirador>();
+               
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome from TB_Atirador AS A INNER Join TB_Usuario AS U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao AS P ON A.Id_Pelotao = P.Id";
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome "+
+                "from TB_Atirador A "+
+                "INNER Join TB_Usuario U ON A.Id_Usuario = U.Id "+
+                "Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id";
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
@@ -120,6 +125,7 @@ namespace TiroGuerra.Repositories
                 }
 
                 return lista;
+                
             }catch(Exception ex) {
                 // Armazenar a exceção em um log.
                 throw new Exception(ex.Message);

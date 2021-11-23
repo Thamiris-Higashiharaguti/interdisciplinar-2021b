@@ -1,4 +1,8 @@
 
+body{
+    overflow-x: hidden;
+}
+
 .content {
     position: absolute;
     left: 0;
@@ -6,3 +10,190 @@
     z-index: 2;
     top: 10%;
     }
+
+    table{
+        width: 80%;
+        margin: 5% auto;
+        border: 2px;
+        border-color: black;
+        border-style: groove;
+    }
+
+    td,th{
+        text-align: center;
+        padding: 10px;
+        margin: 5px;
+        border: 1px;
+        border-color: black;
+        border-style: groove;
+
+    }
+
+    .dia:hover{
+        cursor: pointer;
+        background-color: coral;
+    }
+
+    .campo:hover{
+        cursor: pointer;
+        background-color: cadetblue;
+    }
+
+    .btn-salvar{
+        width: 150px;
+        height: 50px;
+        color: black;
+        background-color: transparent;
+        font-size: 22px;
+        margin: 0 50%;
+        border-radius: 20%;
+    }
+    .btn-salvar:hover{
+        background-color: lightslategray;
+    }
+
+
+    /*Modal dia da semana Inicio*/
+
+    .modal{
+        position: fixed;
+        padding: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        transform: scale(1.1);
+
+        
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility 0.25s ease-in-out,
+        transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+
+
+    }
+
+    .modal-content{
+        background-color: white;
+        padding: 16px 24px;
+        width: 500px;
+        height: 650px;
+        border-radius: 0.5rem;
+    }
+
+    .span-modal{
+        float: right;
+        width: 24px;
+        cursor: pointer;
+        background-color: lightgray;
+        text-align: center;
+        line-height: 24px;
+
+    }
+    .span-modal:hover{
+        background-color: darkgray;
+    }
+
+    .show-modal{
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+    }
+/* fim formatação do modal*/
+
+.modal-title{
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+#cabo-dia,#comandante-dia,#fiscal-dia{
+    font-size: 22px;
+    width: 100%;
+    margin: 10px auto;
+    display: block;
+    
+}
+
+#sentinela-dia{
+
+    font-size: 22px;
+    width: 50%;
+    text-align: center;
+    display: inline;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+select{
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+    font-size: 20px;
+    display: inline;
+}
+
+select#sentinela{
+    width: 50%;
+    margin: 5px auto;
+    text-align: center;
+    font-size: 20px;
+    display: inline;
+}
+
+input.adicionar{
+    width: 20%;
+    margin: 5px 10px 10px; 
+    font-size: 20px;
+}
+
+input#salvar,input#limpar, input#fechar{
+    width: 30%;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    display: inline;
+}
+
+
+.myList{
+    width: 100%;
+    height: 265px;
+    border: 1px;
+    border-style: groove;
+    border-color: gray;
+}
+
+ul{
+    text-decoration: none;
+    list-style: none;
+}
+li{
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+
+.item-lista,.span-item-lista{
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+.span-item-lista:hover{
+    cursor: pointer;
+}
+
+.linha-lista:hover{
+    background-color: lightgray;
+}
+
+.list-space{
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+}
