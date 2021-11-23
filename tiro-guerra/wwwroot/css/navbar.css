@@ -35,21 +35,20 @@ img.rede-social{
 }
 
 /* Estilização Navbar*/
-a{
+.nav-list a{
     color: #fff;
     text-decoration: none;
     transition: 0.3s;
     padding: 5px;
 }
 
-a:hover{
+.nav-list a:hover{
     color: black;
     background-color: white;
     border-radius: 20%;
     padding: 5px;
     text-decoration: none;
     font-weight: 500;
-    
 }
 
 ul{

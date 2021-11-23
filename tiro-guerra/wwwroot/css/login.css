@@ -69,6 +69,7 @@ label.titulo-cidade
 
 .btn-salvar:hover{
     opacity: 0.9;
+    cursor:pointer;
 }
 
 
@@ -168,10 +169,9 @@ header{
 
 
     .btn-salvar{
-    margin-right: 0;
-    width: 150px;
-    margin-top: 0;
-
+        margin-right: 0;
+        width: 150px;
+        margin-top: 0;
     }
 
     /* aumenta area de click */
@@ -194,4 +194,31 @@ header{
         margin:0 20%;
     }
  
+}
+
+.btn-group{
+    margin-top: 2%;
+}
+
+.btn-group #atirador{
+    margin-right: 100px;
+}
+
+.btn-group button:hover {
+    border-bottom: 2px solid white;
+  }
+
+.btn-group button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    color: white;
+    font-size: 20px;
+}
+
+.btn.active
+{
+    border-bottom: 2px solid white;
 }
