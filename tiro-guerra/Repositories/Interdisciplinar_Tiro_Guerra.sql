@@ -14,6 +14,7 @@ CREATE TABLE TB_Usuario
 	CPF			VARCHAR(11)		NOT NULL	UNIQUE,
 	RG			VARCHAR(11)		NOT NULL	UNIQUE,
 	Senha		VARCHAR(100)	NOT NULL,
+	Email       VARCHAR(200)    NOT NULL    UNIQUE,
 )
 GO
 
@@ -103,9 +104,6 @@ CREATE PROCEDURE CREATE_ATIRADOR(
 END
 GO
 
-
---exec CREATE_ATIRADOR 'Andre','478524','85787',1,'senha',1,'Comandante','123466','01';
-
 CREATE VIEW SEARCH_ATIRADORES
 AS
 select * from TB_Usuario us, TB_Atirador at where us.Id=at.Id_Usuario
@@ -152,4 +150,5 @@ insert into TB_Pelotao(Nome,Ano) values('Vermelho','2018');
 
 select * from TB_Pelotao
 select * from SEARCH_ATIRADORES;
+
 

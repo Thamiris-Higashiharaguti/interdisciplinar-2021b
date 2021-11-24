@@ -4,15 +4,11 @@ using TiroGuerra.Models;
 
 namespace TiroGuerra.Repositories
 {
-    public interface IAtiradorRepository
+    public interface IUsuarioRepository
     {
-        void Create(Atirador model);
-        List<Atirador> ReadAll();
-        Atirador Read(int id);
-        Atirador Read(string CPF, string RA);
 
-        void Update(int id, Atirador model);
-        void Delete(int id);
+        Usuario Read(string CPF, string Senha);
+
 
     }
 }

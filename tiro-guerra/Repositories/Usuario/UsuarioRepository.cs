@@ -8,40 +8,36 @@ namespace TiroGuerra.Repositories
 {
     public class UsuarioRepository : BDContext, IUsuarioRepository
     {
-        public Atirador Read(string CPF, string Senha)
+        public Usuario Read(string CPF, string Senha)
         {
             try 
             {
-                //Console.WriteLine(CPF);
-                Atirador atirador = new Atirador();
+                Usuario usuario = new Usuario();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "";
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, A.Formacao, A.RA, " 
+                +"A.Numero, P.Nome Pelotao "
+                +"FROM TB_Atirador A "
+                +"INNER JOIN TB_Usuario  U ON (A.Id_Usuario = U.Id) "
+                +"INNER JOIN TB_Pelotao P ON (A.Id_Pelotao = P.Id) "
+                +"Where U.CPF = @CPF AND U.Senha = @Senha";
 
                 cmd.Parameters.AddWithValue("@CPF", CPF);
                 cmd.Parameters.AddWithValue("@Senha", Senha);
-                
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if(reader.Read()) 
+                if(reader.Read())
                 {
                     
-                    atirador.Id = reader.GetInt32(0);
-                    atirador.Nome = reader.GetString(1);
-                    atirador.CPF = reader.GetString(2);
-                    atirador.RG = reader.GetString(3);
-                    atirador.Formacao = reader.GetString(4);
-                    atirador.RA = reader.GetString(5);
-                    atirador.Numero = reader.GetString(6);
+                    usuario.Id = reader.GetInt32(0);
+                    usuario.Nome = reader.GetString(1);
+                    usuario.CPF = reader.GetString(2);
+                    usuario.RG = reader.GetString(3);
                     
-
-                    atirador.Pelotao = new Pelotao {
-                        Nome = reader.GetString(7)
-                    };
-
-                    return atirador;
+                    Console.WriteLine(usuario);
+                    return usuario;
                 }
 
                 return null;
@@ -50,7 +46,7 @@ namespace TiroGuerra.Repositories
             catch(Exception ex) 
             {
                 Console.WriteLine(ex.Message);
-                throw new Exception("Usuário não encontrada.");
+                throw new Exception("Erro na operação.");
             }
             finally {
                 Dispose();

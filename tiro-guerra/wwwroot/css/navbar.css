@@ -38,16 +38,13 @@ img.rede-social{
 .nav-list a{
     color: #fff;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.15s;
     padding: 5px;
 }
 
 .nav-list a:hover{
-    color: black;
-    background-color: white;
-    border-radius: 20%;
+    border-bottom: 2px solid white;
     padding: 5px;
-    text-decoration: none;
     font-weight: 500;
 }
 
@@ -59,18 +56,23 @@ ul{
     height: 50px;
 }
 
+.logo {
+    margin-inline-start: 10%;
+}
+
+
 .perfil img{
     height: 35px;
 }
 
 nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     position: fixed;
     align-items: center;
     background: black;
-    height: 8%;
+    height: 10%;
     z-index: 3;
 }
 
@@ -81,12 +83,13 @@ nav{
 .nav-list {
     list-style: none;
     display: flex;
+    margin-inline-end: 10%;
 }
 
 .nav-list li{
     letter-spacing: 3px;
     margin-left: 50px;
-   /* margin-top: 10%;*/
+   
 }
 
 .mobile-menu{
