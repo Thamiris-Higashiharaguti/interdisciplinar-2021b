@@ -99,5 +99,11 @@ namespace TiroGuerra.Controllers
             ViewBag.atirador = repository.Read(id);
             return View("Fatd");
         }
+
+        [HttpGet]
+        public ActionResult Guarda()
+        {
+            return RedirectToAction("escalaGuarda","Guarnicao");
+        }
     }
 }

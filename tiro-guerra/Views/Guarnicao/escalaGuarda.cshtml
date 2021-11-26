@@ -1,0 +1,117 @@
+@using TiroGuerra.Models;
+@using System.Linq
+
+@{
+    ViewBag.Title = "Guarnição Create";
+    ViewBag.css = "/css/guarnicao.css";
+}
+
+
+    <div class="content">
+            <div class="geral">
+            
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+
+                        <th scope="col">Outubro</th>
+                        <th scope="col" class="date">11/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">12/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">13/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">14/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">15/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">16/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">17/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        </tr>
+                    </thead>
+
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Função</th>
+                        <th class="dia">Domingo</button></th>
+                        <th class="dia">Segunda-Feira</button></th>
+                        <th class="dia">Terça-Feira</button></th>
+                        <th class="dia">Quarta-Feira</button></th>
+                        <th class="dia">Quinta-Feira</button></th>
+                        <th class="dia">Sexta-Feira</button></th>
+                        <th class="dia">Sabado</button></th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Fiscal</th>
+                            @for(int i =0; i<7; i++)
+                            {
+                                <td><label name="nome">@Model.Guarnicoes[i].Instrutor.Nome</label></td>
+                            }
+                        </tr>
+
+                        <tr>
+                            <th>Comandantes</th>
+                            @for(int i =0; i<7; i++)
+                            {
+                                <td><label name="nome">@Model.Comandantes[i].Nome</label></td>
+                            }
+                        </tr>
+
+                        <tr>
+                            <th>Cabos</th>
+                            @for(int i =0; i<7; i++)
+                            {
+                                <td><label name="nome">@Model.Cabos[i].Nome</label></td>
+                            }
+                        </tr>
+
+                        <tr>
+                            @for(int i = 0; i<6; i++)
+                            {   <tr>
+                                    <th>Sentinela @i</th>
+                                    @for(int v =i; v<42; v=v+6)
+                                    {
+                                        <td><label name="nome">@Model.Sentinelas[v].Nome</label></td>
+                                    }
+                                </tr>
+                            }
+                           
+                        </tr>
+
+                    
+
+                   
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal" id="modal">
+            
+                <div class="modal-content">
+
+                         <span class="span-modal" onclick="disposeModal()">&times;</span>
+
+                         <div class="modal-header">
+                             <h4 class="modal-title">Formulário de Registro de Problema</h4>
+                         </div>
+
+                         <div class="modal-body">
+                            <label for="Problema" id="prob">Digite seu problema com a escala atual</label>
+                           <textarea>
+
+                           </textarea>
+ 
+                         </div>
+
+                         <div class="modal-footer">
+                            <input type="submit" class="save" value="Enviar" id="Enviar">
+                            <input type="submit" class="close" value="Fechar" id="fechar" onclick="disposeModal()">
+                        </div>
+               </div>
+             
+            </div>
+
+        
+
+            <input class="btn-problem" value="Relatar Problema" onclick="showModal()">
+
+        <script src="/js/ModalGuarda.js"></script>
+    </div>

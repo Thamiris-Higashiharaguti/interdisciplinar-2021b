@@ -154,7 +154,6 @@ document.querySelector('input[class=save]').addEventListener('click',() =>
 
     linhaFiscaisSemana[index].innerHTML =`
     <input name="idfiscal" type="hidden" value="`+FiscalId+`"> 
-    <input name="Funcao" type="hidden" value="Fiscal">
     <label name="nome">`+fiscalName+`</label> 
     `;
 

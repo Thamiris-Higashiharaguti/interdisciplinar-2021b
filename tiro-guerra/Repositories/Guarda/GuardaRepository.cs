@@ -24,13 +24,11 @@ namespace TiroGuerra.Repositories
                 // 5 12 19 26 33 40 47 54
                 // 6 13 20 27 34 41 48 55
 
-
                 for(int i = 0; i<=6; i++)
                 {
-                     Console.WriteLine("Indice i "+i);
+                 
                     for(int v = i; v<56; v = v +7)
                     {
-                        Console.WriteLine("Indice v "+v);
                         cmd.Parameters.Clear();
                         cmd.CommandText = "CREATE_GUARDA";
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -41,9 +39,8 @@ namespace TiroGuerra.Repositories
                         cmd.Parameters.AddWithValue("@Funcao",Guardas[v].Funcao);
 
                         cmd.ExecuteNonQuery();
-                        
                     }
-                    Console.WriteLine("-----------------");
+                  
                 }
 
             }
@@ -53,11 +50,41 @@ namespace TiroGuerra.Repositories
             }
 
         }
-        public Guarda Read(int id)
+        public List<Guarda> Read(DateTime domingo, DateTime sabado)
         {
+            List<Guarda> Guardas = new List<Guarda>();
+            SqlDataReader reader;
 
-            return null;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+
+            cmd.CommandText = "SEARCH_GUARDAS";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@domingo", domingo);
+            cmd.Parameters.AddWithValue("@sabado", sabado);
+
+                reader = cmd.ExecuteReader();
+
+           
+
+            while(reader.Read()){
+
+                Atirador atirador = new Atirador();
+                atirador.Nome = reader.GetString(1); 
+
+                Guardas.Add(new Guarda{
+                    IdAtirador =reader.GetInt32(0),
+                    IdGuarnicao = reader.GetInt32(2),
+                    Funcao =  reader.GetString(3),
+                    Atirador = atirador
+                   
+                    });
+            }
+
+            return Guardas;
         }
+
         public void Update(int id, Guarda model)
         {
             

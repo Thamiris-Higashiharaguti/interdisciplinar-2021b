@@ -73,15 +73,85 @@ namespace TiroGuerra.Controllers
    
             Guarnicoes=guarnicaoRepository.Create(idfiscal, dataDia);
 
-            for(int i =0; i<Guardas.Count; i++)
-            {
-                Console.WriteLine(Guardas[i].IdAtirador);
-            }
-
-
             guardaRepository.Create(Guardas,Guarnicoes);
 
              return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+
+        public ActionResult escalaGuarda()
+        {
+
+            DateTime dateNow = DateTime.Today;
+            DateTime sabado = new DateTime();
+            DateTime domingo = new DateTime();
+
+            while (true)
+            {
+                if(dateNow.DayOfWeek==DayOfWeek.Sunday)
+                {
+                  
+                    domingo = dateNow;
+                    break;
+                }
+                else
+                {
+                    dateNow = dateNow.AddDays(-1);
+                }
+                 
+            }
+            
+            sabado = domingo.AddDays(6);
+
+            List<Guarda> Guardas =  new List<Guarda>();
+            Guardas = guardaRepository.Read(domingo,sabado);
+
+            List<Guarnicao> Guarnicoes = new List<Guarnicao>();
+            Guarnicoes = guarnicaoRepository.Read(domingo,sabado);
+
+
+            Console.WriteLine(Guardas.Count());
+            List<Atirador> Cabos = new List<Atirador>();
+            List<Atirador> Comandantes = new List<Atirador>();
+            List<Atirador> Sentinelas = new List<Atirador>();
+
+
+            //Console.WriteLine(Guardas[0].IdAtirador)
+            for(int i =0; i<Guardas.Count; i++)
+            {   
+               if(Guardas[i].Funcao=="Cabo")
+               {
+                   Cabos.Add(new Atirador{
+                       Id = Guardas[i].IdAtirador,
+                       Nome = Guardas[i].Atirador.Nome
+                   });
+
+               }
+               
+             else if(Guardas[i].Funcao=="Comandante")
+               {
+                   Comandantes.Add(new Atirador{
+                       Id = Guardas[i].IdAtirador,
+                       Nome = Guardas[i].Atirador.Nome
+                   });
+                   
+               }
+               else{
+                    Sentinelas.Add(new Atirador{
+                       Id = Guardas[i].IdAtirador,
+                       Nome = Guardas[i].Atirador.Nome
+                   });
+               } 
+                
+            }
+            ViewModel mymodel = new ViewModel();
+            mymodel.Cabos = Cabos;
+            mymodel.Comandantes = Comandantes;
+            mymodel.Sentinelas = Sentinelas; 
+            mymodel.Guarnicoes = Guarnicoes; 
+
+            return View(mymodel);
         }
     }
 }

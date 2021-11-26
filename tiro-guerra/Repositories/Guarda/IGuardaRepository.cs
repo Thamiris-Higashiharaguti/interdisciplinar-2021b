@@ -8,7 +8,7 @@ namespace TiroGuerra.Repositories
     {
         void Create(List<Guarda> guardas, List<Guarnicao> guarnicoes);
 
-        Guarda Read(int id);
+        List<Guarda> Read(DateTime domingo, DateTime sabado);
 
         void Update(int id, Guarda model);
 

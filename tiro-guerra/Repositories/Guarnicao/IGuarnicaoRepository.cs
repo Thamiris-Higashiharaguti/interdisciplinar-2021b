@@ -8,7 +8,7 @@ namespace TiroGuerra.Repositories
     {
         List<Guarnicao> Create(List<int> idfiscal, List<DateTime> dias);
 
-        Guarnicao Read(int id);
+        List<Guarnicao> Read(DateTime domingo, DateTime sabado);
 
         void Update(int id, Guarnicao model);
 
