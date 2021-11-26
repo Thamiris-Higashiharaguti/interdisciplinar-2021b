@@ -46,15 +46,15 @@ namespace TiroGuerra.Controllers
 
         }
 
-        public void Email(string emailDestinatario){
+        public void EmailAtirador(string emailDestinatario){
 
             try
             {
                 MailMessage mailMessage = new MailMessage("adm.tg02033sjrp@gmail.com", emailDestinatario);
 
-                mailMessage.Subject = "Justificativa de Falta";
-                mailMessage.IsBodyHtml = true;
-                mailMessage.Body = "<p> Foi registrada uma falta para você. </p>";
+                mailMessage.Subject = "Justificativa de Falta"; //Título
+                mailMessage.IsBodyHtml = true; //Define que é HTML
+                mailMessage.Body = "<p> Foi registrada uma falta para você. </p>"; //Corpo da Mensagem
                 mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
                 mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
 
@@ -67,13 +67,11 @@ namespace TiroGuerra.Controllers
 
                 smtpClient.Send(mailMessage);
 
-                Console.WriteLine("Seu email foi enviado com sucesso! :)");
-                Console.ReadLine();
+                Console.WriteLine("Seu email foi enviado com sucesso");
             }
             catch (Exception)
             {
-                Console.WriteLine("Houve um erro no envio do email :(");
-                Console.ReadLine();
+                Console.WriteLine("Houve um erro no envio do email");
             }
         }
     }
