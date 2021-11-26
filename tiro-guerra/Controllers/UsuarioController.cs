@@ -14,6 +14,7 @@ namespace TiroGuerra.Controllers
     public class UsuarioController:Controller
     {
         private IUsuarioRepository repository;
+
         private IInstrutorRepository Instrutorrepository;
         private IAtiradorRepository Atiradorrepository;
 
@@ -38,6 +39,7 @@ namespace TiroGuerra.Controllers
                 Console.WriteLine("Usuário não encontrado.");
                 return View();
             }
+
 
 
             try{
@@ -82,6 +84,7 @@ namespace TiroGuerra.Controllers
                 return View();
 
             }   
+
         } 
     }
 }

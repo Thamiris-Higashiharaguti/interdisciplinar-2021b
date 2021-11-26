@@ -16,7 +16,9 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
+
                 cmd.CommandText = "SELECT Id, Nome, CPF, RG, Email FROM TB_Usuario Where CPF = @CPF AND Senha = @Senha";
+
 
                 cmd.Parameters.AddWithValue("@CPF", CPF);
                 cmd.Parameters.AddWithValue("@Senha", Senha);
@@ -30,8 +32,9 @@ namespace TiroGuerra.Repositories
                     usuario.Nome = reader.GetString(1);
                     usuario.CPF = reader.GetString(2);
                     usuario.RG = reader.GetString(3);
+
                     usuario.Email = reader.GetString(4);
-                    Console.WriteLine(usuario);
+
                     return usuario;
                 }
 
