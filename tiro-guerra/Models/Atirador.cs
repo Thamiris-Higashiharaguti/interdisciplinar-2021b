@@ -2,7 +2,7 @@ using System;
 namespace TiroGuerra.Models
 {
     //atirador
-    public class Atirador
+    public class Atirador : Usuario
     {
         
         public int IdPelotao { get; set; }

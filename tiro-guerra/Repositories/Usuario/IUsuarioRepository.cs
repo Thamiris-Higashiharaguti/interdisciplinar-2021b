@@ -6,8 +6,8 @@ namespace TiroGuerra.Repositories
 {
     public interface IUsuarioRepository
     {
- 
-        Atirador Read(string CPF, string RA);
+
+        Usuario Read(string CPF, string Senha);
 
 
     }

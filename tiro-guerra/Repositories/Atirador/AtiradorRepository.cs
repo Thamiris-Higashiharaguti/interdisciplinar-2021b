@@ -145,8 +145,9 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, P.Nome from TB_Atirador AS A INNER Join TB_Usuario AS U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao AS P ON A.Id_Pelotao = P.Id WHERE U.id = @id";
-
+                cmd.CommandText = "SEARCH_ATIRADOR";
+                cmd.CommandType = CommandType.StoredProcedure;
+                
                 cmd.Parameters.AddWithValue("@id", id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -154,11 +155,11 @@ namespace TiroGuerra.Repositories
                 if(reader.Read()) 
                 {
                     Atirador atirador = new Atirador();
-                    atirador.Usuario.Id = reader.GetInt32(0);
-                    atirador.Usuario.Nome = reader.GetString(1);
-                    atirador.Usuario.CPF = reader.GetString(2);
-                    atirador.Usuario.RG = reader.GetString(3);
-                    atirador.Usuario.Status = reader.GetBoolean(4);
+                    atirador.Id = reader.GetInt32(0);
+                    atirador.Nome = reader.GetString(1);
+                    atirador.CPF = reader.GetString(2);
+                    atirador.RG = reader.GetString(3);
+                    atirador.Email = reader.GetString(4);
                     atirador.Formacao = reader.GetString(5);
                     atirador.RA = reader.GetString(6);
                     atirador.Numero = reader.GetString(7);
@@ -189,7 +190,6 @@ namespace TiroGuerra.Repositories
         {
             try 
             {
-                //Console.WriteLine(CPF);
                 Atirador atirador = new Atirador();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;

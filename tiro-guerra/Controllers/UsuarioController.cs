@@ -14,50 +14,74 @@ namespace TiroGuerra.Controllers
     public class UsuarioController:Controller
     {
         private IUsuarioRepository repository;
+        private IInstrutorRepository Instrutorrepository;
+        private IAtiradorRepository Atiradorrepository;
 
-        public UsuarioController(IUsuarioRepository repository) 
+        public UsuarioController(IUsuarioRepository repository,IInstrutorRepository Instrutorrepository,IAtiradorRepository Atiradorrepository) 
         {
             this.repository = repository;
-            
+            this.Instrutorrepository = Instrutorrepository;
+            this.Atiradorrepository = Atiradorrepository;
         }
 
-
-       
-
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult login()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Atirador model)
+        public ActionResult Login(Usuario model)
         {
-           // Console.WriteLine(model.CPF, model.Senha);
-            Console.WriteLine(model.Usuario.CPF);
-            Console.WriteLine(model.Usuario.Senha);
-            Atirador atirador = repository.Read(model.Usuario.CPF, model.Usuario.Senha);
-            if(atirador == null)
+            Usuario usuario = repository.Read(model.CPF, model.Senha);
+            if(usuario == null)
             {
                 Console.WriteLine("Usuário não encontrado.");
                 return View();
             }
 
-            HttpContext.Session.SetInt32("Id", (int)atirador.Usuario.Id);   
-            HttpContext.Session.SetString("Nome", atirador.Usuario.Nome); 
-            HttpContext.Session.SetString("CPF", atirador.Usuario.CPF); 
-            HttpContext.Session.SetString("RG", atirador.Usuario.RG); 
-            HttpContext.Session.SetString("Formacao", atirador.Formacao); 
-            HttpContext.Session.SetString("RA", atirador.RA); 
-            HttpContext.Session.SetString("Numero", atirador.Numero); 
-            HttpContext.Session.SetString("Pelotao", atirador.Pelotao.Nome);
-             
-            ViewBag.atirador = atirador;
 
-            return RedirectToAction("Index", "Home");
+            try{
+                
+                try{
+                    Instrutor instrutor = Instrutorrepository.Read(usuario.Id);
+                
+                    if(instrutor == null)
+                    {
+                        Console.WriteLine("Usuário não encontrado.");
+                    }else{
+                        HttpContext.Session.SetInt32("Id", (int)instrutor.Id); 
+                        HttpContext.Session.SetString("Nome", instrutor.Nome); 
+                        HttpContext.Session.SetString("CPF", instrutor.CPF); 
+                        HttpContext.Session.SetString("RG", instrutor.RG); 
+                        HttpContext.Session.SetString("Email", instrutor.Email); 
+                        HttpContext.Session.SetString("Graduacao", instrutor.Graduacao); 
+                        return RedirectToAction("Index", "Home");
+                    }
+                }catch{
+                    Atirador atirador = Atiradorrepository.Read(usuario.Id);
+                    if(atirador == null)
+                    {
+                        Console.WriteLine("Usuário não encontrado.");
+                        return View();
+                    }else{
+                        HttpContext.Session.SetInt32("Id", (int)atirador.Id); 
+                        HttpContext.Session.SetString("Nome", atirador.Nome); 
+                        HttpContext.Session.SetString("CPF", atirador.CPF); 
+                        HttpContext.Session.SetString("RG", atirador.RG); 
+                        HttpContext.Session.SetString("Email", atirador.Email); 
+                        HttpContext.Session.SetString("Formacao", atirador.Formacao);
+                        HttpContext.Session.SetString("RA", atirador.RA);
+                        HttpContext.Session.SetString("Numero", atirador.Numero);
+                        HttpContext.Session.SetString("Pelotao", atirador.Pelotao.Nome);
+                        
+                    }
+                }
 
+                return RedirectToAction("Index", "Home");
+            }catch{
+                return View();
+
+            }   
         } 
-
-
-        
     }
 }

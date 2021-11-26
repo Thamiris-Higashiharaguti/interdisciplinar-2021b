@@ -1,0 +1,64 @@
+@using TiroGuerra.Models
+@{
+    ViewBag.Title = "Login";
+    ViewBag.css = "/css/login.css";
+}
+
+ <div class="background-image"></div>
+    
+<div class="content">
+
+    <form method="POST" action="/usuario/login">
+
+        <section class="flex-row">
+            <div class="col-wd-50">
+
+                <label class="title">Login</label>
+
+                <!--<div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="active btn btn-default" id="atirador" onclick="ativaBotao('atirador')">Atirador</button>
+                    <button type="button" class="btn btn-default" id="instrutor" onclick="ativaBotao('instrutor')">Instrutor</button>
+                </div>-->
+
+                <label for="textoCPF" class="cred">CPF do Usuário:</label>
+                <input type="text" name="CPF" placeholder="Insira o CPF" required> 
+
+                <label for="textoCPF" class="cred">Senha:</label>
+                <input type="password" name="Senha" placeholder="Insira a senha" required="true">
+                
+                <a href="#" class="rem" style="margin-left:auto; margin-top:5%; color:white;">Esqueci minha senha</a>
+                
+                <div class="caixa-botao">
+                    <button class="btn-salvar" name="enviar">Entrar</button>
+                </div>
+
+            </div>
+
+            <div class="col-wd-50">
+
+                <div class="caixa-titulos">
+                    <label class="titulo-tg"> TG 02-033</label>
+                    <label class="titulo-cidade"> São José do Rio Preto</label>
+                </div>
+            </div>
+        </section>
+
+    </form>
+</div>
+
+<!--
+<script>
+    function ativaBotao(id) {
+        if(id == 'atirador') {
+            document.getElementById('atirador').classList.add('active');
+            document.getElementById('instrutor').classList.remove('active');
+            document.getElementById("enviar").value = "atirador";
+        }
+        else{
+            document.getElementById('atirador').classList.remove('active');
+            document.getElementById('instrutor').classList.add('active');
+            document.getElementById("enviar").value = "instrutor";
+        }
+    }
+     
+</script>-->

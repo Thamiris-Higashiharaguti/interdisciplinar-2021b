@@ -14,6 +14,7 @@ CREATE TABLE TB_Usuario
 	CPF			VARCHAR(11)		NOT NULL	UNIQUE,
 	RG			VARCHAR(11)		NOT NULL	UNIQUE,
 	Senha		VARCHAR(100)	NOT NULL,
+	Email       VARCHAR(200)    NOT NULL    UNIQUE,
 )
 GO
 
@@ -103,9 +104,6 @@ CREATE PROCEDURE CREATE_ATIRADOR(
 END
 GO
 
-
---exec CREATE_ATIRADOR 'Andre','478524','85787',1,'senha',1,'Comandante','123466','01';
-
 CREATE VIEW SEARCH_ATIRADORES
 AS
 select * from TB_Usuario us, TB_Atirador at where us.Id=at.Id_Usuario
@@ -154,46 +152,3 @@ select * from TB_Pelotao
 select * from SEARCH_ATIRADORES;
 
 
-create procedure CREATE_GUARNICAO
-(
-	@Id_Instrutor varchar(100),
-	@data DATE
-)AS BEGIN
-	insert into TB_Guarnicao(@Id_Instrutor,@data)
-
-end
-
-CREATE PROCEDURE UPDATE_ATIRADOR
-(
-	@Nome varchar(100),
-	@CPF Varchar(15),
-	@RG varchar(100),
-	@Status BIT,
-	@Id_Pelotao int,
-	@Formacao Varchar(30),
-	@RA varchar(15),
-	@Numero Varchar(15),
-	@id int
-) AS BEGIN
-	UPDATE TB_Usuario SET Nome=@Nome, CPF=@CPF, RG=@RG, Status=@Status WHERE Id = @id;
-	UPDATE TB_Atirador SET Formacao=@Formacao, RA=@RA, Numero=@Numero WHERE Id_Usuario = @id;
-    
-END
-go
-
-
-CREATE PROCEDURE SEARCH_ATIRADOR_LOGIN
-(
-	@CPF Varchar(15),
-	@Senha varchar(100)
-) AS BEGIN
-	SELECT U.id, U.Nome, U.CPF, U.RG,A.Formacao, A.RA, A.Numero, P.Nome FROM TB_Atirador A INNER JOIN TB_Usuario  U ON (A.Id_Usuario = U.Id) INNER JOIN TB_Pelotao P ON (A.Id_Pelotao = P.Id) Where U.CPF = @CPF AND U.Senha = @Senha;
-
-END
-go
-EXEC '13245678912','123';
-
-
-UPDATE TB_Chamada SET Id_Responsavel=@Id_Responsavel, Presenca=@Presenca
-FROM TB_Chamada as C inner join TB_Instrucao as I on C.Id_Instrucao = I.Id
-WHERE i.Data = @data and Id_Atirador=@Id_Atirador;

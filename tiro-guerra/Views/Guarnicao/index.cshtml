@@ -46,10 +46,7 @@
                                 <input name="IdAtirador" type="text" asp-for="@atirador.Usuario.Id">
                                 <input  name="Formacao" type="hidden" asp-for="@atirador.Formacao">
                                 }  
-
                                 
-                                
-                               
                             </td>
                             <td class="campo">Vinicius</td>
                             <td class="campo">Vinicius</td>
@@ -167,7 +164,7 @@
                               @foreach (Instrutor instrutor in Model.Instrutores)
                             {
                                 
-                               <option value='@instrutor.Usuario.Nome'>@instrutor.Usuario.Nome</option>
+                               <option value='@instrutor.Nome'>@instrutor.Nome</option>
                             }  
                                  
                             </select>
@@ -233,12 +230,7 @@
                             <input type="submit" class="close" value="Limpar" id="limpar">
                             <input type="submit" class="close" value="Fechar" id="fechar" onclick="disposeModal()">
                         </div>
-                       
-                   
-
-
-               
-             
+                        
             </div>
 
         </div>
