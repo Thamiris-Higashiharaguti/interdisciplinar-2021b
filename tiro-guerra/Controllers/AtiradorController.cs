@@ -27,9 +27,7 @@ namespace TiroGuerra.Controllers
             return View();
         }
 
-        
-
-
+    
         [HttpGet]
         public ActionResult Create()
         {   

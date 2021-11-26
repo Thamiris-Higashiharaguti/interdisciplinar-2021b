@@ -6,7 +6,9 @@ using TiroGuerra.Models;
 using System.Linq;
 using TiroGuerra.Repositories;
 using TiroGuerra.Controllers;
-
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 
 namespace TiroGuerra.Controllers
 {
@@ -42,6 +44,37 @@ namespace TiroGuerra.Controllers
 
             return RedirectToAction("Index", "Home");
 
-        } 
+        }
+
+        public void Email(string emailDestinatario){
+
+            try
+            {
+                MailMessage mailMessage = new MailMessage("adm.tg02033sjrp@gmail.com", emailDestinatario);
+
+                mailMessage.Subject = "Justificativa de Falta";
+                mailMessage.IsBodyHtml = true;
+                mailMessage.Body = "<p> Foi registrada uma falta para você. </p>";
+                mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
+                mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("adm.tg02033sjrp@gmail.com", "tg@123456");
+
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Send(mailMessage);
+
+                Console.WriteLine("Seu email foi enviado com sucesso! :)");
+                Console.ReadLine();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Houve um erro no envio do email :(");
+                Console.ReadLine();
+            }
+        }
     }
 }
