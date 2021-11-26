@@ -69,7 +69,8 @@ document.querySelector('input[value=Adicionar]').addEventListener('click',() =>
 {
    
     var select = document.getElementById('sentinela');
-    var value = select.options[select.selectedIndex].value;
+    var value = select.options[select.selectedIndex].text;
+    var valueId = select.options[select.selectedIndex].value;
 
     if(atiradores.length < 6)
     {
@@ -77,6 +78,7 @@ document.querySelector('input[value=Adicionar]').addEventListener('click',() =>
         atiradores.push(value)
     
         atiradoresLista.push({
+            id:valueId,
             nome: value,
             funcao: 'Sentinela'
         });
@@ -131,57 +133,16 @@ document.querySelector('input[class=save]').addEventListener('click',() =>
     
 
     var select = document.getElementById('fiscal');
-    var Fiscal = select.options[select.selectedIndex].value;
+    var FiscalId = select.options[select.selectedIndex].value;
+    var fiscalName = select.options[select.selectedIndex].text;
 
     var select = document.getElementById('comandante');
-    var Comandante = select.options[select.selectedIndex].value;
+    var ComandanteId = select.options[select.selectedIndex].value;
+    var ComandanteName = select.options[select.selectedIndex].text;
 
     var select = document.getElementById('cabo');
-    var Cabo = select.options[select.selectedIndex].value;
-
-
-    atiradoresLista.push({
-        nome: Fiscal,
-        funcao: 'Fiscal'
-    });
-
-    atiradoresLista.push({
-        nome: Comandante,
-        funcao: 'Comandante'
-    });
-
-    atiradoresLista.push({
-        nome: Cabo,
-        funcao: 'Cabo'
-    });
-
-    let comandante;
-    let fiscal;
-    let cabo;
-    let sentinelas = [];
-
-    atiradoresLista.forEach(function (item, indice, array)
-     {
-         if(item.funcao == "Fiscal")
-         {
-             fiscal = item.nome;
-         }
-
-         if(item.funcao == "Comandante")
-         {
-             comandante = item.nome;
-         }
-
-         if(item.funcao == "Cabo")
-         {
-             cabo = item.nome;
-         }
-
-         if(item.funcao =="Sentinela"){
-            sentinelas.push(item.nome);
-         }
-         
-    });
+    var CaboID = select.options[select.selectedIndex].value;
+    var CaboName = select.options[select.selectedIndex].text;
 
     console.log(atiradoresLista);
       
@@ -191,22 +152,39 @@ document.querySelector('input[class=save]').addEventListener('click',() =>
     let linhaComandantesSemana = document.querySelectorAll('#linha-comandante td');
     let linhaCabosSemana = document.querySelectorAll('#linha-cabo td');
 
+    linhaFiscaisSemana[index].innerHTML =`
+    <input name="idfiscal" type="hidden" value="`+FiscalId+`"> 
+    <input name="Funcao" type="hidden" value="Fiscal">
+    <label name="nome">`+fiscalName+`</label> 
+    `;
 
-    linhaFiscaisSemana[index].innerHTML = fiscal;
-    linhaComandantesSemana[index].innerHTML = comandante;
-    linhaCabosSemana[index].innerHTML = cabo;
+    linhaComandantesSemana[index].innerHTML = `
+    <input name="id" type="hidden" value="`+ComandanteId+`"> 
+    <input name="Funcao" type="hidden" value="Comandante">
+    <label name="nome">`+ComandanteName+`</label> 
+    `;
+
+    linhaCabosSemana[index].innerHTML = `
+    <input name="id" type="hidden" value="`+CaboID+`"> 
+    <input name="Funcao" type="hidden" value="Cabo">
+    <label name="nome">`+CaboName+`</label> 
+    `
 
     let classe;
     let linhaSentinelas;
     var contador = 1;
 
-    sentinelas.forEach(function(item,indice,array)
-    {
+    atiradoresLista.forEach(function (item, indice, array)
+     {
         classe ='#linha-sentinela0'+contador+' td';
         contador+=1;
 
         linhaSentinelas = document.querySelectorAll(classe);
-        linhaSentinelas[index].innerHTML = item;
+        linhaSentinelas[index].innerHTML = `
+        <input name="id" type="hidden" value="`+item.id+`"> 
+        <input name="Funcao" type="hidden" value="Sentinela">
+        <label name="nome">`+item.nome+`</label> 
+        `;
     });
 
     

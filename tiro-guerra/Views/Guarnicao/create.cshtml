@@ -1,0 +1,500 @@
+@using TiroGuerra.Models;
+@using System.Linq
+
+@{
+    ViewBag.Title = "Guarnição Create";
+    ViewBag.css = "/css/guarnicao.css";
+}
+
+
+    <div class="content">
+
+        <form method="POST" action="/guarnicao/create" >
+            <div class="geral">
+            
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+
+                        <th scope="col">Outubro</th> <input type="hidden" name="dataEscolhida" value=@ViewBag.data>
+                        <th scope="col" class="date">11/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">12/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">13/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">14/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">15/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">16/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        <th scope="col" class="date">17/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
+                        </tr>
+                    </thead>
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Função</th>
+                        <th class="dia" onclick="showModal(1)">Domingo</button></th>
+                        <th class="dia" onclick="showModal(2)">Segunda-Feira</button></th>
+                        <th class="dia" onclick="showModal(3)">Terça-Feira</button></th>
+                        <th class="dia" onclick="showModal(4)">Quarta-Feira</button></th>
+                        <th class="dia" onclick="showModal(5)">Quinta-Feira</button></th>
+                        <th class="dia" onclick="showModal(6)">Sexta-Feira</button></th>
+                        <th class="dia" onclick="showModal(7)">Sabado</button></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="linha-fiscal">
+                            <th scope="row">Fiscal de Dia</th>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                            <td class="campo">
+                                <input name="idfiscal" type="hidden" value="14">
+                                <input name="Funcao" type="hidden" value="Fiscal">
+                                <label name="nome">José da Silva</label>
+                            </td>
+                        </tr>
+                        <tr id="linha-comandante">
+                            <th scope="row">Comandante da Guarda</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="5">
+                                <input name="Funcao" type="hidden" value="Comandante">
+                                <label name="nome">Felipe</label>
+                            </td>
+                        </tr>
+                        <tr id="linha-cabo">
+                            <th scope="row">Cabo da Guarda</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="2">
+                                <input name="Funcao" type="hidden" value="Cabo">
+                                <label name="nome">Andre</label>
+                            </td>
+                        </tr>
+                        <tr id="linha-sentinela01">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="8">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Julio</label>
+                            </td>
+                            
+                    </tr>
+                        <tr id="linha-sentinela02">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                             <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                             <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                             <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                             <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                             <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                             <td class="campo">
+                                <input name="id" type="hidden" value="9">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">João</label>
+                            </td>
+                        </tr>
+
+                        <tr id="linha-sentinela03">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="10">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Roberto</label>
+                            </td>
+                        </tr>
+
+                        <tr id="linha-sentinela04">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="11">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Fernando</label>
+                            </td>
+                        </tr>
+
+                        <tr id="linha-sentinela05">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                           <td class="campo">
+                                <input name="id" type="hidden" value="12">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Patrick</label>
+                            </td>
+                        </tr>  
+
+                        <tr id="linha-sentinela06">
+                            <th scope="row">Sentinela</th>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                            <td class="campo">
+                                <input name="id" type="hidden" value="13">
+                                <input name="Funcao" type="hidden" value="Sentinela">
+                                <label name="nome">Sergio</label>
+                            </td>
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+
+            <input class="btn-salvar" type="submit" value="salvar">
+
+        </form>
+        <div class="modal" id="modal">
+            
+            <div class="modal-content">
+                         <span class="span-modal" onclick="disposeModal()">&times;</span>
+
+                         <div class="modal-header">
+                             <h4 class="modal-title">Formulário de cadastro diário</h4>
+                         </div>
+
+
+                         <div class="modal-body">
+                            <label for="fiscal" id="fiscal-dia">Fiscal de dia:</label>
+                            <select name="fiscal" id="fiscal">
+                              
+                              @foreach (Instrutor instrutor in Model.Instrutores)
+                            {
+                                
+                               <option value='@instrutor.Id'>@instrutor.Nome</option>
+                            }  
+                                 
+                            </select>
+                            <br>
+                             <label for="Comandante" id="comandante-dia">Comandante:</label>
+                             <select name="comandante" id="comandante">
+                                 
+                            @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                
+                               if(@atirador.Formacao == "Comandante")
+                                {
+                                    <option value='@atirador.Id'>@atirador.Nome</option>
+                                }
+                            }  
+
+                             </select>
+                             <br>
+                             <label for="Cabo" id="cabo-dia">Cabo da guarda:</label>
+                             <select name="cabo" id="cabo">
+                             @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                if(@atirador.Formacao == "Cabo")
+                                {
+                                    <option value='@atirador.Id'>@atirador.Nome</option>
+                                }
+                            }   
+                             </select>
+                             <br>
+                             <label for="sentinela" id="sentinela-dia">Sentinela:</label>
+                             <select name="sentinela" id="sentinela">
+                              @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                if(@atirador.Formacao == "Sentinela")
+                                {
+                                    <option value='@atirador.Id'>@atirador.Nome</option>
+                                }
+                            }   
+
+                             </select>
+                           
+                             <input type="submit" class="adicionar" value="Adicionar">
+                            <hr class="linha">
+
+                             <ul>
+                                <div class="myList">
+                                <!--    <div class="linha-lista">
+                                        <div class="list-space">
+                                            <li class="item-lista" id="Teste">Teste   </li>
+                                        </div>
+                                        <div class="list-space">
+                                            <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
+                                        </div>
+                                    </div>-->
+
+                                </div>
+                            </ul>
+                            
+                         </div>
+
+                         <div class="modal-footer">
+                            <input type="submit" class="save" value="Salvar" id="salvar">
+                            <input type="submit" class="close" value="Limpar" id="limpar">
+                            <input type="submit" class="close" value="Fechar" id="fechar" onclick="disposeModal()">
+                        </div>
+                       
+                   
+
+
+               
+             
+            </div>
+
+        </div>
+       
+    </div>
+
+    
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js"></script>
+    <script src="/js/ModalControle.js"></script>
+
+   <script type="text/javascript" src="/js/datasGuarnicao.js"> </script>
+
+
+
+    </div>

@@ -6,7 +6,7 @@ namespace TiroGuerra.Repositories
 {
     public interface IGuardaRepository
     {
-        void Create(Guarda model);
+        void Create(List<Guarda> guardas, List<Guarnicao> guarnicoes);
 
         Guarda Read(int id);
 

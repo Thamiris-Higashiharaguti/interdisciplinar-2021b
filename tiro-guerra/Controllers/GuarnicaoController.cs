@@ -6,6 +6,7 @@ using TiroGuerra.Models;
 using TiroGuerra.Repositories;
 using TiroGuerra.Controllers;
 using System.Linq;
+using Microsoft.VisualBasic;
 
 namespace TiroGuerra.Controllers
 {
@@ -30,6 +31,16 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult index()
         {
+            return View();
+        }
+
+        
+
+        [HttpGet]
+        public ActionResult create(DateTime dataEscolhida)
+        {
+
+            ViewBag.data = dataEscolhida.ToString("MM/dd/yyyy");
 
             var atiradores = atirador_repository.ReadAll();
             var instrutores = instrutor_repository.ReadAll();
@@ -45,14 +56,30 @@ namespace TiroGuerra.Controllers
         }
 
         [HttpPost]
-        public ActionResult create(List<Guarda> model)
+        public ActionResult create(List<int> id,  List<string> Funcao, List<DateTime> dataDia, List<int> idfiscal)
         {   
-            //receber id do atirador e função
+            List<Guarda> Guardas = new List<Guarda>();
+
+            for(int i = 0; i<id.Count(); i++)
+            {
+                Guardas.Add(new Guarda{
+                    IdAtirador = id[i],
+                    Funcao = Funcao[i]
+                    }
+                );
+            }
+
+            List<Guarnicao> Guarnicoes = new List<Guarnicao>();
+   
+            Guarnicoes=guarnicaoRepository.Create(idfiscal, dataDia);
+
+            for(int i =0; i<Guardas.Count; i++)
+            {
+                Console.WriteLine(Guardas[i].IdAtirador);
+            }
 
 
-            Console.WriteLine(model.Count);
-            //chamar o create chamada com loop
-            //Guarnicao guarnicao = guarnicaoRepository.Create(model);
+            guardaRepository.Create(Guardas,Guarnicoes);
 
              return RedirectToAction("Index", "Home");
         }

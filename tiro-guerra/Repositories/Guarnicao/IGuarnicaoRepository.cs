@@ -6,7 +6,7 @@ namespace TiroGuerra.Repositories
 {
     public interface IGuarnicaoRepository
     {
-        Guarnicao Create(List<Guarda> model);
+        List<Guarnicao> Create(List<int> idfiscal, List<DateTime> dias);
 
         Guarnicao Read(int id);
 
