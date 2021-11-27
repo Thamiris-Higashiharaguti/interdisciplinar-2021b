@@ -4,6 +4,8 @@ namespace TiroGuerra.Models
 {
     public class Guarda
     {
+
+        public int Id {get; set;}
         public int IdAtirador { get; set; }
         public int IdGuarnicao { get; set; }
         public string Funcao { get; set; }

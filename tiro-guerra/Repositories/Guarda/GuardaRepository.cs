@@ -24,6 +24,11 @@ namespace TiroGuerra.Repositories
                 // 5 12 19 26 33 40 47 54
                 // 6 13 20 27 34 41 48 55
 
+                for(int i = 0; i<Guardas.Count; i++)
+                {
+                //    Console.WriteLine(Guardas.IdAtirador);
+                }
+
                 for(int i = 0; i<=6; i++)
                 {
                  
@@ -77,8 +82,8 @@ namespace TiroGuerra.Repositories
                     IdAtirador =reader.GetInt32(0),
                     IdGuarnicao = reader.GetInt32(2),
                     Funcao =  reader.GetString(3),
+                    Id =  reader.GetInt32(5),
                     Atirador = atirador
-                   
                     });
             }
 

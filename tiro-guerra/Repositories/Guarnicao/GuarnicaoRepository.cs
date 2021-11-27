@@ -22,8 +22,11 @@ namespace TiroGuerra.Repositories
 
                 for(int i = 0; i <7; i++)
                 {
-                    SqlDataReader reader;
 
+                   // Console.WriteLine(idfiscal[i]);
+                    //Console.WriteLine(dias[i]);
+
+                    SqlDataReader reader;
                     cmd.Parameters.Clear();
                     cmd.CommandText = "CREATE_GUARNICAO";
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -63,6 +66,7 @@ namespace TiroGuerra.Repositories
         
         public List<Guarnicao> Read(DateTime domingo, DateTime sabado)
         {
+
             List<Guarnicao> Guarnicoes = new List<Guarnicao>();
             SqlDataReader reader;
 

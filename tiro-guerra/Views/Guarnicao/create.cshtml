@@ -16,7 +16,7 @@
                     <thead class="thead-dark">
                         <tr>
 
-                        <th scope="col">Outubro</th> <input type="hidden" name="dataEscolhida" value=@ViewBag.data>
+                        <th scope="col">Mês: @ViewBag.mes</th> <input type="hidden" name="dataEscolhida" value=@ViewBag.data>
                         <th scope="col" class="date">11/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
                         <th scope="col" class="date">12/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
                         <th scope="col" class="date">13/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
@@ -401,10 +401,10 @@
                             <select name="fiscal" id="fiscal">
                               
                               @foreach (Instrutor instrutor in Model.Instrutores)
-                            {
-                                
-                               <option value='@instrutor.Id'>@instrutor.Nome</option>
-                            }  
+                              {
+                                   <option value='@instrutor.Id'>@instrutor.Nome</option>
+                              }
+
                                  
                             </select>
                             <br>

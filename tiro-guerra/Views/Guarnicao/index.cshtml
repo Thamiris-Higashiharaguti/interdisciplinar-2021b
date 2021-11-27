@@ -7,8 +7,16 @@
 }
 <div class="content">
     <form method="get" action="/guarnicao/create" > <!--action="/guarnicao/create" -->
-        <h1> Selecione uma data</h1>
-        <input type="date" name="dataEscolhida" id="date"> 
+        <h1> Selecione uma data para criar uma guarnicao</h1>
+        <input type="date" name="dataCriar" id="date"> 
+        <input type="submit" value="selecionar">
+    </form>
+
+    <br>
+    
+    <form method="get" action="/guarnicao/update" > <!--action="/guarnicao/create" -->
+        <h1> Selecione uma data para Alterar uma guarnicao</h1>
+        <input type="date" name="dataAlterar" id="date"> 
         <input type="submit" value="selecionar">
     </form>
     

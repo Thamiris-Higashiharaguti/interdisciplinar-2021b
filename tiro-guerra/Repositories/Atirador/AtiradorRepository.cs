@@ -123,6 +123,8 @@ namespace TiroGuerra.Repositories
                     lista.Add(atirador);
                 }
 
+
+
                 return lista;
                 
             }catch(Exception ex) {

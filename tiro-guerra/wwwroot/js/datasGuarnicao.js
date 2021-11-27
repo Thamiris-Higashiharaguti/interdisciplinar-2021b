@@ -21,8 +21,6 @@
                 if(data != "")
                 {
                     var date =  new Date(data); //pode receber o parametro da data escolhida "mês/dia/ano"
-                    date.setDate(date.getDate()+1); //soma 1 dia  a data passada
-
                     var firstDayofWeek = true
                     
                     while(firstDayofWeek)
@@ -42,6 +40,8 @@
                 var inputDiaSemana = document.querySelectorAll("input[class=diaSemana]");
 
                 var dates_array = [];
+
+                console.log(date.getDate());
                     
                     for(let i =0; i<7; i++)
                     {

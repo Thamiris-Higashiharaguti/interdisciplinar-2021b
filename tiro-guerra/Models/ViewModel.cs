@@ -11,11 +11,11 @@ namespace TiroGuerra.Models{
 
         public IEnumerable<Guarnicao> Guarnicoes { get; set; }
 
-        public IEnumerable<Atirador> Comandantes { get; set; }
+        public IEnumerable<Guarda> Comandantes { get; set; }
 
-        public IEnumerable<Atirador> Cabos { get; set; }
+        public IEnumerable<Guarda> Cabos { get; set; }
 
-        public IEnumerable<Atirador> Sentinelas { get; set; }
+        public IEnumerable<Guarda> Sentinelas { get; set; }
 
     }
 }
