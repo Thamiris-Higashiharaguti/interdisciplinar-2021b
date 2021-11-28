@@ -98,7 +98,7 @@ namespace TiroGuerra.Controllers
             string data = diasemana + ", " + dia + " de " + mes + " de " + ano;*/
         
             
-            repository.Update(model.Usuario.Id,model);
+            repository.Update(model.Id,model);
             return RedirectToAction("Index", "Home");
         }
 

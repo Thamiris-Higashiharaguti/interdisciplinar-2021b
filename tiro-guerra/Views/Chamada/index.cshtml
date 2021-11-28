@@ -46,7 +46,7 @@
                     {  
                         <div class="linha">
                             <input readonly="readonly"  class="nomes-chamada" asp-for="@Model[i].IdAtirador" type="hidden" />
-                            <label class="nomes-chamada"> @Model[i].Atirador.Usuario.Nome</label>
+                            <label class="nomes-chamada"> @Model[i].Atirador.Nome</label>
                             <label class="nomes-chamada"> @Model[i].Atirador.Numero</label>
                             <input class="nomes-chamada" asp-for="@Model[i].Presenca" type="Checkbox" />
                         </div>
@@ -85,7 +85,7 @@
                     {     
                         <tr> 
                         <td><input asp-for="@Model[i].IdAtirador" type="text" /></td>          
-                        <td>@Model[i].Atirador.Usuario.Nome</td>
+                        <td>@Model[i].Atirador.Nome</td>
                         <td>@Model[i].Atirador.Numero</td>
                         <td><td><input asp-for="@Model[i].Presenca" type="Checkbox" /></td>   </td>
                         </tr>

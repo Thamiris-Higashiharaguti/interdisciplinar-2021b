@@ -3,7 +3,7 @@
 @inject IHttpContextAccessor HttpContextAccessor;
 @{
     ViewBag.Title = "Conta";
-    
+    ViewBag.css = "/css/conta.css";
 }
     
     <section class="linha">
@@ -30,29 +30,43 @@
                     <label class="form-label">RG: @HttpContextAccessor.HttpContext.Session.GetString("RG")</label>
                 </div>
 
-                <div class="wd50">
-                    <label class="form-label">RA: @HttpContextAccessor.HttpContext.Session.GetString("RA")</label>
-                </div>
-            </section>
+             @if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Graduacao")))
+                {
+                    <section class="linha">
+                    <div class="wd50">
+                        <label class="form-label">Graduação: @HttpContextAccessor.HttpContext.Session.GetString("Graduacao")</label>
+                        
+                    </div>
+                    </section>
 
-            <section class="linha">
-                <div class="wd50">
-                    <label class="form-label">Formação: @HttpContextAccessor.HttpContext.Session.GetString("Formacao")</label>
+
+                }else if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Formacao"))){
+                     <section class="linha">
+                    <div class="wd50">
+                        <label class="form-label">Formação: @HttpContextAccessor.HttpContext.Session.GetString("Formacao")</label>
+                        
+                    </div>
+
+                    <div class="wd50">
+                        <label class="form-label">Pelotão: @HttpContextAccessor.HttpContext.Session.GetString("Pelotao")</label>
                     
-                </div>
+                    </div>
+                    </section>
 
-                <div class="wd50">
-                    <label class="form-label">Pelotão: @HttpContextAccessor.HttpContext.Session.GetString("Pelotao")</label>
-                   
-                </div>
-            </section>
+                    <section class="linha">
+                        <div class="wd50">
+                            <label class="form-label">Número: @HttpContextAccessor.HttpContext.Session.GetString("Numero")</label>
+                        
+                        </div>
+                    </section>
+                    <div class="wd50">
+                    <label class="form-label">RA: @HttpContextAccessor.HttpContext.Session.GetString("RA")</label>
+                    </div>
+                }
+                
+            
 
-            <section class="linha">
-                <div class="wd50">
-                    <label class="form-label">Número: @HttpContextAccessor.HttpContext.Session.GetString("Numero")</label>
-                   
-                </div>
-            </section>
+           
 
             <section class="endForm">
                 <button class="btn btn-primary">Sair</button>

@@ -28,7 +28,7 @@ namespace TiroGuerra.Controllers
             var atiradores = repository.ReadAll();
             foreach(var i in atiradores){
                 lista.Add(new Chamada{
-                    IdAtirador = i.Usuario.Id,
+                    IdAtirador = i.Id,
                     Atirador = i,
                     Presenca = false
                     
@@ -48,7 +48,7 @@ namespace TiroGuerra.Controllers
 
             var id = HttpContext.Session.GetInt32("Id");
             
-            
+            Console.Write(model[0].IdAtirador);
                 
             chamadaRepository.Create(model, (int)id);
             
