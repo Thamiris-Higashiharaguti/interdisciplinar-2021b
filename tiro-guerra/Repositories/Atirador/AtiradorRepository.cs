@@ -190,7 +190,6 @@ namespace TiroGuerra.Repositories
         {
             try 
             {
-                //Console.WriteLine(CPF);
                 Atirador atirador = new Atirador();
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;

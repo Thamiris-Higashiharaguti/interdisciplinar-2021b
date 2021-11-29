@@ -1,3 +1,6 @@
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
 @{
     ViewBag.Title = "Home";
     Layout = "/Views/Shared/_Layout.cshtml";
@@ -19,7 +22,14 @@
         <section class="funcoes" >
             <div class="item">
                 <div class="icon">
-                    <img src="../images/iconeChamada.png" alt=""/>
+                    @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
+                    {
+                        <img src="../images/iconeChamada.png" alt=""/>
+                    }
+                    else{
+                        <a href="/chamada/index"><img src="../images/iconeChamada.png" alt=""/></a>
+                    }
+                    
                 </div>
                 <div class="down-content">
                     <h4>Chamada</h4>
@@ -29,7 +39,13 @@
                 
             <div class="item">
                 <div class="icon">
-                    <img src="../images/iconeChamada.png" alt=""/> 
+                    @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
+                    {
+                        <img src="../images/iconeGuarn.png" alt=""/>
+                    }
+                    else{
+                        <a href="/guarnicao"><img src="../images/iconeGuarn.png" alt=""/> </a>
+                    }
                 </div>
                 <div class="down-content">
                     
@@ -40,7 +56,7 @@
 
             <div class="item">
                 <div class="icon">
-                    <img style="align-self: auto;" src="../images/iconeChamada.png" alt=""/> 
+                    <img style="align-self: auto;" src="../images/iconeNotificacao.png" alt=""/> 
                 </div>
                 <div class="down-content">
                     <h4>Notificação</h4>
@@ -49,4 +65,13 @@
             </div>
 
         </section>
+        <form method="POST" action="/usuario/email">
+            <input type="hidden" name="emailDestinatario" value="thamirissayurihigashiharaguti@gmail.com"/>
+            <input class="button" type="submit" value="Enviar email"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        </form>
+        
 </div>

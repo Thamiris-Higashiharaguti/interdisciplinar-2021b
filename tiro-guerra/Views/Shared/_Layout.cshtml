@@ -28,7 +28,7 @@
                 
                 @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
                 {
-                   <li><a href="/atirador/login">Login</a></li>
+                   <li><a href="/usuario/login">Login</a></li>
                 }
                 else{
                     <li><a href="/chamada/index">Chamada  </a></li>
@@ -36,8 +36,7 @@
                     <li><a href="/atirador/Guarda">Guardas</a></li>
                     <li><a href="/atirador/search">Atirador </a></li>
                     <li><a href="/instrutor/search">Instrutor </a></li>
-                    <li><a href="/atirador/conta">@HttpContextAccessor.HttpContext.Session.GetString("Nome")</a></li>
-
+                    <li><a href="/atirador/conta">Olá, @HttpContextAccessor.HttpContext.Session.GetString("Nome")!</a></li>
                 }
                 
             </ul>
