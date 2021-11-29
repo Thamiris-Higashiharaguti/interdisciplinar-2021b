@@ -5,6 +5,24 @@ var lista_nova=[];
 var id_dia;
 
 
+function carregaLista()
+{
+
+        let classe;
+        var contador = 1;
+        //Recupera a linha que sera alterada
+        classe ='#linha-sentinela0'+contador+' td';
+        contador+=1;
+
+        //recebe os valores atuais
+        linhaSentinelaSemanaId = document.querySelectorAll(classe+" .idAtirador");
+        linhaSentinelaSemanaNome = document.querySelectorAll(classe+" .nome");
+        linhaSentinelaSemanaIdGuarda = document.querySelectorAll(classe+" .idGuarda");
+
+        //remove os valores de nome e id
+        console.log(linhaSentinelaSemanaNome[index].text);
+}
+
 //modal
 //exibe o modal na tela
 function showModal(idModal)
