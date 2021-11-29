@@ -50,24 +50,10 @@ namespace TiroGuerra.Controllers
 
             try
             {
-                MailMessage mailMessage = new MailMessage("adm.tg02033sjrp@gmail.com", emailDestinatario);
 
-                mailMessage.Subject = "Justificativa de Falta"; //Título
-                mailMessage.IsBodyHtml = true; //Define que é HTML
-                mailMessage.Body = "<p> Foi registrada uma falta para você. </p>"; //Corpo da Mensagem
-                mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
-                mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+                repository.Email(emailDestinatario);
+                //teste aqui
 
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("adm.tg02033sjrp@gmail.com", "tg@123456");
-
-                smtpClient.EnableSsl = true;
-
-                smtpClient.Send(mailMessage);
-
-                Console.WriteLine("Seu email foi enviado com sucesso");
             }
             catch (Exception)
             {
