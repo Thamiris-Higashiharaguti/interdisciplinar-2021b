@@ -15,21 +15,20 @@
         </section>
 
         <section class="flex-row-title">
-
-            <div class="col-wd-50-titles">
-                <span class="data-title">Data:</span> <input type="date" name="data" class="data-title">
-            </div>
-
+            <form action="/chamada/index" method="POST">    
             <div class="col-wd-50-titles">
                 <span class="pelotao-title">Pelotão:</span>  
-                <select class="pelotao-title" name="Formacao" required="true">
-                    <option selected>Selecione um pelotão</option>
-                    <option value="Pelotao1">Pelotão 1</option>
-                    <option value="Pelotao2">Pelotão 2</option>
-                    <option value="Pelotao3">Pelotão 3</option>
+                <select name="Id_Pelotao" required="true">
+                        <option selected disabled>Selecione um Pelotão</option>                
+                        @foreach(var pelotao in ViewBag.pelotoes)
+                        {                
+                          <option value="@pelotao.Id">@pelotao.Nome</option>    
+                        }
                 </select>
+                <button class="btn">Salvar</button>
             </div>
-
+             
+            </form>
         </section>
 
         <form method="POST" action="/chamada/create">
@@ -49,6 +48,7 @@
                             <label class="nomes-chamada"> @Model[i].Atirador.Nome</label>
                             <label class="nomes-chamada"> @Model[i].Atirador.Numero</label>
                             <input class="nomes-chamada" asp-for="@Model[i].Presenca" type="Checkbox" />
+                            <input readonly="readonly"  class="nomes-chamada" asp-for="@Model[i].Atirador.Email" type="hidden" />
                         </div>
                     }
                 
