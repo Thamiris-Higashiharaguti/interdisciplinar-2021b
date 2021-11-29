@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.Globalization;
 using System.Collections.Generic;
 using TiroGuerra.Models;
 using System.Linq;
@@ -28,9 +27,7 @@ namespace TiroGuerra.Controllers
             return View();
         }
 
-        
-
-
+    
         [HttpGet]
         public ActionResult Create()
         {   
@@ -66,48 +63,10 @@ namespace TiroGuerra.Controllers
         }
 
         [HttpGet]
-        public ActionResult Update(int id)
+        public ActionResult Fatd(int id)
         {
-            
-            /*CultureInfo culture = new CultureInfo("pt-BR");
-            DateTimeFormatInfo dtfi = culture.DateTimeFormat;
-            
-            int dia = DateTime.Now.Day;
-            int ano = DateTime.Now.Year;
-            string mes = culture.TextInfo.ToTitleCase(dtfi.GetMonthName(DateTime.Now.Month));
-            string diasemana = culture.TextInfo.ToTitleCase(dtfi.GetDayName(DateTime.Now.DayOfWeek));
-            string data = diasemana + ", " + dia + " de " + mes + " de " + ano;*/
-            
-            
             ViewBag.atirador = repository.Read(id);
-            ViewBag.pelotoes = Pelotaorepository.ReadAll();
-            return View("Update");
-        }
-
-        [HttpPost]
-        public ActionResult Update(Atirador model)
-        {
-            
-            /*CultureInfo culture = new CultureInfo("pt-BR");
-            DateTimeFormatInfo dtfi = culture.DateTimeFormat;
-            
-            int dia = DateTime.Now.Day;
-            int ano = DateTime.Now.Year;
-            string mes = culture.TextInfo.ToTitleCase(dtfi.GetMonthName(DateTime.Now.Month));
-            string diasemana = culture.TextInfo.ToTitleCase(dtfi.GetDayName(DateTime.Now.DayOfWeek));
-            string data = diasemana + ", " + dia + " de " + mes + " de " + ano;*/
-        
-            
-            repository.Update(model.Id,model);
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult Delete(int Id)
-        {
-            Console.WriteLine(Id);
-            
-            repository.Delete(Id);
-            return RedirectToAction("Index", "Home");
+            return View("Fatd");
         }
 
         [HttpGet]
