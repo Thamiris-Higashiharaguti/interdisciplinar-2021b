@@ -15,10 +15,14 @@ namespace TiroGuerra.Controllers
     public class UsuarioController:Controller
     {
         private IUsuarioRepository repository;
+        private IInstrutorRepository Instrutorrepository;
+        private IAtiradorRepository Atiradorrepository;
 
-        public UsuarioController(IUsuarioRepository repository) 
+        public UsuarioController(IUsuarioRepository repository,IInstrutorRepository Instrutorrepository,IAtiradorRepository Atiradorrepository) 
         {
             this.repository = repository;
+            this.Instrutorrepository = Instrutorrepository;
+            this.Atiradorrepository = Atiradorrepository;
         }
 
         [HttpGet]
@@ -36,42 +40,61 @@ namespace TiroGuerra.Controllers
                 return View();
             }
 
-            HttpContext.Session.SetInt32("Id", (int)usuario.Id);   
-            HttpContext.Session.SetString("Nome", usuario.Nome); 
-            HttpContext.Session.SetString("CPF", usuario.CPF); 
-            HttpContext.Session.SetString("RG", usuario.RG); 
-            ViewBag.usuario = usuario;
 
-            return RedirectToAction("Index", "Home");
+            try{
+                
+                try{
+                    Instrutor instrutor = Instrutorrepository.Read(usuario.Id);
+                
+                    if(instrutor == null)
+                    {
+                        Console.WriteLine("Usuário não encontrado.");
+                    }else{
+                        HttpContext.Session.SetInt32("Id", (int)instrutor.Id); 
+                        HttpContext.Session.SetString("Nome", instrutor.Nome); 
+                        HttpContext.Session.SetString("CPF", instrutor.CPF); 
+                        HttpContext.Session.SetString("RG", instrutor.RG); 
+                        HttpContext.Session.SetString("Email", instrutor.Email); 
+                        HttpContext.Session.SetString("Graduacao", instrutor.Graduacao); 
+                        return RedirectToAction("Index", "Home");
+                    }
+                }catch{
+                    Atirador atirador = Atiradorrepository.Read(usuario.Id);
+                    if(atirador == null)
+                    {
+                        Console.WriteLine("Usuário não encontrado.");
+                        return View();
+                    }else{
+                        HttpContext.Session.SetInt32("Id", (int)atirador.Id); 
+                        HttpContext.Session.SetString("Nome", atirador.Nome); 
+                        HttpContext.Session.SetString("CPF", atirador.CPF); 
+                        HttpContext.Session.SetString("RG", atirador.RG); 
+                        HttpContext.Session.SetString("Email", atirador.Email); 
+                        HttpContext.Session.SetString("Formacao", atirador.Formacao);
+                        HttpContext.Session.SetString("RA", atirador.RA);
+                        HttpContext.Session.SetString("Numero", atirador.Numero);
+                        HttpContext.Session.SetString("Pelotao", atirador.Pelotao.Nome);
+                        
+                    }
+                }
 
-        }
+                return RedirectToAction("Index", "Home");
+            }catch{
+                return View();
 
-        public void EmailAtirador(string emailDestinatario){
+            }   
+        } 
+
+        public void Email(string emailDestinatario){
 
             try
             {
-                MailMessage mailMessage = new MailMessage("adm.tg02033sjrp@gmail.com", emailDestinatario);
-
-                mailMessage.Subject = "Justificativa de Falta"; //Título
-                mailMessage.IsBodyHtml = true; //Define que é HTML
-                mailMessage.Body = "<p> Foi registrada uma falta para você. </p>"; //Corpo da Mensagem
-                mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
-                mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
-
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials = new NetworkCredential("adm.tg02033sjrp@gmail.com", "tg@123456");
-
-                smtpClient.EnableSsl = true;
-
-                smtpClient.Send(mailMessage);
-
-                Console.WriteLine("Seu email foi enviado com sucesso");
+                repository.Email(emailDestinatario);
+                
             }
             catch (Exception)
             {
-                Console.WriteLine("Houve um erro no envio do email");
+                Console.WriteLine("Não foi hoje");
             }
         }
     }

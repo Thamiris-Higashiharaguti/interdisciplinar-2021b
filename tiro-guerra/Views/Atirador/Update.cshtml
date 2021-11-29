@@ -16,48 +16,62 @@
             </div>
         </section>
 
-        <form method="POST" action="/atirador/FATD">
-
+        <form method="POST" action="/atirador/update">
+            <div class="col-wd-50">
+                    <label for="textoCPF">Nome:</label>
+                    <input type="hidden" name="Id" value="@ViewBag.atirador.Id" required> 
+                </div>
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label for="textoCPF">Nome:</label>
-                    <input type="text" name="nome" values="@ViewBag.atirador.Nome" readonly required> 
+                    <input type="text" name="Nome" value="@ViewBag.atirador.Nome" required> 
                 </div>
 
                 <div class="col-wd-50">
                     <label for="textoCPF" class="form-label">CPF:</label>
-                    <input type="text" name="CPF" values="@ViewBag.atirador.CPF" readonly required="true">
+                    <input type="text" name="CPF" value="@ViewBag.atirador.CPF" required="true">
                 </div>
             </section>
 
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label class="form-label">RG</label>
-                    <input type="text" name="RG" values="@ViewBag.atirador.RG" readonly  required="true">
+                    <input type="text" name="RG" value="@ViewBag.atirador.RG"  required="true">
+                </div>
+                <div class="col-wd-50">
+                    <label class="form-label">E-mail</label>
+                    <input type="text" name="Email" value="@ViewBag.atirador.Email"  required="true">
                 </div>
 
                 <div class="col-wd-50">
                     <label class="form-label">RA</label>
-                    <input type="text" name="RA" readonly values="@ViewBag.atirador.RA" required="true">
+                    <input type="text" name="RA"  value="@ViewBag.atirador.RA" required="true">
                 </div>
             </section>
 
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label>Formação:</label>
-                    <input type="text" name="formacao" readonly values="@ViewBag.atirador.Formacao" required="true">
+                    <input type="text" name="Formacao"  value="@ViewBag.atirador.Formacao" required="true">
                 </div>
 
                 <div class="col-wd-50">
                     <label>Pelotão:</label>
-                    <input type="text" name="Pelotao" readonly values="@ViewBag.atirador.Pelotao.Nome" required="true">
+                    <select name="IdPelotao" required="true">
+                        <option value="@ViewBag.atirador.Pelotao.Nome">@ViewBag.atirador.Pelotao.Nome</option>                
+                        @foreach(var pelotao in ViewBag.pelotoes)
+                        {                
+                          <option value="@pelotao.Id">@pelotao.Nome</option>    
+                        }
+                    </select>
+                    
                 </div>
             </section>
 
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label>Número</label>
-                    <input type="text" name="Numero" values="@ViewBag.atirador.Numero" required="true">
+                    <input type="text" name="Numero" value="@ViewBag.atirador.Numero" required="true">
                 </div>
 
             </section>

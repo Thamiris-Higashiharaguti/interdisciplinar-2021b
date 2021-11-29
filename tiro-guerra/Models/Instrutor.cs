@@ -4,5 +4,9 @@ namespace TiroGuerra.Models
     {
         public string Graduacao { get; set; }
 
+        #region Foreign Key
+            public Usuario Usuario { get; set; }
+        #endregion
+
     }
 }

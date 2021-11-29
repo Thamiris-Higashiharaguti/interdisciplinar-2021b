@@ -26,18 +26,25 @@
             <ul class="nav-list">
                 <li><a href="/">Home     </a></li>
                 
-                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
+                @if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Graduacao")))
                 {
-                   <li><a href="/usuario/login">Login</a></li>
-                }
-                else{
                     <li><a href="/chamada/index">Chamada  </a></li>
                     <li><a href="/guarnicao/index">Guarnição</a></li>
                     <li><a href="/atirador/Guarda">Guardas</a></li>
                     <li><a href="/atirador/search">Atirador </a></li>
                     <li><a href="/instrutor/search">Instrutor </a></li>
                     <li><a href="/atirador/conta">Olá, @HttpContextAccessor.HttpContext.Session.GetString("Nome")!</a></li>
+
+                }else if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Formacao"))){
+                    <li><a href="/chamada/index">Chamada  </a></li>
+                    <li><a href="/guarnicao">Guarnição</a></li>
+                    <li><a href="/atirador/search">Atirador </a></li>
+                    <li><a href="/atirador/conta">Olá, @HttpContextAccessor.HttpContext.Session.GetString("Nome")!</a></li>
                 }
+                else{
+                    <li><a href="/usuario/login">Login</a></li>
+                }
+                 <!---->
                 
             </ul>
         </nav>

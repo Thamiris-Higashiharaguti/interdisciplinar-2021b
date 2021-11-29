@@ -14,16 +14,16 @@ namespace TiroGuerra.Repositories
             {
                 SqlCommand cmd= new SqlCommand();
                 cmd.Connection = connection;
-
+                
                 cmd.CommandText = "CREATE_INSTRUTOR";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@nome", model.Nome);
-                cmd.Parameters.AddWithValue("@status",model.Status);
-                cmd.Parameters.AddWithValue("@cpf",model.CPF);
-                cmd.Parameters.AddWithValue("@rg",model.RG);
-                cmd.Parameters.AddWithValue("@graduacao",model.Graduacao);
-                cmd.Parameters.AddWithValue("@senha",model.Senha);
+                cmd.Parameters.AddWithValue("@NOME", model.Nome);
+                cmd.Parameters.AddWithValue("@STATUS",model.Status);
+                cmd.Parameters.AddWithValue("@CPF",model.CPF);
+                cmd.Parameters.AddWithValue("@RG",model.RG);
+                cmd.Parameters.AddWithValue("@GRADUACAO",model.Graduacao);
+                cmd.Parameters.AddWithValue("@SENHA",model.Senha);
                 cmd.ExecuteNonQuery();
 
             }
@@ -35,8 +35,40 @@ namespace TiroGuerra.Repositories
         }
         public Instrutor Read(int id)
         {
+            try {         
+                Instrutor instrutor = new Instrutor();    
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
 
-            return null;
+                cmd.CommandText = "SEARCH_INSTRUTOR";
+                cmd.CommandType = CommandType.StoredProcedure;  
+
+                cmd.Parameters.AddWithValue("@Id", id);
+                
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                if(reader.Read()) 
+                {
+                    
+                    instrutor.Id = reader.GetInt32(0);
+                    instrutor.Nome = reader.GetString(1);
+                    instrutor.CPF = reader.GetString(2);
+                    instrutor.RG = reader.GetString(3);
+                    instrutor.Senha = reader.GetString(4);
+                    instrutor.Email = reader.GetString(5);
+                    instrutor.Graduacao = reader.GetString(6);
+                    
+                }
+
+                return instrutor;
+                
+            }catch(Exception ex) {
+                // Armazenar a exceção em um log.
+                throw new Exception(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
         }
         public void Update(int id, Instrutor model)
         {
