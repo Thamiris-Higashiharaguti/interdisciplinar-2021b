@@ -101,7 +101,7 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome "+
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,U.Email,A.Formacao, A.RA, A.Numero, P.Nome "+
                 "from TB_Atirador A "+
                 "INNER Join TB_Usuario U ON A.Id_Usuario = U.Id "+
                 "Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id where U.Status = 1";
@@ -116,12 +116,14 @@ namespace TiroGuerra.Repositories
                     atirador.CPF = reader.GetString(2);
                     atirador.RG = reader.GetString(3);
                     atirador.Status = reader.GetBoolean(4);
-                    atirador.Formacao = reader.GetString(5);
-                    atirador.RA = reader.GetString(6);
-                    atirador.Numero = reader.GetString(7);
+                    atirador.Email = reader.GetString(5);
+                    atirador.Formacao = reader.GetString(6);
+                    atirador.RA = reader.GetString(7);
+                    atirador.Numero = reader.GetString(8);
+            
                     
                     atirador.Pelotao = new Pelotao {
-                        Nome = reader.GetString(10)
+                        Nome = reader.GetString(9)
                     };
 
                     lista.Add(atirador);
@@ -239,7 +241,8 @@ namespace TiroGuerra.Repositories
             finally {
                 Dispose();
             }
-        }             
+        } 
+                       
     }
 }
 

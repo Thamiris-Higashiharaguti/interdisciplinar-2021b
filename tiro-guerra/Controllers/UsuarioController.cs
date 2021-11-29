@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.Globalization;
 using System.Collections.Generic;
 using TiroGuerra.Models;
 using System.Linq;
 using TiroGuerra.Repositories;
 using TiroGuerra.Controllers;
-
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 
 namespace TiroGuerra.Controllers
 {
@@ -83,5 +84,18 @@ namespace TiroGuerra.Controllers
 
             }   
         } 
+
+        public void Email(string emailDestinatario){
+
+            try
+            {
+                repository.Email(emailDestinatario);
+                
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Não foi hoje");
+            }
+        }
     }
 }

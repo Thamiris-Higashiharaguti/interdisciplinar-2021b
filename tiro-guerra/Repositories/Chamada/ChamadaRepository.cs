@@ -73,7 +73,55 @@ namespace TiroGuerra.Repositories
                 Dispose();
             }
         }
+                   
+        public List<Chamada> ReadByPelotao(int Id_Pelotao)
+        {
+            try 
+            {
+                List<Chamada> lista = new List<Chamada>();
+                Chamada chamada = new Chamada();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                
 
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,U.Email,A.Formacao, A.RA, A.Numero, P.Nome, C.Presenca from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id Inner Join TB_Chamada C ON U.Id = C.Id_Atirador Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id where A.Id_Pelotao = @Id_Pelotao";
+
+                //cmd.Parameters.AddWithValue("@Data", data.Date.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@Id_Pelotao", Id_Pelotao);
+                
+                
+                SqlDataReader reader = cmd.ExecuteReader();
+                
+                while(reader.Read()) 
+                {
+                    chamada.IdAtirador = reader.GetInt32(0);
+                    chamada.Responsavel.Nome = reader.GetString(1);
+                    chamada.Responsavel.CPF = reader.GetString(2);
+                    chamada.Atirador.RG = reader.GetString(3);
+                    chamada.Atirador.Status = reader.GetBoolean(4);
+                    chamada.Atirador.Email = reader.GetString(5);
+                    chamada.Atirador.Formacao = reader.GetString(6);
+                    chamada.Atirador.RA = reader.GetString(7);
+                    chamada.Atirador.Numero = reader.GetString(8);
+                    chamada.Atirador.Pelotao = new Pelotao {
+                        Nome = reader.GetString(9)
+                    };
+                    chamada.Presenca = reader.GetBoolean(10);
+                    lista.Add(chamada);
+                }
+
+                return lista;
+                
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                throw new Exception("Atirador não encontrada.");
+            }
+            finally {
+                Dispose();
+            }
+        } 
         
     }
 }
