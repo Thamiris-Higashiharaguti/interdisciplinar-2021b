@@ -149,7 +149,7 @@ document.querySelector('input[class=save]').addEventListener('click',() =>
 
     //leitura dos valores do id, nome e id da guarnição do fiscal que sera alterado
     let linhaFiscaisSemanaId = document.querySelectorAll('#linha-fiscal td .idFiscal');
-    let linhaFiscaisSemanaNome = document.querySelectorAll('#linha-fiscal td .nome');
+    let linhaFiscaisSemanaNome = document.querySelectorAll('#linha-fiscal td .nomeFiscal');
     let linhaFiscaisSemanaIdguarnicao = document.querySelectorAll('#linha-fiscal td .idGuarnicao');
 
     //leitura dos valores do id, nome e id da guarnição do comandante que sera alterado
@@ -169,7 +169,7 @@ document.querySelector('input[class=save]').addEventListener('click',() =>
     //Adiciona o novo item após o id da guarda
     linhaFiscaisSemanaIdguarnicao[index].insertAdjacentHTML("afterend",`
             <input class="idFiscal" name="idfiscal" type="hidden" value="`+FiscalId+`">
-            <label class="nome" name="nome">`+fiscalName+`</label>
+            <label class="nomeFiscal" name="nomeFiscal">`+fiscalName+`</label>
     `);
 
     linhaComandantesSemanaId[index].remove();

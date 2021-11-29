@@ -53,6 +53,11 @@ namespace TiroGuerra.Repositories
             {
                 Console.WriteLine(ex);
             }
+            finally
+            {
+                Dispose();
+            }
+            
 
         }
         public List<Guarda> Read(DateTime domingo, DateTime sabado)
@@ -90,8 +95,32 @@ namespace TiroGuerra.Repositories
             return Guardas;
         }
 
-        public void Update(int id, Guarda model)
+        public void Update(List<Guarda> model)
         {
+            try{
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                for(int i = 0; i < model.Count; i++)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "UPDATE_GUARDA";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id", model[i].Id);
+                    cmd.Parameters.AddWithValue("@Id_Atirador", model[i].IdAtirador);
+                    cmd.ExecuteNonQuery();
+                }
+
+            }
+            catch(Exception ex){
+                Console.WriteLine(ex);
+
+            }
+            finally{
+                Dispose();
+            }
             
 
         }
