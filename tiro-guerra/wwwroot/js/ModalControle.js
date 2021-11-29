@@ -75,37 +75,37 @@ document.querySelector('input[value=Adicionar]').addEventListener('click',() =>
     if(atiradores.length < 6)
     {
 
-        atiradores.push(value)
-    
-        atiradoresLista.push({
-            id:valueId,
-            nome: value,
-            funcao: 'Sentinela'
+        let atiradorEstaNaLista = false;
+        atiradores.forEach(function (item, indice)
+        {
+            if(value == item)
+            {
+                atiradorEstaNaLista = true;
+            }
         });
 
-        let listaAtiradores = document.querySelector('.myList');
-        listaAtiradores.innerHTML += `
-        <div class="linha-lista">
-            <div class="list-space">
-                <li class='item-lista' id='`+value+`'> `+value+`</li>
-            </div>
-
-            <div class="list-space">
-                <span  class='span-item-lista' onClick="deleteItem('`+value+`')"> X </span>
-            </div> 
-        </div>`
-        
-         
-       //  <li id="Amaro">Teste  <span onclick="deleteItem('Amaro')">X</span> </li>  
-
-       /*
-          <div class="list-space">
-                                        <li class="item-lista" id="Teste">Teste   </li>
-                                    </div>
-                                    <div class="list-space">
-                                         <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
-                                    </div> 
-       */
+        if(atiradorEstaNaLista == false)
+        {
+            atiradores.push(value)
+    
+            atiradoresLista.push({
+                id:valueId,
+                nome: value,
+                funcao: 'Sentinela'
+            });
+    
+            let listaAtiradores = document.querySelector('.myList');
+            listaAtiradores.innerHTML += `
+            <div class="linha-lista">
+                <div class="list-space">
+                    <li class='item-lista' id='`+value+`'> `+value+`</li>
+                </div>
+    
+                <div class="list-space">
+                    <span  class='span-item-lista' onClick="deleteItem('`+value+`')"> X </span>
+                </div> 
+            </div>`
+        }
     }
 
     select = "";
