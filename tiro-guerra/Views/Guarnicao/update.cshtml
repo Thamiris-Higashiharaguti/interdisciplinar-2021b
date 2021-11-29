@@ -1,0 +1,203 @@
+@using TiroGuerra.Models;
+@using System.Linq
+@{
+    ViewBag.Title = "Guarnição Create";
+    ViewBag.css = "/css/guarnicao.css";
+}
+
+
+    <div class="content">
+
+            <form method="post" action="/guarnicao/update">
+                <div class="geral">
+                    <table class="table">
+
+
+                        <thead class="thead-dark">
+                            <tr>
+
+                            <th scope="col">Mês: @ViewBag.mes</th>
+                                @for(int i =0; i<7; i++)
+                            {
+                                <th scope="col" class="date"> @Model.Guarnicoes[i].Data.ToString("dd/MM/yyyy") <input type="hidden" class="diaSemana" name="dataDia" value="valor"></th>
+                            }
+                            </tr>
+                        </thead>
+
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Função</th>
+                            <th class="dia" onclick="showModal(1)">Domingo</button></th>
+                            <th class="dia" onclick="showModal(2)">Segunda-Feira</button></th>
+                            <th class="dia" onclick="showModal(3)">Terça-Feira</button></th>
+                            <th class="dia" onclick="showModal(4)">Quarta-Feira</button></th>
+                            <th class="dia" onclick="showModal(5)">Quinta-Feira</button></th>
+                            <th class="dia" onclick="showModal(6)">Sexta-Feira</button></th>
+                            <th class="dia" onclick="showModal(7)">Sabado</button></th>
+                        </tr>
+
+                        </thead>
+
+                        <tbody>
+                            <tr id="linha-fiscal">
+                                <th>Fiscal</th>
+                                @for(int i =0; i<7; i++)
+                                {
+                                    <td class="campo">
+                                        <input class="idGuarnicao" name="idGuarnicao" type="hidden" value="@Model.Guarnicoes[i].Id">
+                                        <input class="idFiscal" name="idfiscal" type="hidden" value="@Model.Guarnicoes[i].Id_Instrutor">
+                                        <label class="nomeFiscal" name="nomeFiscal">@Model.Guarnicoes[i].Instrutor.Nome</label>
+                                    </td>
+                                }
+                            </tr>
+
+                            <tr id="linha-comandante">
+                                <th>Comandantes</th>
+                                @for(int i =0; i<7; i++)
+                                {
+                                    <td class="campo">
+                                        <input class="idGuarda" name="idGuarda" type="hidden" value="@Model.Comandantes[i].Id">
+                                        <input class="idComandante" name="idAtirador" type="hidden" value="@Model.Comandantes[i].IdAtirador">
+                                        <label class="nome" name="nome">@Model.Comandantes[i].Atirador.Nome</label>
+                                    </td>
+                                }
+                            </tr>
+
+                            <tr id="linha-cabo">
+                                <th>Cabos</th>
+                                @for(int i =0; i<7; i++)
+                                {
+                                    <td class="campo">
+                                        <input class="idGuarda" name="idGuarda" type="hidden" value="@Model.Cabos[i].Id">
+                                        <input class="IdCabos" name="idAtirador" type="hidden" value="@Model.Cabos[i].IdAtirador">
+                                        <label class="nome" name="nome">@Model.Cabos[i].Atirador.Nome</label>
+                                    </td>
+                                }
+                            </tr>
+
+                            <tr>
+                                @{string controle = "linha-sentinela0"; int valor;}
+
+                                @for(int i = 0; i<6; i++)
+                                {   
+                                    controle = "linha-sentinela0";
+                                    valor =i+1;
+                                    controle= controle + valor.ToString();
+
+                                    <tr id="@controle">
+                                        <th>Sentinela @i</th>
+                                        @for(int v =i; v<42; v=v+6)
+                                        {
+
+                                            <td class="campo">
+                                                <input class="idGuarda" name="idGuarda" type="hidden" value="@Model.Sentinelas[v].Id">
+                                                <input class="idAtirador" name="idAtirador" type="hidden" value="@Model.Sentinelas[v].IdAtirador">
+                                                <label class="nome" name="nome">@Model.Sentinelas[v].Atirador.Nome</label>
+                                            </td>
+                                        }
+                                    </tr>
+                                }
+
+                            </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+                 <input type="submit" class="btn-problem" value="Salvar Alteração">
+            </form>
+
+
+
+             <div class="modal" id="modal">
+
+            <div class="modal-content">
+  
+                         <span class="span-modal" onclick="disposeModal()">&times;</span>
+                         <div class="modal-header">
+                             <h4 class="modal-title">Formulário de alteração diário</h4>
+                         </div>
+                         <div class="modal-body">
+                            <label for="fiscal" id="fiscal-dia">Fiscal de dia:</label>
+                            <select name="fiscal" id="fiscal">
+                              
+                                
+                            @foreach (Instrutor instrutor in Model.Instrutores)
+                              {
+                                   <option value='@instrutor.Id'>@instrutor.Nome</option>
+                              }
+                              
+                                 
+                            </select>
+                            <br>
+                             <label for="Comandante" id="comandante-dia">Comandante:</label>
+                             <select name="comandante" id="comandante">
+                                 
+                             @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                
+                               if(@atirador.Formacao == "Comandante")
+                                {
+                                    <option value='@atirador.Id'>@atirador.Nome</option>
+                                }
+                            }  
+                             </select>
+                             <br>
+                             <label for="Cabo" id="cabo-dia">Cabo da guarda:</label>
+                             <select name="cabo" id="cabo">
+                                 
+                            @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                
+                               if(@atirador.Formacao == "Cabo")
+                                {
+                                    <option value='@atirador.Id'>@atirador.Nome</option>
+                                }
+                            }  
+                             </select>
+                             <br>
+                             <label for="sentinela" id="sentinela-dia">Sentinela:</label>
+                             <select name="sentinela" id="sentinela">
+                            @foreach (Atirador atirador in Model.Atiradores)
+                            {
+                                
+                               if(@atirador.Formacao == "Sentinela")
+                                {
+                                    <option value='@atirador.Id'>@atirador.Nome</option>
+                                }
+                            }  
+                             </select>
+                           
+                             <input type="submit" class="adicionar" value="Adicionar">
+                            <hr class="linha">
+                             <ul>
+                                <div class="myList">
+                                <!--    <div class="linha-lista">
+                                        <div class="list-space">
+                                            <li class="item-lista" id="Teste">Teste   </li>
+                                        </div>
+                                        <div class="list-space">
+                                            <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </ul>
+                            
+                         </div>
+                         <div class="modal-footer">
+                            <input type="submit" class="save" value="Salvar" id="salvar">
+                            <input type="submit" class="close" value="Limpar" id="limpar">
+                            <input type="submit" class="close" value="Fechar" id="fechar" onclick="disposeModal()">
+                        </div>
+             
+            </div>
+        </div>
+
+
+
+
+
+    <script src="/js/ModalControleUpdateGuarnicao.js"></script>
+    </div>
