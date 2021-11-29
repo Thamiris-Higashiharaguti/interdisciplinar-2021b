@@ -12,66 +12,114 @@
         </section>
 
 <div class="content">
-
-
-        <section class="title">
-                <h2 class="titulo">Bem vindo!</h2>
-                    <br><br><br>
-                    <p class="subtitulo"> Esse é um site desenvolvido para auxiliar o tiro de guerra em suas atividades rotineiras</p>
-        </section>
-        <section class="funcoes" >
-            <div class="item">
-                <div class="icon">
-                    @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
-                    {
-                        <img src="../images/iconeChamada.png" alt=""/>
-                    }
-                    else{
-                        <a href="/chamada/index"><img src="../images/iconeChamada.png" alt=""/></a>
-                    }
-                    
-                </div>
-                <div class="down-content">
-                    <h4>Chamada</h4>
-                    <p class="">Chamada realizada diariamente na instrução</p>
-                </div>
-            </div>
+    <section class="title">
+        <h2 class="titulo">Bem vindo!</h2>
+        <br>
+        <p class="subtitulo"> Esse é um site desenvolvido para auxiliar o tiro de guerra em suas atividades rotineiras</p>
+    </section>
+    <section class="funcoes" >
+        <div class="item">
+            <div class="icon">
+                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
+                {
+                    <img src="../images/iconeChamada.png" alt=""/>
+                }
+                else{
+                    <a href="/chamada/index"><img src="../images/iconeChamada.png" alt=""/></a>
+                }
                 
-            <div class="item">
-                <div class="icon">
-                    @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
-                    {
-                        <img src="../images/iconeGuarn.png" alt=""/>
-                    }
-                    else{
-                        <a href="/guarnicao"><img src="../images/iconeGuarn.png" alt=""/> </a>
-                    }
-                </div>
-                <div class="down-content">
-                    
-                    <h4>Guarnição</h4>
-                    <p>Guarnição referente as guardas realizadas diariamente</p>
-                </div>
             </div>
-
-            <div class="item">
-                <div class="icon">
-                    <img style="align-self: auto;" src="../images/iconeNotificacao.png" alt=""/> 
-                </div>
-                <div class="down-content">
-                    <h4>Notificação</h4>
-                    <p>Notificações e mensagens referentes ao tiro de guerra</p>
-                </div>
+            <div class="down-content">
+                <h4>Chamada</h4>
+                <p class="">Chamada realizada diariamente na instrução</p>
             </div>
+        </div>
+            
+        <div class="item">
+            <div class="icon">
+                @if(string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Nome")))
+                {
+                    <img src="../images/iconeGuarn.png" alt=""/>
+                }
+                else{
+                    <a href="/guarnicao"><img src="../images/iconeGuarn.png" alt=""/> </a>
+                }
+            </div>
+            <div class="down-content">
+                <h4>Guarnição</h4>
+                <p>Guarnição referente as guardas realizadas diariamente</p>
+            </div>
+        </div>
 
-        </section>
-        <form method="POST" action="/usuario/email">
-            <input type="hidden" name="emailDestinatario" value="thamirissayurihigashiharaguti@gmail.com"/>
-            <input class="button" type="submit" value="Enviar email"/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-        </form>
-        
+        <div class="item">
+            <div class="icon">
+                <img style="align-self: auto;" src="../images/iconeNotificacao.png" alt=""/> 
+            </div>
+            <div class="down-content">
+                <h4>Notificação</h4>
+                <p>Notificações e mensagens referentes ao tiro de guerra</p>
+            </div>
+        </div>
+    </section>        
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="text">
+                <h2>O que é o tiro de guerra?</h2>
+                <p>O Tiro-de-Guerra (TG) é uma pequena unidade militar do Exército Brasileiro encarregada de formar atiradores e cabos da segunda categoria da reserva. A organização de um TG ocorre em acordo firmado com os municípios e o Comando da Região Militar. O exército fornece os instrutores, fardamento e equipamentos, enquanto a administração municipal disponibiliza as instalações, e é formado um grupamento. Geralmente, o prefeito se torna o diretor do Tiro-de-Guerra. Os jovens que servem nos TG recebem a denominação de “Atiradores”. Esse modelo de serviço tem mais de um século. Na década de 2010, existiam mais de 224 Tiros-de-Guerra distribuídos por quase todo o território brasileiro. Anualmente, ingressam, aproximadamente, 12 mil atiradores.</p>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">
+                <h2>Força Militar brasileira está entre as maiores do mundo</h2>
+                <p>Como o Brasil adota o Serviço Militar Obrigatório, sua força militar é uma das maiores do mundo, com efetivo calculado em mais de 1,6 milhão de homens em idade de reservista por ano (6º maior do mundo). Em termos de efetivo, tem o terceiro maior do continente americano e o segundo maior da América Latina. Em 2019, foi colocado na 13.ª posição na lista de maior poderio militar do mundo pelo site da Global Firepower (nas Américas, fica atrás apenas dos EUA).</p>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">
+                <h2>"Nome de Guerra"</h2>
+                <p>Quando um jovem ingressa para as Forças Armadas, logo após um curto período, vai ganhar um "nome de guerra". A sugestão pode vir do alistado e será submetida à avaliação do comandante da unidade em que está servindo. Geralmente, será uma abreviação do nome pessoal ou do sobrenome . O fato crucial que envolve essa marcação é que jamais pode haver mais de um indivíduo com o mesmo "nome de guerra" na mesma turma. </p>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="text">
+                <h2>Quem é Olavo Bilac?</h2>
+                <p>Olavo Bilac nasceu na cidade do Rio de Janeiro. Poeta, jornalista, fundador e membro imortal da Academia Brasileira de Letras (ABL), foi um grande apoiador do Serviço Militar Obrigatório, defendendo o modelo de recrutamento atual, vigente há quase um século. Ele percorreu o país conclamando os jovens para servir à Pátria. Dentre sua extensa obra, destacam-se a letra do Hino à Bandeira, a "Oração à Bandeira", o poema épico "O Caçador de Esmeraldas" e o soneto "A Pátria". Na data do seu nascimento, 16 de dezembro, comemora-se o Dia do Reservista. Faleceu no Rio de Janeiro, aos 53 anos.</p>
+            </div>
+        </div>
+
+    </div>
+    <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span>
+        <span class="dot"></span> 
+    </div>
+    <br>
+    <br>
 </div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 7000);
+}
+</script>
