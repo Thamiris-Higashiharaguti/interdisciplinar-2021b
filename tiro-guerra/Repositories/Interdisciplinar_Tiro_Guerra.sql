@@ -111,25 +111,7 @@ GO
 
 SELECT * FROM SEARCH_ATIRADORES
 GO
-
-create procedure CREATE_INSTRUTOR
-(
-	@NOME varchar(100),
-	@STATUS bit,
-	@CPF varchar(11),
-	@RG  varchar(11),
-	@GRADUACAO varchar(50),
-	@SENHA varchar(100)
-)
-as 
-begin
-	insert into TB_Usuario(Nome,Status,CPF,RG,Senha)
-	values(@nome,@status,@cpf,@rg,@SENHA)
-
-	insert into TB_Instrutor(Id_Usuario,Graduacao)
-	values (@@IDENTITY, @graduacao)
-end
-go
++
 
 EXEC CREATE_INSTRUTOR 'Jose',1,'123','456','Tenente','123';
 go

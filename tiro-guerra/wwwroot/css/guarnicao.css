@@ -40,19 +40,41 @@ body{
     }
 
     .btn-salvar{
-        width: 150px;
+        width: 250px;
         height: 50px;
         color: black;
         background-color: transparent;
         font-size: 22px;
         margin: 0 50%;
+        border: 2px groove black;
+        text-align: center;
         border-radius: 20%;
     }
     .btn-salvar:hover{
-        background-color: lightslategray;
+        background-color: rgb(6, 83, 60);
+        color: white;
+        cursor: pointer;
     }
 
+    .btn-problem{
+        width: 250px;
+        height: 50px;
+        color: black;
+        background-color: transparent;
+        font-size: 22px;
+        margin: 0 50%;
+        border: 2px groove black;
+        border-radius: 20%;
+        text-align: center;
+    }
 
+    .btn-problem:hover{
+        background-color: rgb(98, 10, 10);
+        color: white;
+        cursor: pointer;
+    }
+
+    
     /*Modal dia da semana Inicio*/
 
     .modal{
