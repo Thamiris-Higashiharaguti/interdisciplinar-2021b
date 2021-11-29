@@ -1,17 +1,18 @@
 using System;
 using System.Collections.Generic;
 using TiroGuerra.Models;
-
 namespace TiroGuerra.Repositories
 {
     public interface IGuarnicaoRepository
     {
-        Guarnicao Create(List<Guarda> model);
+        List<Guarnicao> Create(List<int> idfiscal, List<DateTime> dias);
 
-        Guarnicao Read(int id);
+        List<Guarnicao> Read(DateTime domingo, DateTime sabado);
 
-        void Update(int id, Guarnicao model);
+        void Update(List<Guarnicao> model);
 
         void Delete(int id);
     }
+
+  
 }
