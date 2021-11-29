@@ -243,34 +243,9 @@ namespace TiroGuerra.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(List<int> idGuarnicao, List<int> idfiscal, List<int> idGuarda, List<int> IdAtirador)
+        public ActionResult Update()
         {
-            Console.WriteLine("Quantidade de Guarniçoes "+idGuarnicao.Count);
-            Console.WriteLine("Quantidade de idFiscal "+idfiscal.Count);
-            Console.WriteLine("Quantidade de idGuarda "+idGuarda.Count);
-            Console.WriteLine("Quantidade de IdAtirador "+IdAtirador.Count);
 
-            List<Guarnicao> Guarnicoes = new List<Guarnicao>();
-            List<Guarda> Guardas = new List<Guarda>();
-
-            for(int i =0; i<idGuarnicao.Count; i++)
-            {
-                Guarnicoes.Add(new Guarnicao{
-                    Id = idGuarnicao[i],
-                    Id_Instrutor = idfiscal[i]
-                });
-            }
-
-            for(int i = 0; i<idGuarda.Count; i++)
-            {
-                Guardas.Add(new Guarda{
-                    Id = idGuarda[i],
-                    IdAtirador = IdAtirador[i]
-                });
-            }
-
-            guarnicaoRepository.Update(Guarnicoes);
-            guardaRepository.Update(Guardas);
             
             return RedirectToAction("index");
         }

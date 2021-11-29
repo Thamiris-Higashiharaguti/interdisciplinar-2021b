@@ -10,7 +10,7 @@ namespace TiroGuerra.Repositories
 
         List<Guarda> Read(DateTime domingo, DateTime sabado);
 
-        void Update(List<Guarda> model);
+        void Update(int id, Guarda model);
 
         void Delete(int id);
     }

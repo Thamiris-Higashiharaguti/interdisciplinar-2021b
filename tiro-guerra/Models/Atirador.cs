@@ -15,9 +15,5 @@ namespace TiroGuerra.Models
         #region Foreign Key
             public Pelotao Pelotao { get; set; }
         #endregion
-
-        #region Foreign Key
-            public Usuario Usuario { get; set; }
-        #endregion
     }
 }

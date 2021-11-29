@@ -84,7 +84,7 @@ document.querySelector('input[value=Adicionar]').addEventListener('click',() =>
             }
         });
 
-        if(atiradorEstaNaLista ==false)
+        if(atiradorEstaNaLista == false)
         {
             atiradores.push(value)
     
@@ -106,10 +106,6 @@ document.querySelector('input[value=Adicionar]').addEventListener('click',() =>
                 </div> 
             </div>`
         }
-      
-        
-         
-       
     }
 
     select = "";
