@@ -1,21 +1,16 @@
 @using TiroGuerra.Models;
 @using System.Linq
-
 @{
     ViewBag.Title = "Guarnição Create";
     ViewBag.css = "/css/guarnicao.css";
 }
-
-
     <div class="content">
-
         <form method="POST" action="/guarnicao/create" >
             <div class="geral">
             
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-
                         <th scope="col">Mês: @ViewBag.mes</th> <input type="hidden" name="dataEscolhida" value=@ViewBag.data>
                         <th scope="col" class="date">11/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
                         <th scope="col" class="date">12/10/2021 </th> <input type="hidden" class="diaSemana" name="dataDia" value="valor">
@@ -42,35 +37,38 @@
                         <tr id="linha-fiscal">
                             <th scope="row">Fiscal de Dia</th>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                             <td class="campo">
-                                <input name="idfiscal" type="hidden" value="14">
-                                <label name="nome">José da Silva</label>
+
                             </td>
                         </tr>
                         <tr id="linha-comandante">
+
+    
+          
+            
+    
+
+          
+    
+    
+  
                             <th scope="row">Comandante da Guarda</th>
                             <td class="campo">
                               
@@ -167,7 +165,6 @@
                               
                             </td>
                         </tr>
-
                         <tr id="linha-sentinela03">
                             <th scope="row">Sentinela</th>
                             <td class="campo">
@@ -192,7 +189,6 @@
                               
                             </td>
                         </tr>
-
                         <tr id="linha-sentinela04">
                             <th scope="row">Sentinela</th>
                             <td class="campo">
@@ -217,7 +213,6 @@
                                
                             </td>
                         </tr>
-
                         <tr id="linha-sentinela05">
                             <th scope="row">Sentinela</th>
                             <td class="campo">
@@ -242,7 +237,6 @@
                               
                             </td>
                         </tr>  
-
                         <tr id="linha-sentinela06">
                             <th scope="row">Sentinela</th>
                             <td class="campo">
@@ -270,20 +264,16 @@
                     </tbody>
                 </table>
             </div>
-
             <input class="btn-salvar" type="submit" value="Salvar">
-
         </form>
         <div class="modal" id="modal">
             
             <div class="modal-content">
+                
                          <span class="span-modal" onclick="disposeModal()">&times;</span>
-
                          <div class="modal-header">
                              <h4 class="modal-title">Formulário de cadastro diário</h4>
                          </div>
-
-
                          <div class="modal-body">
                             <label for="fiscal" id="fiscal-dia">Fiscal de dia:</label>
                             <select name="fiscal" id="fiscal">
@@ -292,7 +282,6 @@
                               {
                                    <option value='@instrutor.Id'>@instrutor.Nome</option>
                               }
-
                                  
                             </select>
                             <br>
@@ -307,7 +296,6 @@
                                     <option value='@atirador.Id'>@atirador.Nome</option>
                                 }
                             }  
-
                              </select>
                              <br>
                              <label for="Cabo" id="cabo-dia">Cabo da guarda:</label>
@@ -330,12 +318,10 @@
                                     <option value='@atirador.Id'>@atirador.Nome</option>
                                 }
                             }   
-
                              </select>
                            
                              <input type="submit" class="adicionar" value="Adicionar">
                             <hr class="linha">
-
                              <ul>
                                 <div class="myList">
                                 <!--    <div class="linha-lista">
@@ -346,12 +332,10 @@
                                             <span class="span-item-lista" onclick="deleteItem('Teste')">X</span> 
                                         </div>
                                     </div>-->
-
                                 </div>
                             </ul>
                             
                          </div>
-
                          <div class="modal-footer">
                             <input type="submit" class="save" value="Salvar" id="salvar">
                             <input type="submit" class="close" value="Limpar" id="limpar">
@@ -359,23 +343,14 @@
                         </div>
                        
                    
-
-
                
              
             </div>
-
         </div>
        
     </div>
-
     
-
    <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.js"></script>
     <script src="/js/ModalControle.js"></script>
-
    <script type="text/javascript" src="/js/datasGuarnicao.js"> </script>
-
-
-
     </div>

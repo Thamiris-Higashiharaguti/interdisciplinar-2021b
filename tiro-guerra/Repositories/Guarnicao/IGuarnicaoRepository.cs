@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using TiroGuerra.Models;
-
 namespace TiroGuerra.Repositories
 {
     public interface IGuarnicaoRepository
@@ -10,8 +9,10 @@ namespace TiroGuerra.Repositories
 
         List<Guarnicao> Read(DateTime domingo, DateTime sabado);
 
-        void Update(int id, Guarnicao model);
+        void Update(List<Guarnicao> model);
 
         void Delete(int id);
     }
+
+  
 }
