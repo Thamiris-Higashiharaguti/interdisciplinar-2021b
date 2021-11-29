@@ -109,5 +109,11 @@ namespace TiroGuerra.Controllers
             repository.Delete(Id);
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult Guarda()
+        {
+            return RedirectToAction("escalaGuarda","Guarnicao");
+        }
     }
 }

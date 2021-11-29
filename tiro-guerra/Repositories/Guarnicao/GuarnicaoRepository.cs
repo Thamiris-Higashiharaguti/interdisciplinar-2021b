@@ -8,64 +8,138 @@ namespace TiroGuerra.Repositories
 {
     public class GuarnicaoRepository: BDContext, IGuarnicaoRepository
     {
-        public Guarnicao Create(List<Guarda> model)
+        public List<Guarnicao> Create(List<int> idfiscal, List<DateTime> dias)
         {
             try
             {
 
-                //percorre os models
-                for(int i = 0; i < model.Count;i++)
-                {
-
-                     Console.WriteLine(model[i].IdAtirador);
-                     Console.WriteLine(model[i].Funcao);
-                }
-
-                //split a cada cria uma lista com os 7 dias da semana
-
-                //cria uma guarnição para cadas lista
-
-                //cadastra cada lista de guarda para uma guarnicao
-
-                /*
                 SqlCommand cmd= new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "CREATE_INSTRUTOR";
+                List<Guarnicao> Guarnicoes = new List<Guarnicao>();
+                Guarnicao guarnicao = new Guarnicao();
+                
+
+                for(int i = 0; i <7; i++)
+                {
+
+                   // Console.WriteLine(idfiscal[i]);
+                    //Console.WriteLine(dias[i]);
+
+                    SqlDataReader reader;
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "CREATE_GUARNICAO";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id_Instrutor", idfiscal[i]);
+                    cmd.Parameters.AddWithValue("@data", dias[i]);
+                    
+                    reader = cmd.ExecuteReader();
+
+                     while(reader.Read()) 
+                    {
+                        Guarnicoes.Add(new Guarnicao{
+                        Id =reader.GetInt32(0),
+                        Id_Instrutor = reader.GetInt32(1),
+                        Data =  reader.GetDateTime(2)
+                        });
+                    }
+
+                    reader.Close();
+                   
+                }
+
+                return Guarnicoes;
+            }
+
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+                 List<Guarnicao> Guarnicoes = new List<Guarnicao>();
+                 return Guarnicoes;
+            }
+
+            finally
+            {
+                Dispose();
+            }
+
+        }
+
+        
+        public List<Guarnicao> Read(DateTime domingo, DateTime sabado)
+        {
+            try{
+                List<Guarnicao> Guarnicoes = new List<Guarnicao>();
+                SqlDataReader reader;
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                cmd.CommandText = "SEARCH_GUARNICOES";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@nome", model.Nome);
-                cmd.Parameters.AddWithValue("@status",model.Status);
-                cmd.Parameters.AddWithValue("@cpf",model.CPF);
-                cmd.Parameters.AddWithValue("@rg",model.RG);
-                cmd.Parameters.AddWithValue("@graduacao",model.Graduacao);
-                cmd.Parameters.AddWithValue("@senha",model.Senha);
-                cmd.ExecuteNonQuery();
-                */
-                
-                Guarnicao gua = new Guarnicao();
+                cmd.Parameters.AddWithValue("@domingo", domingo);
+                cmd.Parameters.AddWithValue("@sabado", sabado);
 
-                return gua;
+                reader = cmd.ExecuteReader();
+
+                while(reader.Read()){
+
+                    Instrutor instrutor = new Instrutor();
+                    instrutor.Nome =reader.GetString(3);
+                    instrutor.Graduacao = reader.GetString(4);
 
 
+                    Guarnicoes.Add(new Guarnicao{
+                        Id =reader.GetInt32(0),
+                        Id_Instrutor = reader.GetInt32(2),
+                        Data =  reader.GetDateTime(1),
+                        Instrutor = instrutor
+                        });
+                 }
+
+                return Guarnicoes;
             }
             catch(Exception ex)
             {
                 Console.WriteLine(ex);
+                List<Guarnicao> Guarnicoes = new List<Guarnicao>();
+                return Guarnicoes;
 
-                 Guarnicao gua = new Guarnicao();
-
-                return gua;
+               
             }
-
+            finally{
+                Dispose();
+            }
+            
         }
-        public Guarnicao Read(int id)
+        public void Update(List<Guarnicao> model)
         {
+            try{
 
-            return null;
-        }
-        public void Update(int id, Guarnicao model)
-        {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+                for(int i = 0; i < model.Count; i++)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "UPDATE_GUARNICAO";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id", model[i].Id);
+                    cmd.Parameters.AddWithValue("@Id_Instrutor", model[i].Id_Instrutor);
+                    cmd.ExecuteNonQuery();
+                }
+                
+            }
+            catch(Exception ex){
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                Dispose();
+            }
             
 
         }
