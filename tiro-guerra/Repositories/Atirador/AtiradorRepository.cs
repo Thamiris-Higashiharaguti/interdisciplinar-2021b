@@ -21,13 +21,11 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@CPF", model.CPF);
                 cmd.Parameters.AddWithValue("@RG", model.RG);
                 cmd.Parameters.AddWithValue("@Status", model.Status);
-                cmd.Parameters.AddWithValue("@Senha", model.Senha);
                 cmd.Parameters.AddWithValue("@Id_Pelotao", model.IdPelotao);
                 cmd.Parameters.AddWithValue("@Formacao", model.Formacao);
                 cmd.Parameters.AddWithValue("@RA", model.RA);
                 cmd.Parameters.AddWithValue("@Numero", model.Numero);
-                cmd.Parameters.AddWithValue("@Email", model.Email);
-                
+                cmd.Parameters.AddWithValue("@Senha", model.Senha);
 
                 cmd.ExecuteNonQuery();
 
@@ -46,8 +44,7 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "DELETE_ATIRADOR";
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DELETE FROM TB_Atirador WHERE Id = @id";
 
                 cmd.Parameters.AddWithValue("@id", id);
 
@@ -66,20 +63,19 @@ namespace TiroGuerra.Repositories
             try {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-                cmd.Parameters.Clear();
+
                 cmd.CommandText = "UPDATE_ATIRADOR";
-                cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@Nome", model.Nome);
                 cmd.Parameters.AddWithValue("@CPF", model.CPF);
                 cmd.Parameters.AddWithValue("@RG", model.RG);
                 cmd.Parameters.AddWithValue("@Status", model.Status);
-                cmd.Parameters.AddWithValue("@Email", model.Email);
+                cmd.Parameters.AddWithValue("@Senha", model.Senha);
                 cmd.Parameters.AddWithValue("@Id_Pelotao", model.IdPelotao);
                 cmd.Parameters.AddWithValue("@Formacao", model.Formacao);
                 cmd.Parameters.AddWithValue("@RA", model.RA);
                 cmd.Parameters.AddWithValue("@Numero", model.Numero);
-                cmd.Parameters.AddWithValue("@id", id); 
+                cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
             }catch(Exception ex) 
@@ -101,10 +97,10 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,U.Email,A.Formacao, A.RA, A.Numero, P.Nome "+
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, A.GDA_Preta, A.GDA_Vermelha, P.Nome "+
                 "from TB_Atirador A "+
                 "INNER Join TB_Usuario U ON A.Id_Usuario = U.Id "+
-                "Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id where U.Status = 1";
+                "Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id";
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
@@ -116,14 +112,12 @@ namespace TiroGuerra.Repositories
                     atirador.CPF = reader.GetString(2);
                     atirador.RG = reader.GetString(3);
                     atirador.Status = reader.GetBoolean(4);
-                    atirador.Email = reader.GetString(5);
-                    atirador.Formacao = reader.GetString(6);
-                    atirador.RA = reader.GetString(7);
-                    atirador.Numero = reader.GetString(8);
-            
+                    atirador.Formacao = reader.GetString(5);
+                    atirador.RA = reader.GetString(6);
+                    atirador.Numero = reader.GetString(7);
                     
                     atirador.Pelotao = new Pelotao {
-                        Nome = reader.GetString(9)
+                        Nome = reader.GetString(10)
                     };
 
                     lista.Add(atirador);
@@ -152,9 +146,8 @@ namespace TiroGuerra.Repositories
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
-                cmd.CommandText = "SEARCH_ATIRADOR";
-                cmd.CommandType = CommandType.StoredProcedure;
-                
+                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,A.Formacao, A.RA, A.Numero, P.Nome from TB_Atirador AS A INNER Join TB_Usuario AS U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao AS P ON A.Id_Pelotao = P.Id WHERE U.id = @id";
+
                 cmd.Parameters.AddWithValue("@id", id);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -166,7 +159,7 @@ namespace TiroGuerra.Repositories
                     atirador.Nome = reader.GetString(1);
                     atirador.CPF = reader.GetString(2);
                     atirador.RG = reader.GetString(3);
-                    atirador.Email = reader.GetString(4);
+                    atirador.Status = reader.GetBoolean(4);
                     atirador.Formacao = reader.GetString(5);
                     atirador.RA = reader.GetString(6);
                     atirador.Numero = reader.GetString(7);
@@ -210,16 +203,16 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@CPF", CPF);
                 cmd.Parameters.AddWithValue("@Senha", Senha);
                 
-                
+
                 SqlDataReader reader = cmd.ExecuteReader();
-                
+
                 if(reader.Read()) 
                 {
                     
-                    atirador.Usuario.Id = reader.GetInt32(0);
-                    atirador.Usuario.Nome = reader.GetString(1);
-                    atirador.Usuario.CPF = reader.GetString(2);
-                    atirador.Usuario.RG = reader.GetString(3);
+                    atirador.Id = reader.GetInt32(0);
+                    atirador.Nome = reader.GetString(1);
+                    atirador.CPF = reader.GetString(2);
+                    atirador.RG = reader.GetString(3);
                     atirador.Formacao = reader.GetString(4);
                     atirador.RA = reader.GetString(5);
                     atirador.Numero = reader.GetString(6);
@@ -243,8 +236,7 @@ namespace TiroGuerra.Repositories
             finally {
                 Dispose();
             }
-        } 
-                       
+        }             
     }
 }
 
