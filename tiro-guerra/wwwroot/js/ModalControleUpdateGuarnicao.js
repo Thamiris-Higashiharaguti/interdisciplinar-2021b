@@ -5,6 +5,8 @@ var lista_nova=[];
 var id_dia;
 
 
+//valores
+
 //modal
 //exibe o modal na tela
 function showModal(idModal)
