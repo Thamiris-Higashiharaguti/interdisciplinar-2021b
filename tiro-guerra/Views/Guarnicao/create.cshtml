@@ -59,15 +59,6 @@
                             </td>
                         </tr>
                         <tr id="linha-comandante">
-
-    
-          
-            
-    
-
-          
-    
-    
   
                             <th scope="row">Comandante da Guarda</th>
                             <td class="campo">
@@ -265,6 +256,13 @@
                 </table>
             </div>
             <input class="btn-salvar" type="submit" value="Salvar">
+
+             @if(ViewBag.Message != null)
+            {
+                <div class='erro'>
+                    @ViewBag.Message
+                </div>
+            }
         </form>
         <div class="modal" id="modal">
             

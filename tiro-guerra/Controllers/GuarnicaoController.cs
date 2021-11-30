@@ -9,6 +9,7 @@ using System.Linq;
 using Microsoft.VisualBasic;
 using System.Windows;
 
+
 namespace TiroGuerra.Controllers
 {
     public class GuarnicaoController:Controller
@@ -102,6 +103,23 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult create(DateTime dataCriar)
         {
+            if(dataCriar == new DateTime())
+            {
+                string mensagem = "Escolha Uma data para criar a guarnição";
+                ViewBag.Message = mensagem;
+                return  View("index");
+            }
+
+            Guarda guarda = new Guarda();
+            guarda = guardaRepository.ReadOne(dataCriar);
+
+            if(guarda.Id != 0)
+            {
+                string mensagem = "Ja possui uma Guarnição cadastrada nessa data";
+                ViewBag.Message = mensagem;
+                return  View("index");
+            }
+
             ViewBag.data = dataCriar.ToString("MM/dd/yyyy");
             ViewBag.mes = MesAtual(dataCriar);
             var atiradores = atirador_repository.ReadAll();
@@ -116,6 +134,22 @@ namespace TiroGuerra.Controllers
         [HttpPost]
         public ActionResult create(List<int> id,  List<string> Funcao, List<DateTime> dataDia, List<int> idfiscal)
         {   
+
+            if(id.Count!=56)
+            {
+                string mensagem = "Você deve preencher toda a escala de atiradores para salvar a escala";
+                ViewBag.Message = mensagem;
+                return  View("index");
+            }
+
+            if(idfiscal.Count !=7)
+            {
+                string mensagem = "Você deve preencher toda a escala de fiscais para salvar a escala";
+                ViewBag.Message = mensagem;
+                return  View("index");
+            }
+
+
             List<Guarda> Guardas = new List<Guarda>();
             for(int i = 0; i<id.Count(); i++)
             {
@@ -134,6 +168,13 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult Update(DateTime dataAlterar)
         {
+          
+            if(dataAlterar == new DateTime())
+            {
+                string mensagem = "Escolha uma data para alterar a guarnição";
+                ViewBag.Message = mensagem;
+                return  View("index");
+            }
             
             List<DateTime> listDias = new List<DateTime>();
             DateTime sabado = new DateTime();
@@ -188,7 +229,8 @@ namespace TiroGuerra.Controllers
             mymodel.Comandantes = Comandantes;
             mymodel.Sentinelas = Sentinelas; 
             mymodel.Guarnicoes = Guarnicoes; 
-          //  mymodel.Guardas = Guardas;
+        
+
             var atiradores = atirador_repository.ReadAll();
             var instrutores = instrutor_repository.ReadAll();
            
@@ -198,9 +240,9 @@ namespace TiroGuerra.Controllers
 
             if(Guarnicoes.Count <7)
             {
-         
-              ViewData["Message"] = "Erro ao procurar";
-               return  View("index");
+                string mensagem = "Guarnição escolhida não está cadastrada no sistema";
+                ViewBag.Message = mensagem;
+                return  View("index");
             }
             
             return View(mymodel);
@@ -209,11 +251,7 @@ namespace TiroGuerra.Controllers
         [HttpPost]
         public ActionResult Update(List<int> idGuarnicao, List<int> idfiscal, List<int> idGuarda, List<int> IdAtirador)
         {
-            Console.WriteLine("Quantidade de Guarniçoes "+idGuarnicao.Count);
-            Console.WriteLine("Quantidade de idFiscal "+idfiscal.Count);
-            Console.WriteLine("Quantidade de idGuarda "+idGuarda.Count);
-            Console.WriteLine("Quantidade de IdAtirador "+IdAtirador.Count);
-
+           
             List<Guarnicao> Guarnicoes = new List<Guarnicao>();
             List<Guarda> Guardas = new List<Guarda>();
 

@@ -37,6 +37,7 @@ namespace TiroGuerra.Controllers
             if(usuario == null)
             {
                 Console.WriteLine("Usuário não encontrado.");
+                ViewBag.ErroLogin ="Login e Senha não correspondem a um usuário do sistema";
                 return View();
             }
 

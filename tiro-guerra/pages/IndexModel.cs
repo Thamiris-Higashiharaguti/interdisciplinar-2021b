@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 
 public class IndexModel : PageModel
 {
@@ -6,8 +7,9 @@ public class IndexModel : PageModel
     {
     }
  
-    public void OnPostSubmit(string name)
+    public void OnPostSubmit()
     {
-        ViewData["Message"] = string.Format("Hello {0}.\\nCurrent Date and Time: {1}", name, DateTime.Now.ToString());
+        ViewData["Message"] = "Deu erro cara";
     }
 }
+

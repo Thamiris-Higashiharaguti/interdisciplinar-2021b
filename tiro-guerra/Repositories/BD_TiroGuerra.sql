@@ -280,6 +280,23 @@ from TB_Guarda ga
  
 end
 
+CREATE PROCEDURE SEARCH_GUARDA(
+@dia Date
+)
+as begin
+ select a.Id_Usuario [ID atirador],u.Nome [Nome Atirador], 
+		gr.Id [ID da Guarnicao], ga.Funcao [Funcao Guarda], 
+		gr.Data [Dia da Guarnicao], ga.Id [Id Guarda]
+from TB_Guarda ga
+ inner join TB_Guarnicao gr on ga.Id_Guarnicao = gr.Id
+ inner join TB_Atirador a on a.Id_Usuario=ga.Id_Atirador
+ inner join TB_Usuario u on u.Id =a.Id_Usuario
+ where gr.Data = @dia
+ order by  gr.Data, ga.Funcao
+ 
+end
+
+
 -- Criação da Guarda
 CREATE PROCEDURE CREATE_GUARDA( 
   @Id_Atirador int,

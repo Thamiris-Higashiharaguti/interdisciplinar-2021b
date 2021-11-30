@@ -31,3 +31,7 @@ EXEC CREATE_INSTRUTOR 'Jose da Silva',1,'123456712','32132112','SubTenente','123
 EXEC CREATE_INSTRUTOR 'Marcos',1,'11111112','111122','Tenente','123','Marcos@outlook.com'; 
 EXEC CREATE_INSTRUTOR 'Vitor',1,'22222223','222233','General','123','Vitor@outlook.com';
 
+select * from SEARCH_INSTRUTORES
+select * from SEARCH_ATIRADORES;
+
+select * from TB_Guarnicao;

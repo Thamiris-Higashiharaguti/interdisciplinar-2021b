@@ -60,7 +60,7 @@ body{
         width: 250px;
         height: 50px;
         color: black;
-        background-color: transparent;
+        background-color: darkorange;
         font-size: 22px;
         margin: 0 50%;
         border: 2px groove black;
@@ -69,7 +69,6 @@ body{
     }
 
     .btn-problem:hover{
-        background-color: rgb(98, 10, 10);
         color: white;
         cursor: pointer;
     }
@@ -78,6 +77,19 @@ body{
     {
         text-align: center;
         margin-top: 2%;
+    }
+
+    .erro{
+        height: 70px;
+        width: 100%;
+        line-height: 70px;
+        text-align: center;
+        background-color: rgb(146, 3, 3);
+        color: white;
+        font-size: 22px;
+        transition: 0.6s;
+        text-align: center;
+        margin: 0 auto;
     }
     
     /*Modal dia da semana Inicio*/
