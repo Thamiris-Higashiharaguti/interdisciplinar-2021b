@@ -1,12 +1,16 @@
 @using TiroGuerra.Models;
 @using System.Linq
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
     ViewBag.Title = "Guarnição";
     ViewBag.css = "/css/guarnicaoindex.css";
+    
 }
 
 <div class="content">
+
+ 
 
     <div class="calendario">
         <form method="get" action="/guarnicao/create" > <!--action="/guarnicao/create" -->
@@ -15,13 +19,25 @@
         <input type="submit" value="selecionar">
     </form>
     </div>
-    
+      
+       
+
 
     <div class="calendario">
         <form method="get" action="/guarnicao/update" > <!--action="/guarnicao/create" -->
             <h1>Selecione um dia da semana para alterar a guarnição semanal</h1>
             <input type="date" name="dataAlterar" id="date"> 
-            <input type="submit" value="selecionar">
+            <input type="submit" value="selecionar" asp-page-handler="Submit">
         </form>
     </div>
+
+     @if (ViewData["Message"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewData["Message"]");
+            };
+        </script>
+    }
+
 </div>

@@ -199,7 +199,7 @@ namespace TiroGuerra.Controllers
             if(Guarnicoes.Count <7)
             {
          
-               
+              ViewData["Message"] = "Erro ao procurar";
                return  View("index");
             }
             
@@ -298,7 +298,9 @@ namespace TiroGuerra.Controllers
 
             if(Guarnicoes.Count <7)
             {
-                return RedirectToAction("Index", "Home");
+        
+                ViewData["Message"] = "Faça o cadastro da guarnição antes de tentar altera-la";
+                return RedirectToAction("Index", "Guarnicao");
             }
 
             ViewBag.mes = MesAtual(sabado);
