@@ -12,6 +12,6 @@ namespace TiroGuerra.Repositories
 
         void Delete(int id);
 
-         List<Instrutor> ReadAll();
+        List<Instrutor> ReadAll();
     }
 }

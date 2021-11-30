@@ -24,6 +24,7 @@ namespace TiroGuerra.Repositories
                 cmd.Parameters.AddWithValue("@RG",model.RG);
                 cmd.Parameters.AddWithValue("@GRADUACAO",model.Graduacao);
                 cmd.Parameters.AddWithValue("@SENHA",model.Senha);
+                cmd.Parameters.AddWithValue("@Email",model.Email);
                 cmd.ExecuteNonQuery();
 
             }
@@ -72,13 +73,43 @@ namespace TiroGuerra.Repositories
         }
         public void Update(int id, Instrutor model)
         {
-            
+        try{
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.Parameters.Clear();
+            cmd.CommandText = "UPDATE_INSTRUTOR";
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@Nome", model.Nome);
+            cmd.Parameters.AddWithValue("@Status", model.Status);
+            cmd.Parameters.AddWithValue("@CPF", model.CPF);
+            cmd.Parameters.AddWithValue("@RG", model.RG);
+            cmd.Parameters.AddWithValue("@Senha", model.Senha);
+            cmd.Parameters.AddWithValue("@Email", model.Email);
+            cmd.Parameters.AddWithValue("@Graduacao", model.Graduacao);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
+        }catch(Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+                // Armazenar a exceção em um log.
+            }
+            finally {
+                Dispose();
+            }
         }
 
         public void Delete(int id)
         {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.Parameters.Clear();
+            cmd.CommandText = "DELETE_INSTRUTOR";
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@id", id);
+            
         }
 
         public List<Instrutor> ReadAll()

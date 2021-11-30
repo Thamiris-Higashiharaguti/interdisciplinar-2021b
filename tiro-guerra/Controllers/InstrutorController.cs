@@ -34,7 +34,40 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult Search()
         {
+            ViewBag.instrutores = repository.ReadAll();
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            
+            /*CultureInfo culture = new CultureInfo("pt-BR");
+            DateTimeFormatInfo dtfi = culture.DateTimeFormat;
+            
+            int dia = DateTime.Now.Day;
+            int ano = DateTime.Now.Year;
+            string mes = culture.TextInfo.ToTitleCase(dtfi.GetMonthName(DateTime.Now.Month));
+            string diasemana = culture.TextInfo.ToTitleCase(dtfi.GetDayName(DateTime.Now.DayOfWeek));
+            string data = diasemana + ", " + dia + " de " + mes + " de " + ano;*/
+
+            ViewBag.instrutor = repository.Read(id);
+            return View("Update");
+        }
+
+        [HttpPost]
+        public ActionResult Update(Instrutor model)
+        {
+            repository.Update(model.Id,model);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Delete(int Id)
+        {
+            Console.WriteLine(Id);
+            
+            repository.Delete(Id);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
