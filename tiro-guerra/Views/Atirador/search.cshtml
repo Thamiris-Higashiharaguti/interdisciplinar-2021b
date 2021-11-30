@@ -17,8 +17,11 @@
         <section class="flex-row">
 
             <div class="col-wd-100">
-                <span class="data-title">Nome do Atirador:</span> <input type="text" name="busca" class="search">
-                <input class="btn-search" type="submit" value="Procurar" name="search">
+                <form method="post" action="/atirador/filtrarNome">
+                    <span class="data-title">Nome do Atirador:</span>
+                    <input type="text" name="nome" class="search">
+                    <input class="btn-search" type="submit" value="Procurar" name="search">
+                </form>
             </div>
 
         </section>

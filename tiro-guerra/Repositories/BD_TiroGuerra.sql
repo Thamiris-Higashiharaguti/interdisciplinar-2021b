@@ -99,6 +99,7 @@ ON (usuario.Id = instrutor.Id_Usuario)
 
 GO 
 
+
 -- Procedure de Busca de Instrutor
 CREATE PROCEDURE SEARCH_INSTRUTOR 
 ( 
@@ -108,6 +109,15 @@ SELECT U.id, U.Nome, U.CPF, U.RG, U.Senha,U.Email, I.Graduacao
 FROM TB_Instrutor I INNER JOIN TB_Usuario  U ON (I.Id_Usuario = U.Id)
 Where U.id = @id; 
 END
+
+Create PROCEDURE SEARCH_INSTRUTOR_FILTER(
+@nome varchar(100)
+) as begin
+SELECT U.id, U.Nome, U.CPF, U.RG, U.Senha,U.Email, I.Graduacao 
+FROM TB_Instrutor I INNER JOIN TB_Usuario  U ON (I.Id_Usuario = U.Id)
+Where u.Nome like '%'+@nome+'%' 
+END
+
 
 
 -- Procedure de Cadastrar Instrutor
@@ -163,6 +173,16 @@ INNER JOIN TB_Atirador AS atirador
 ON (usuario.Id = atirador.Id_Usuario) 
 
 GO 
+
+
+Create PROCEDURE SEARCH_ATIRADOR_FILTER(
+@nome varchar(100)
+) as begin
+SELECT U.id, U.Nome, U.CPF, U.RG 
+FROM TB_Atirador A INNER JOIN TB_Usuario  U ON (A.Id_Usuario = U.Id)
+Where u.Nome like '%'+@nome+'%' 
+END
+
 
 -- Procedure de Busca de Atirador
 CREATE PROCEDURE SEARCH_ATIRADOR 

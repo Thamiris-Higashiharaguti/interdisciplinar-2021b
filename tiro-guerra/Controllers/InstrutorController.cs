@@ -41,19 +41,19 @@ namespace TiroGuerra.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            
-            /*CultureInfo culture = new CultureInfo("pt-BR");
-            DateTimeFormatInfo dtfi = culture.DateTimeFormat;
-            
-            int dia = DateTime.Now.Day;
-            int ano = DateTime.Now.Year;
-            string mes = culture.TextInfo.ToTitleCase(dtfi.GetMonthName(DateTime.Now.Month));
-            string diasemana = culture.TextInfo.ToTitleCase(dtfi.GetDayName(DateTime.Now.DayOfWeek));
-            string data = diasemana + ", " + dia + " de " + mes + " de " + ano;*/
 
             ViewBag.instrutor = repository.Read(id);
             return View("Update");
         }
+
+        [HttpPost]
+        public ActionResult filtrarNome(string nome)
+        {
+
+            ViewBag.instrutores = repository.readFiltro(nome);
+            return View("Search");
+        }
+
 
         [HttpPost]
         public ActionResult Update(Instrutor model)

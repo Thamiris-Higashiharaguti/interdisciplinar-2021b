@@ -109,5 +109,14 @@ namespace TiroGuerra.Controllers
             repository.Delete(Id);
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpPost]
+        public ActionResult filtrarNome(string nome)
+        {
+
+            ViewBag.atiradores = repository.readFiltro(nome);
+            return View("Search");
+        }
+
     }
 }
