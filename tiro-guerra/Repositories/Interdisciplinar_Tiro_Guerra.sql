@@ -56,11 +56,12 @@ GO
 
 CREATE TABLE TB_Guarda
 (
+	Id				INT		NOT NULL PRIMARY KEY IDENTITY,
 	Id_Atirador					INT			NOT NULL REFERENCES TB_Atirador,
 	Id_Guarnicao				INT			NOT NULL REFERENCES TB_Guarnicao,
 	Presenca					BIT,
 	Funcao						VARCHAR(50) NOT NULL,
-	PRIMARY KEY (Id_Atirador, Id_Guarnicao)
+	
 )
 GO
 
