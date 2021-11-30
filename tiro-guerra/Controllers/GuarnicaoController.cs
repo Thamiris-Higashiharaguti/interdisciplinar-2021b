@@ -188,6 +188,12 @@ namespace TiroGuerra.Controllers
            mymodel.Instrutores = instrutores;
            mymodel.Atiradores = atiradores; 
             ViewBag.mes = MesAtual(sabado);
+
+            if(Guarnicoes.Count <7)
+            {
+                return RedirectToAction("create", "Guarnicao");
+            }
+            
             return View(mymodel);
         }
 
@@ -224,15 +230,6 @@ namespace TiroGuerra.Controllers
             return RedirectToAction("index");
         }
 
-    
-          
-            
-    
-
-          
-    
-    
-  
         [HttpGet]
         public ActionResult escalaGuarda()
         {
@@ -289,6 +286,12 @@ namespace TiroGuerra.Controllers
            
            mymodel.Instrutores = instrutores;
            mymodel.Atiradores = atiradores; 
+
+            if(Guarnicoes.Count <7)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.mes = MesAtual(sabado);
             return View(mymodel);
         }
