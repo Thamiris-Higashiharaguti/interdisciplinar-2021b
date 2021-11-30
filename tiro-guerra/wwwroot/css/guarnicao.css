@@ -13,7 +13,7 @@ body{
 
     table{
         width: 80%;
-        margin: 5% auto;
+        margin: 2% auto;
         border: 2px;
         border-color: black;
         border-style: groove;
@@ -74,6 +74,11 @@ body{
         cursor: pointer;
     }
 
+    .titulo-guarnicao
+    {
+        text-align: center;
+        margin-top: 2%;
+    }
     
     /*Modal dia da semana Inicio*/
 

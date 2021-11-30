@@ -1,0 +1,12 @@
+.content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    top: 10%;
+}
+
+.calendario{
+    margin: 5% auto;
+    text-align: center;
+}

@@ -17,7 +17,7 @@ exec CREATE_ATIRADOR 'Daniel','47852497814','582198827',1,'123',2,'Comandante','
 exec CREATE_ATIRADOR 'Carlos','47852497815','582198828',1,'123',3,'Comandante','06','15','Carlos@gmail.com';
 
 exec CREATE_ATIRADOR 'Julio','47852497816','582198829',1,'123',1,'Sentinela','07','16','Julio@gmail.com';
-exec CREATE_ATIRADOR 'Jo�o','47852497817','582198830',1,'123',1,'Sentinela','08','17','Jo�o@gmail.com';
+exec CREATE_ATIRADOR 'Joao','47852497817','582198830',1,'123',1,'Sentinela','08','17','Jo�o@gmail.com';
 exec CREATE_ATIRADOR 'Roberto','47852497818','582198831',1,'123',2,'Sentinela','09','18','Roberto@gmail.com';
 exec CREATE_ATIRADOR 'Fernando','47852497819','582198832',1,'123',2,'Sentinela','10','19','Fernando@gmail.com';
 exec CREATE_ATIRADOR 'Patrick','47852497820','582198833',1,'123',3,'Sentinela','11','20','Patrick@gmail.com';
@@ -27,6 +27,7 @@ exec CREATE_ATIRADOR 'Coelho','47852497888','582198777',1,'123',3,'Sentinela','1
 go
 
 --Inser��o na Tabela Instrutor
-EXEC CREATE_INSTRUTOR 'Jos� da Silva',1,'123456712','32132112','SubTenente','123','Jose@outlook.com'; 
+EXEC CREATE_INSTRUTOR 'Jose da Silva',1,'123456712','32132112','SubTenente','123','Jose@outlook.com'; 
 EXEC CREATE_INSTRUTOR 'Marcos',1,'11111112','111122','Tenente','123','Marcos@outlook.com'; 
 EXEC CREATE_INSTRUTOR 'Vitor',1,'22222223','222233','General','123','Vitor@outlook.com';
+

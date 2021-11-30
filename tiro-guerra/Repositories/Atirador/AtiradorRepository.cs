@@ -96,8 +96,6 @@ namespace TiroGuerra.Repositories
         {
             try {
                 List<Atirador> lista = new List<Atirador>();
-               
-
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 

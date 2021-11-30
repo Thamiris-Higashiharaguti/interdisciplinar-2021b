@@ -1,3 +1,5 @@
+drop database BD_TiroGuerra;
+
 CREATE DATABASE BD_TiroGuerra ;
 GO 
 
@@ -153,7 +155,7 @@ END
 
 -------------------------------------------------------------------------
 
--- View de visualizaï¿½ï¿½o dos atiradores 
+-- View de visualização dos atiradores 
 CREATE VIEW SEARCH_ATIRADORES 
 AS 
 SELECT * FROM TB_Usuario AS usuario  
@@ -173,7 +175,7 @@ INNER JOIN TB_Pelotao P ON (A.Id_Pelotao = P.Id) Where U.id = @id;
 END
 
 
--- Procedure de criaï¿½ï¿½o do atirador
+-- Procedure de criação do atirador
 CREATE PROCEDURE CREATE_ATIRADOR( 
     @Nome varchar(200), 
     @CPF varchar(12), 
@@ -225,7 +227,7 @@ END
 
 -------------------------------------------------------------------------------
 
--- Procedure de busca de Guarniï¿½oes ja formadas
+-- Procedure de busca de Guarniçoes ja formadas
 CREATE PROCEDURE SEARCH_GUARNICOES(
 @domingo Date,
 @sabado Date
@@ -239,7 +241,7 @@ from TB_Instrutor i
  order by gr.id
 end
 
--- Procedure de criaï¿½ï¿½o da guarniï¿½ï¿½o
+-- Procedure de criação da guarnição
 CREATE PROCEDURE CREATE_GUARNICAO( 
   @id_instrutor int,
   @data datetime
@@ -249,7 +251,7 @@ CREATE PROCEDURE CREATE_GUARNICAO(
 END 
 
 
--- Procedure de alterar Guarniï¿½ï¿½o
+-- Procedure de alterar Guarnição
 CREATE PROCEDURE UPDATE_GUARNICAO
 (
 	@Id int,
@@ -278,7 +280,7 @@ from TB_Guarda ga
  
 end
 
--- Criaï¿½ï¿½o da Guarda
+-- Criação da Guarda
 CREATE PROCEDURE CREATE_GUARDA( 
   @Id_Atirador int,
   @Id_Guarnicao int,

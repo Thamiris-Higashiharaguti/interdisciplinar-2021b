@@ -3,23 +3,25 @@
 
 @{
     ViewBag.Title = "Guarnição";
-    ViewBag.css = "/css/guarnicao.css";
+    ViewBag.css = "/css/guarnicaoindex.css";
 }
 
 <div class="content">
-    <form method="get" action="/guarnicao/create" > <!--action="/guarnicao/create" -->
+
+    <div class="calendario">
+        <form method="get" action="/guarnicao/create" > <!--action="/guarnicao/create" -->
         <h1> Selecione um dia da semana para criar a guarnição semanal</h1>
         <input type="date" name="dataCriar" id="date"> 
         <input type="submit" value="selecionar">
     </form>
-
-    <br>
-
+    </div>
     
-    <form method="get" action="/guarnicao/update" > <!--action="/guarnicao/create" -->
-        <h1>Selecione um dia da semana para alterar a guarnição semanal</h1>
-        <input type="date" name="dataAlterar" id="date"> 
-        <input type="submit" value="selecionar">
-    </form>
-    
+
+    <div class="calendario">
+        <form method="get" action="/guarnicao/update" > <!--action="/guarnicao/create" -->
+            <h1>Selecione um dia da semana para alterar a guarnição semanal</h1>
+            <input type="date" name="dataAlterar" id="date"> 
+            <input type="submit" value="selecionar">
+        </form>
+    </div>
 </div>

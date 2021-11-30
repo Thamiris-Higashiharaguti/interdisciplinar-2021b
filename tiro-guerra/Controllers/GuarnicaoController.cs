@@ -7,6 +7,8 @@ using TiroGuerra.Repositories;
 using TiroGuerra.Controllers;
 using System.Linq;
 using Microsoft.VisualBasic;
+using System.Windows;
+
 namespace TiroGuerra.Controllers
 {
     public class GuarnicaoController:Controller
@@ -137,12 +139,17 @@ namespace TiroGuerra.Controllers
             DateTime sabado = new DateTime();
             DateTime domingo = new DateTime();
             listDias = GetFirstLastDayWeek(dataAlterar);
+
             sabado = listDias[0];
             domingo = listDias[1];
+
             List<Guarda> Guardas =  new List<Guarda>();
             Guardas = guardaRepository.Read(domingo,sabado);
+
             List<Guarnicao> Guarnicoes = new List<Guarnicao>();
             Guarnicoes = guarnicaoRepository.Read(domingo,sabado);
+
+
             List<Guarda> Cabos = new List<Guarda>();
             List<Guarda> Comandantes = new List<Guarda>();
             List<Guarda> Sentinelas = new List<Guarda>();
@@ -185,13 +192,15 @@ namespace TiroGuerra.Controllers
             var atiradores = atirador_repository.ReadAll();
             var instrutores = instrutor_repository.ReadAll();
            
-           mymodel.Instrutores = instrutores;
-           mymodel.Atiradores = atiradores; 
+            mymodel.Instrutores = instrutores;
+            mymodel.Atiradores = atiradores; 
             ViewBag.mes = MesAtual(sabado);
 
             if(Guarnicoes.Count <7)
             {
-                return RedirectToAction("create", "Guarnicao");
+         
+               
+               return  View("index");
             }
             
             return View(mymodel);

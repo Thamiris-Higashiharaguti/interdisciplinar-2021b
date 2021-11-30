@@ -24,6 +24,10 @@ footer span{
     margin: 20px 20px;
 }
 
+.caixa-botao {
+    text-align: end;
+    margin-bottom: 20%;
+}
 
 footer .redes{
     margin-right: 5%;
