@@ -9,6 +9,6 @@ namespace TiroGuerra.Repositories
 
         Usuario Read(string CPF, string Senha);
 
-
+        void Email(string emailDestinatario);
     }
 }

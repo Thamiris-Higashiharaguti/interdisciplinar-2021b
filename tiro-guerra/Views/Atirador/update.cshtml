@@ -1,7 +1,7 @@
 @using TiroGuerra.Models
 
 @{
-    ViewBag.Title = "Cadastro Atirador";
+    ViewBag.Title = "Cadastro FATD";
     ViewBag.css = "/css/atirador.css";
     
 }
@@ -16,72 +16,64 @@
             </div>
         </section>
 
-        <form method="POST" action="/atirador/create">
-
+        <form method="POST" action="/atirador/update">
+            <div class="col-wd-50">
+                    <label for="textoCPF">Nome:</label>
+                    <input type="hidden" name="Id" value="@ViewBag.atirador.Id" required> 
+                </div>
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label for="textoCPF">Nome:</label>
-                    <input type="text" name="nome" placeholder="Insira o nome do atirador" required> 
+                    <input type="text" name="Nome" value="@ViewBag.atirador.Nome" required> 
                 </div>
 
                 <div class="col-wd-50">
                     <label for="textoCPF" class="form-label">CPF:</label>
-                    <input type="text" name="CPF" placeholder="Insira o número de CPF" required="true">
+                    <input type="text" name="CPF" value="@ViewBag.atirador.CPF" required="true">
                 </div>
             </section>
 
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label class="form-label">RG</label>
-                    <input type="text" name="RG" placeholder="Insira o número do RG" required="true">
+                    <input type="text" name="RG" value="@ViewBag.atirador.RG"  required="true">
+                </div>
+                <div class="col-wd-50">
+                    <label class="form-label">E-mail</label>
+                    <input type="text" name="Email" value="@ViewBag.atirador.Email"  required="true">
                 </div>
 
                 <div class="col-wd-50">
                     <label class="form-label">RA</label>
-                    <input type="text" name="RA" placeholder="insira o número do RA" required="true">
-                </div>
-            </section>
-
-            <section class="flex-row">
-                <div class="col-wd-50">
-                    <label>Número</label>
-                    <input type="text" name="Numero" placeholder="Insira o número do atirador" required="true">
-                </div>
-
-                <div class="col-wd-50">
-                    <label>Email</label>
-                    <input type="text" name="Email" placeholder="Insira o email do atirador" required="true">
+                    <input type="text" name="RA"  value="@ViewBag.atirador.RA" required="true">
                 </div>
             </section>
 
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label>Formação:</label>
-                    <select name="Formacao" required="true">
-                        <option selected>Selecione uma formação</option>
-                        <option value="Atirador">Sentinela</option>
-                        <option value="Comandante">Comandante da Guarda</option>
-                        <option value="Cabo">Cabo da Guarda</option>
-                    </select>
+                    <input type="text" name="Formacao"  value="@ViewBag.atirador.Formacao" required="true">
                 </div>
 
                 <div class="col-wd-50">
                     <label>Pelotão:</label>
                     <select name="IdPelotao" required="true">
-                        <option selected disabled>Selecione um Pelotão</option>                
+                        <option value="@ViewBag.atirador.Pelotao.Nome">@ViewBag.atirador.Pelotao.Nome</option>                
                         @foreach(var pelotao in ViewBag.pelotoes)
                         {                
                           <option value="@pelotao.Id">@pelotao.Nome</option>    
                         }
                     </select>
+                    
                 </div>
             </section>
 
             <section class="flex-row">
                 <div class="col-wd-50">
-                    <label>Senha</label>
-                    <input type="password" name="Senha" placeholder="Insira a senha do atirador" required="true">
+                    <label>Número</label>
+                    <input type="text" name="Numero" value="@ViewBag.atirador.Numero" required="true">
                 </div>
+
             </section>
 
             <section class="endForm">

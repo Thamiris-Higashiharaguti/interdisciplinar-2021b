@@ -23,7 +23,7 @@
 
         </section>
 
-        <form method="POST" action="#">
+        
             <section class="flex-row">
                 <div class="col-wd-100-content">
 
@@ -33,54 +33,21 @@
                     </div>
                     
 
-                    <div class="linha">
-                        <label class="nomes-chamada"> Abner da Silva de Moraes</label>
-                        <div class="botoes">
-                            <input class="btn-editar" type="button" value="Editar" name="editar">
-                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
-                        </div>    
-                    </div>
-
-                    <div class="linha">
-                        <label class="nomes-chamada"> Aline Lamaneres De Moraes</label>
-                        <div class="botoes">
-                            <input class="btn-editar" type="button" value="Editar" name="editar">
-                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
-                        </div>
-                        
-                    </div>
-
-                    <div class="linha">
-                        <label class="nomes-chamada"> Cristiane Regia</label>
-                        <div class="botoes">
-                            <input class="btn-editar" type="button" value="Editar" name="editar">
-                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
-                        </div>
-                    </div>
-
-                    <div class="linha">
-                        <label class="nomes-chamada"> Fátima Cristina Gonçalves Jepes</label>
-                        <div class="botoes">
-                            <input class="btn-editar" type="button" value="Editar" name="editar">
-                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
-                        </div>
-                    </div>
-
-                    <div class="linha">
-                        <label class="nomes-chamada"> Katharine Camelo Campos</label>
-                        <div class="botoes">
-                            <input class="btn-editar" type="button" value="Editar" name="editar">
-                            <input class="btn-excluir"type="button" value="Excluir" name="excluir">
-                        </div>
-                    </div>
+                    @foreach(var instrutor in ViewBag.instrutores)
+                        {                
+                            <div class="linha">
+                            <label class="nomes-chamada">@instrutor.Nome</label>
+                            <div class="botoes">
+                                <a href="/instrutor/delete/@instrutor.Id" class="btn-excluir">Apagar</a>
+                                <a href="/instrutor/update/@instrutor.Id" class="btn-editar">Editar</a>
+                                
+                            </div>
+                            
+                            </div>
+                            
+                    }
 
 
-                </div>
-
-            </section>
-
-
-        </form>
 
                     <section class="flex-row">
                 <div class="col-wd-50">
