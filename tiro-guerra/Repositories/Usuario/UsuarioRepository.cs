@@ -74,11 +74,16 @@ namespace TiroGuerra.Repositories
 
                 Console.WriteLine("Seu email foi enviado com sucesso! :)");
                 Console.ReadLine();
+                return;
             }
             catch (Exception)
             {
                 Console.WriteLine("Houve um erro no envio do email :(");
                 Console.ReadLine();
+                return;
+            }
+            finally {
+                Dispose();
             }
         }            
     }

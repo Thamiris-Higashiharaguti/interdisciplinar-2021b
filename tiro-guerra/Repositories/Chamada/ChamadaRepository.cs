@@ -74,7 +74,7 @@ namespace TiroGuerra.Repositories
             }
         }
                    
-        public List<Chamada> ReadByPelotao(int Id_Pelotao)
+        public List<Chamada> ReadAll(int Id_Pelotao)
         {
             try 
             {
@@ -84,29 +84,16 @@ namespace TiroGuerra.Repositories
                 cmd.Connection = connection;
                 
 
-                cmd.CommandText = "SELECT U.id, U.Nome, U.CPF, U.RG, U.Status,U.Email,A.Formacao, A.RA, A.Numero, P.Nome, C.Presenca from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id Inner Join TB_Chamada C ON U.Id = C.Id_Atirador Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id where A.Id_Pelotao = @Id_Pelotao";
+                cmd.CommandText = "Select C.Id_Instrucao,C.Id_Atirador,C.Presenca from TB_Chamada AS C Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id Where CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23)";
 
-                //cmd.Parameters.AddWithValue("@Data", data.Date.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@Id_Pelotao", Id_Pelotao);
-                
-                
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while(reader.Read()) 
                 {
-                    chamada.IdAtirador = reader.GetInt32(0);
-                    chamada.Responsavel.Nome = reader.GetString(1);
-                    chamada.Responsavel.CPF = reader.GetString(2);
-                    chamada.Atirador.RG = reader.GetString(3);
-                    chamada.Atirador.Status = reader.GetBoolean(4);
-                    chamada.Atirador.Email = reader.GetString(5);
-                    chamada.Atirador.Formacao = reader.GetString(6);
-                    chamada.Atirador.RA = reader.GetString(7);
-                    chamada.Atirador.Numero = reader.GetString(8);
-                    chamada.Atirador.Pelotao = new Pelotao {
-                        Nome = reader.GetString(9)
-                    };
-                    chamada.Presenca = reader.GetBoolean(10);
+                    chamada.IdInstrucao = reader.GetInt32(0);
+                    chamada.IdAtirador = reader.GetInt32(1);
+                    chamada.Presenca = reader.GetBoolean(2);
+                    Console.WriteLine(chamada.IdAtirador);
                     lista.Add(chamada);
                 }
 
@@ -122,6 +109,35 @@ namespace TiroGuerra.Repositories
                 Dispose();
             }
         } 
+
+        public void Update(List<Chamada> model)
+        {
+            try {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+
+
+                foreach (var i in model)
+                {
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "update_chamada";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Presenca", i.Presenca);
+                    cmd.Parameters.AddWithValue("@Id", i.IdAtirador);
+
+                    cmd.ExecuteNonQuery();  
+                }
+                
+
+            }catch(Exception ex) {
+                // Armazenar a exceção em um log.
+                Console.WriteLine(ex.Message);
+            }
+            finally {
+                Dispose();
+            }
+        }
         
     }
 }

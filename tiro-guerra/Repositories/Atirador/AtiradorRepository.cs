@@ -147,12 +147,14 @@ namespace TiroGuerra.Repositories
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-
+                
                 cmd.CommandText = "SEARCH_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
                 
                 cmd.Parameters.AddWithValue("@id", id);
-
+                if(cmd.Connection.State == ConnectionState.Closed){
+                    cmd.Connection.Open();
+                }
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 if(reader.Read()) 
@@ -172,7 +174,7 @@ namespace TiroGuerra.Repositories
                     atirador.Pelotao = new Pelotao {
                         Nome = reader.GetString(8)
                     };
-
+                
                     return atirador;
                 }
 
@@ -187,7 +189,7 @@ namespace TiroGuerra.Repositories
             finally {
                 Dispose();
             }
-        } 
+        }  
 
         public Atirador Read(string CPF, string Senha)
         {
@@ -231,7 +233,7 @@ namespace TiroGuerra.Repositories
                 return null;
                 
             }
-            catch(Exception ex) 
+            catch(Exception ex)  
             {
                 Console.WriteLine(ex.Message);
                 throw new Exception("Atirador não encontrada.");
@@ -281,5 +283,7 @@ namespace TiroGuerra.Repositories
         }
                        
     }
+
+         
 }
 

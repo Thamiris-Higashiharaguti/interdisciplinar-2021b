@@ -12,7 +12,7 @@ namespace TiroGuerra.Repositories
         Atirador Read(string CPF, string RA);
 
         List<Atirador> readFiltro(string nome);
-        
+        //List<Chamada> ReadByPelotao( int Id_Pelotao);
         void Update(int id, Atirador model);
         void Delete(int id);
 

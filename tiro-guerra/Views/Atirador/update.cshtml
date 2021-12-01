@@ -52,9 +52,15 @@
             <section class="flex-row">
                 <div class="col-wd-50">
                     <label>Formação:</label>
-                    <input type="text" name="Formacao"  value="@ViewBag.atirador.Formacao" required="true">
+                     
+                    <select name="Formacao" required="true">
+                        <option value="@ViewBag.atirador.Formacao">@ViewBag.atirador.Formacao</option> 
+                        <option value="Sentinela">Sentinela</option>
+                        <option value="Comandante">Comandante da Guarda</option>
+                        <option value="Cabo">Cabo da Guarda</option>
+                    </select>
                 </div>
-
+                
                 <div class="col-wd-50">
                     <label>Pelotão:</label>
                     <select name="IdPelotao" required="true">

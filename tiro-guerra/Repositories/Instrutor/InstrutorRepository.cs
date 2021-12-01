@@ -102,14 +102,24 @@ namespace TiroGuerra.Repositories
 
         public void Delete(int id)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = connection;
-            cmd.Parameters.Clear();
-            cmd.CommandText = "DELETE_INSTRUTOR";
-            cmd.CommandType = CommandType.StoredProcedure;
+            try {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.Parameters.Clear();
+                cmd.CommandText = "DELETE_INSTRUTOR";
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@id", id);
-            
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+
+            }catch(Exception ex) 
+            {
+                  Console.WriteLine(ex.Message);    
+            }
+            finally {
+                Dispose();
+            }
+        
         }
 
         public List<Instrutor> ReadAll()
