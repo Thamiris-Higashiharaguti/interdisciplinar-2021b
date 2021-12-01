@@ -209,7 +209,7 @@ namespace TiroGuerra.Repositories
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = connection;
 
-                    cmd.CommandText = "SELECT U.Email from TB_Instrutor I INNER Join TB_Usuario U ON I.Id_Usuario = U.Id Where I.Id_Usuario > 22";
+                    cmd.CommandText = "SELECT TOP 1 U.Email from TB_Instrutor I INNER Join TB_Usuario U ON I.Id_Usuario = U.Id ORDER BY I.Id_Usuario DESC";
                     
                     reader = cmd.ExecuteReader();
                 
