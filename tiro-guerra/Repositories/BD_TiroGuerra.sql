@@ -1,3 +1,5 @@
+drop database BD_TiroGuerra;
+
 CREATE DATABASE BD_TiroGuerra ;
 GO 
 
@@ -97,6 +99,7 @@ ON (usuario.Id = instrutor.Id_Usuario)
 
 GO 
 
+
 -- Procedure de Busca de Instrutor
 CREATE PROCEDURE SEARCH_INSTRUTOR 
 ( 
@@ -106,6 +109,15 @@ SELECT U.id, U.Nome, U.CPF, U.RG, U.Senha,U.Email, I.Graduacao
 FROM TB_Instrutor I INNER JOIN TB_Usuario  U ON (I.Id_Usuario = U.Id)
 Where U.id = @id; 
 END
+
+Create PROCEDURE SEARCH_INSTRUTOR_FILTER(
+@nome varchar(100)
+) as begin
+SELECT U.id, U.Nome, U.CPF, U.RG, U.Senha,U.Email, I.Graduacao 
+FROM TB_Instrutor I INNER JOIN TB_Usuario  U ON (I.Id_Usuario = U.Id)
+Where u.Nome like '%'+@nome+'%' 
+END
+
 
 
 -- Procedure de Cadastrar Instrutor
@@ -153,7 +165,7 @@ END
 
 -------------------------------------------------------------------------
 
--- View de visualizaï¿½ï¿½o dos atiradores 
+-- View de visualização dos atiradores 
 CREATE VIEW SEARCH_ATIRADORES 
 AS 
 SELECT * FROM TB_Usuario AS usuario  
@@ -161,6 +173,16 @@ INNER JOIN TB_Atirador AS atirador
 ON (usuario.Id = atirador.Id_Usuario) 
 
 GO 
+
+
+Create PROCEDURE SEARCH_ATIRADOR_FILTER(
+@nome varchar(100)
+) as begin
+SELECT U.id, U.Nome, U.CPF, U.RG 
+FROM TB_Atirador A INNER JOIN TB_Usuario  U ON (A.Id_Usuario = U.Id)
+Where u.Nome like '%'+@nome+'%' 
+END
+
 
 -- Procedure de Busca de Atirador
 CREATE PROCEDURE SEARCH_ATIRADOR 
@@ -173,7 +195,7 @@ INNER JOIN TB_Pelotao P ON (A.Id_Pelotao = P.Id) Where U.id = @id;
 END
 
 
--- Procedure de criaï¿½ï¿½o do atirador
+-- Procedure de criação do atirador
 CREATE PROCEDURE CREATE_ATIRADOR( 
     @Nome varchar(200), 
     @CPF varchar(12), 
@@ -225,7 +247,7 @@ END
 
 -------------------------------------------------------------------------------
 
--- Procedure de busca de Guarniï¿½oes ja formadas
+-- Procedure de busca de Guarniçoes ja formadas
 CREATE PROCEDURE SEARCH_GUARNICOES(
 @domingo Date,
 @sabado Date
@@ -239,7 +261,7 @@ from TB_Instrutor i
  order by gr.id
 end
 
--- Procedure de criaï¿½ï¿½o da guarniï¿½ï¿½o
+-- Procedure de criação da guarnição
 CREATE PROCEDURE CREATE_GUARNICAO( 
   @id_instrutor int,
   @data datetime
@@ -249,7 +271,7 @@ CREATE PROCEDURE CREATE_GUARNICAO(
 END 
 
 
--- Procedure de alterar Guarniï¿½ï¿½o
+-- Procedure de alterar Guarnição
 CREATE PROCEDURE UPDATE_GUARNICAO
 (
 	@Id int,
@@ -278,7 +300,24 @@ from TB_Guarda ga
  
 end
 
--- Criaï¿½ï¿½o da Guarda
+CREATE PROCEDURE SEARCH_GUARDA(
+@dia Date
+)
+as begin
+ select a.Id_Usuario [ID atirador],u.Nome [Nome Atirador], 
+		gr.Id [ID da Guarnicao], ga.Funcao [Funcao Guarda], 
+		gr.Data [Dia da Guarnicao], ga.Id [Id Guarda]
+from TB_Guarda ga
+ inner join TB_Guarnicao gr on ga.Id_Guarnicao = gr.Id
+ inner join TB_Atirador a on a.Id_Usuario=ga.Id_Atirador
+ inner join TB_Usuario u on u.Id =a.Id_Usuario
+ where gr.Data = @dia
+ order by  gr.Data, ga.Funcao
+ 
+end
+
+
+-- Criação da Guarda
 CREATE PROCEDURE CREATE_GUARDA( 
   @Id_Atirador int,
   @Id_Guarnicao int,
@@ -326,7 +365,7 @@ END
 EXEC update_chamada 0,1;
 
 insert into TB_Pelotao values ('Caxias',2021)
-Select * from TB_Chamada 
+select * from TB_Chamada
 
 SELECT U.id, C.Presenca from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id Inner Join TB_Chamada C ON U.Id = C.Id_Atirador Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id where A.Id_Pelotao = 1
                
@@ -337,3 +376,5 @@ SELECT U.Nome from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id 
 Insert into TB_Instrucao values (GETDATE())
 
 Select * from TB_Chamada AS C Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id Where CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23)
+
+Select C.Id_Instrucao,C.Id_Atirador,C.Id_Responsavel,C.Presenca from TB_Chamada AS C Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id Where CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23)

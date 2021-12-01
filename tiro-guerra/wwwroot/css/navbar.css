@@ -24,6 +24,10 @@ footer span{
     margin: 20px 20px;
 }
 
+.caixa-botao {
+    text-align: end;
+    margin-bottom: 20%;
+}
 
 footer .redes{
     margin-right: 5%;
@@ -95,7 +99,15 @@ nav{
 .mobile-menu{
     display: none; /* Não aparecera por padrao*/
     cursor: pointer;
+    background-color: black;
 }
+
+.mobile-menu{
+    display: none; /* Não aparecera por padrao*/
+    cursor: pointer;
+    background-color: black;
+}
+
 
 .mobile-menu div{
     width: 32px;
@@ -147,6 +159,7 @@ nav{
         visibility: hidden;
         transition: transform 0.3s ease-in;
         opacity: 1 !important;
+        margin-inline-end: 0;
     }
 
     .nav-list li{
@@ -157,6 +170,8 @@ nav{
     
     .mobile-menu{
         display: block;
+        width:30%;
+        text-align: center;
     }
 
     footer{
@@ -178,6 +193,7 @@ nav{
     .nav-list.active{
         visibility: visible;
         z-index: 3;
+        background: black;
     }
 
     .endForm{

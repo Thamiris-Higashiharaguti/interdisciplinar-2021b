@@ -15,7 +15,7 @@
 </head>
         <header>
         <nav>
-            <a class="logo" href="#"> <img src="../images/logo.png">  </a>
+            <a class="logo" href="#"> <img src="~/images/logo.png">  </a>
 
             <div class="mobile-menu">
                 <div class="line1"></div>
@@ -28,16 +28,25 @@
                 
                 @if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Graduacao")))
                 {
-                    <li><a href="/chamada/index">Chamada  </a></li>
+                    //<li><a href="/chamada/index">Chamada  </a></li>
                     <li><a href="/guarnicao">Guarnição</a></li>
                     <li><a href="/atirador/search">Atirador </a></li>
                     <li><a href="/instrutor/search">Instrutor </a></li>
                     <li><a href="/atirador/conta">Olá, @HttpContextAccessor.HttpContext.Session.GetString("Nome")!</a></li>
 
                 }else if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("Formacao"))){
-                    <li><a href="/chamada/index">Chamada  </a></li>
                     <li><a href="/guarnicao/escalaGuarda">Guarda</a></li>
-                    <li><a href="/atirador/search">Atirador </a></li>
+
+                    if(HttpContextAccessor.HttpContext.Session.GetString("Formacao")=="Comandante" || HttpContextAccessor.HttpContext.Session.GetString("Formacao")=="Cabo")
+                    {
+                        <li><a href="/chamada/index">Chamada  </a></li>
+                    }
+
+                    if(HttpContextAccessor.HttpContext.Session.GetString("Formacao")=="Comandante")
+                    {
+                        <li><a href="/guarnicao">Guarnição</a></li>
+                    }
+                    
                     <li><a href="/atirador/conta">Olá, @HttpContextAccessor.HttpContext.Session.GetString("Nome")!</a></li>
                 }
                 else{
@@ -57,9 +66,9 @@
         <span>André, Matheus, Paulo e Thamiris</span>
         <span> Nos siga nas redes sociais</span>
         <div class="redes">
-            <a href="#"> <img class="rede-social" src="../images/twiter.png">    </a>
-            <a href="#"> <img class="rede-social" src="../images/facebook.png">  </a>
-            <a href="#"> <img class="rede-social" src="../images/instagram.png"> </a>
+            <a href="#"> <img class="rede-social" src="~/images/twiter.png">    </a>
+            <a href="#"> <img class="rede-social" src="~/images/facebook.png">  </a>
+            <a href="#"> <img class="rede-social" src="~/images/instagram.png"> </a>
         </div>
         
     </footer>

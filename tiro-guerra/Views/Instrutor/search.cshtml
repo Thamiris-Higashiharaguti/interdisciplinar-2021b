@@ -16,10 +16,13 @@
 
         <section class="flex-row">
 
-            <div class="col-wd-100">
-                <span class="data-title">Nome do Instrutor:</span> <input type="text" name="busca" class="search">
-                <input class="btn-search" type="submit" value="Procurar" name="search">
-            </div>
+            <form method="post" action="/instrutor/filtrarNome">
+                <div class="col-wd-100">
+                    <span class="data-title">Nome do Instrutor:</span>
+                    <input type="text" name="nome">
+                    <input class="btn-search" type="submit" value="Procurar" name="search">
+                </div>
+            </form>
 
         </section>
 

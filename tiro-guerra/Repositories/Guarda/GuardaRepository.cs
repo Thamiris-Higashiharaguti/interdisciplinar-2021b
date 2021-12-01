@@ -86,6 +86,34 @@ namespace TiroGuerra.Repositories
             return Guardas;
         }
 
+        public Guarda ReadOne(DateTime dia)
+  
+        {
+            Guarda Guarda = new Guarda();
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.Connection = connection;
+            cmd.CommandText = "SEARCH_GUARDA";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@dia", dia);
+            
+            reader = cmd.ExecuteReader();
+           
+            while(reader.Read())
+            {
+               
+                   Guarda.IdAtirador =reader.GetInt32(0);
+                    Guarda.IdGuarnicao = reader.GetInt32(2);
+                    Guarda.Funcao =  reader.GetString(3);
+                   Guarda.Id =  reader.GetInt32(5);
+              
+            }
+            
+            return Guarda;
+        }
+
         public void Update(List<Guarda> model)
         {
             try{

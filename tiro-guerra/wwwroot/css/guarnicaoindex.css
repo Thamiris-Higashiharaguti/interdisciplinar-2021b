@@ -1,0 +1,31 @@
+.content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    top: 10%;
+}
+
+.calendario{
+    margin: 5% auto;
+    text-align: center;
+}
+
+.erro{
+    height: 70px;
+    width: 100%;
+    line-height: 70px;
+    text-align: center;
+    background-color: rgb(146, 3, 3);
+    color: white;
+    font-size: 22px;
+    border: solid;
+    border: 2px;
+    border: black;
+    border-left: none;
+    border-right: none;
+    transition: 0.6s;
+    text-align: center;
+    margin: 0 auto;
+
+}

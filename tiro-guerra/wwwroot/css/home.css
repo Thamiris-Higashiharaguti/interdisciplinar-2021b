@@ -54,12 +54,16 @@ section.title{
 }
 
 .funcoes{
-    /*padding-top: 35vw;*/
-    padding-top: 0;
+    padding-top: 10vw;
     display: flex;
     flex-direction: row;
     gap: 3vw;
+    margin-top: 10%;
     width: 100%;
+}
+
+.dots{
+    margin-bottom: 20px;
 }
 
 .item{
@@ -166,9 +170,10 @@ p{
   transition: background-color 0.6s ease;
 }
 
+/*
 .active {
   background-color: white;
-}
+}*/
 
 .fade {
   -webkit-animation-name: fade;

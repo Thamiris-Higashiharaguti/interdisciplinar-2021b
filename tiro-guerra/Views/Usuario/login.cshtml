@@ -14,6 +14,11 @@
         <section class="flex-row">
             <div class="col-wd-50">
 
+
+                @if(ViewBag.ErroLogin != null )
+                {
+                    <label>@ViewBag.ErroLogin</label>
+                }
                 <label class="title">Login</label>
 
                 <!--<div class="btn-group" role="group" aria-label="Basic example">
@@ -27,7 +32,7 @@
                 <label for="textoCPF" class="cred">Senha:</label>
                 <input type="password" name="Senha" placeholder="Insira a senha" required="true">
                 
-                <a href="#" class="rem" style="margin-left:auto; margin-top:5%; color:white;">Esqueci minha senha</a>
+               <!-- <a href="#" class="rem" style="margin-left:auto; margin-top:5%; color:white;">Esqueci minha senha</a> -->
                 
                 <div class="caixa-botao">
                     <button class="btn-salvar" name="enviar">Entrar</button>

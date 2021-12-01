@@ -84,17 +84,16 @@ namespace TiroGuerra.Repositories
                 cmd.Connection = connection;
                 
 
-                cmd.CommandText = "Select * from TB_Chamada AS C Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id Where CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23)";
+                cmd.CommandText = "Select C.Id_Instrucao,C.Id_Atirador,C.Presenca from TB_Chamada AS C Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id Where CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23)";
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 while(reader.Read()) 
                 {
-                    chamada.IdAtirador = reader.GetInt32(0);
-                    chamada.Presenca = reader.GetBoolean(1);
-                    chamada.IdInstrucao = reader.GetInt32(2);
-                    chamada.IdResponsavel = reader.GetInt32(3);
-                    
+                    chamada.IdInstrucao = reader.GetInt32(0);
+                    chamada.IdAtirador = reader.GetInt32(1);
+                    chamada.Presenca = reader.GetBoolean(2);
+                    Console.WriteLine(chamada.IdAtirador);
                     lista.Add(chamada);
                 }
 
@@ -118,19 +117,16 @@ namespace TiroGuerra.Repositories
                 cmd.Connection = connection;
 
 
-                for(int i = 0; i < model.Count;i++)
-                {   
+                foreach (var i in model)
+                {
                     cmd.Parameters.Clear();
                     cmd.CommandText = "update_chamada";
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@Presenca", model[i].Presenca);
-                    cmd.Parameters.AddWithValue("@Id", model[i].IdAtirador);
-                    
+                    cmd.Parameters.AddWithValue("@Presenca", i.Presenca);
+                    cmd.Parameters.AddWithValue("@Id", i.IdAtirador);
 
-                    
-                    cmd.ExecuteNonQuery();
-                    
+                    cmd.ExecuteNonQuery();  
                 }
                 
 

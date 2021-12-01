@@ -96,8 +96,6 @@ namespace TiroGuerra.Repositories
         {
             try {
                 List<Atirador> lista = new List<Atirador>();
-               
-
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
 
@@ -149,12 +147,14 @@ namespace TiroGuerra.Repositories
 
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = connection;
-
+                
                 cmd.CommandText = "SEARCH_ATIRADOR";
                 cmd.CommandType = CommandType.StoredProcedure;
                 
                 cmd.Parameters.AddWithValue("@id", id);
-
+                if(cmd.Connection.State == ConnectionState.Closed){
+                    cmd.Connection.Open();
+                }
                 SqlDataReader reader = cmd.ExecuteReader();
                 
                 if(reader.Read()) 
@@ -174,7 +174,7 @@ namespace TiroGuerra.Repositories
                     atirador.Pelotao = new Pelotao {
                         Nome = reader.GetString(8)
                     };
-
+                
                     return atirador;
                 }
 
@@ -189,7 +189,7 @@ namespace TiroGuerra.Repositories
             finally {
                 Dispose();
             }
-        } 
+        }  
 
         public Atirador Read(string CPF, string Senha)
         {
@@ -233,7 +233,7 @@ namespace TiroGuerra.Repositories
                 return null;
                 
             }
-            catch(Exception ex) 
+            catch(Exception ex)  
             {
                 Console.WriteLine(ex.Message);
                 throw new Exception("Atirador não encontrada.");
@@ -244,6 +244,44 @@ namespace TiroGuerra.Repositories
         } 
 
         
+        public List<Atirador> readFiltro(string nome)
+        {
+             try {
+                    List<Atirador> Atiradores = new List<Atirador>();
+                    SqlDataReader reader;
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SEARCH_ATIRADOR_FILTER";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                    reader = cmd.ExecuteReader();
+                
+                    while(reader.Read())
+                    {
+                        
+                        Atiradores.Add(new Atirador{
+                            Id =reader.GetInt32(0),
+                            Nome = reader.GetString(1),
+                            CPF =  reader.GetString(2),
+                            RG =  reader.GetString(3)
+                            });
+                    }
+
+                return Atiradores;
+             
+                
+                }catch(Exception ex) {
+                    // Armazenar a exceção em um log.
+                    throw new Exception(ex.Message);
+                }
+                finally {
+                    Dispose();
+                }
+
+        }
+                       
     }
 
          

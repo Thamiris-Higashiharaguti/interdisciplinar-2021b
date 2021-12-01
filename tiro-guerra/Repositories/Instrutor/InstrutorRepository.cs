@@ -161,5 +161,44 @@ namespace TiroGuerra.Repositories
             }
         }
 
+        public List<Instrutor> readFiltro(string nome)
+        {
+             try {
+                    List<Instrutor> Instrutores = new List<Instrutor>();
+                    SqlDataReader reader;
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = connection;
+
+                    cmd.CommandText = "SEARCH_INSTRUTOR_FILTER";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                    reader = cmd.ExecuteReader();
+                
+                    while(reader.Read())
+                    {
+                        
+                        Instrutores.Add(new Instrutor{
+                            Id =reader.GetInt32(0),
+                            Nome = reader.GetString(1),
+                            CPF =  reader.GetString(2),
+                            RG =  reader.GetString(3),
+                            Graduacao = reader.GetString(6),
+                            });
+                    }
+
+                return Instrutores;
+             
+                
+                }catch(Exception ex) {
+                    // Armazenar a exceção em um log.
+                    throw new Exception(ex.Message);
+                }
+                finally {
+                    Dispose();
+                }
+
+        }
+
     }
 }

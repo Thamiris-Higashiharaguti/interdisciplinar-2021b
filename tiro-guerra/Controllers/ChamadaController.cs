@@ -48,18 +48,19 @@ namespace TiroGuerra.Controllers
         public ActionResult update()
         {
             List<Chamada> lista = new List<Chamada>();
-            Chamada chamada = new Chamada();
+            
             ViewBag.pelotoes = pelotaoRepository.ReadAll();
             var atiradores = chamadaRepository.ReadAll();
-            foreach(var i in atiradores){
-            
-                chamada.IdAtirador = i.IdAtirador;
-                chamada.Presenca = i.Presenca;
-                chamada.Atirador = repository.Read(i.IdAtirador);
-
-
+            foreach(var atirador in atiradores)
+            {   
+                Chamada chamada = new Chamada();
+                chamada.IdAtirador = atirador.IdAtirador;
+                chamada.Presenca =  atirador.Presenca;
+                chamada.Atirador = repository.Read(atirador.IdAtirador);
                 lista.Add(chamada);
+                
             }
+           
 
             
             return View(lista);
@@ -74,8 +75,6 @@ namespace TiroGuerra.Controllers
             }
             
             var id = HttpContext.Session.GetInt32("Id");
-            
-            Console.Write(model[0].IdAtirador);
                 
             chamadaRepository.Update(model);
             for(int i = 0; i < model.Count;i++)
