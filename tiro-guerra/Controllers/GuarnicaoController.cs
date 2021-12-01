@@ -344,5 +344,22 @@ namespace TiroGuerra.Controllers
             ViewBag.mes = MesAtual(sabado);
             return View(mymodel);
         }
+        [HttpPost]
+        public ActionResult request(String Mensagem)
+        {
+            if (ModelState.IsValid)
+            {
+                Mensagem.Count();
+            }
+            
+            var Nome = HttpContext.Session.GetString("Nome");
+                
+            var Email = instrutor_repository.readEmail();
+            
+            guarnicaoRepository.Email(Email,Mensagem,Nome);
+           
+            
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

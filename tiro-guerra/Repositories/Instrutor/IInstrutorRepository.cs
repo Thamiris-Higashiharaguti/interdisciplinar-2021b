@@ -13,7 +13,7 @@ namespace TiroGuerra.Repositories
         void Delete(int id);
 
         List<Instrutor> readFiltro(string nome);
-
+        String readEmail();
         List<Instrutor> ReadAll();
     }
 }

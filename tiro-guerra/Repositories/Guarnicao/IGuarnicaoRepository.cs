@@ -12,6 +12,7 @@ namespace TiroGuerra.Repositories
         void Update(List<Guarnicao> model);
 
         void Delete(int id);
+        void Email(string emailDestinatario, String mensagem, String Nome);
     }
 
   

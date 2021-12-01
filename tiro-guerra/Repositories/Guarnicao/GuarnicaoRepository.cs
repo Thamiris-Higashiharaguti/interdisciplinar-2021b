@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TiroGuerra.Models;
 using System.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 namespace TiroGuerra.Repositories
 {
     public class GuarnicaoRepository: BDContext, IGuarnicaoRepository
@@ -133,17 +136,44 @@ namespace TiroGuerra.Repositories
 
         }
 
-    
-          
-            
-    
-
-          
-    
-    
-  
         public void Delete(int id)
         {
         }
+
+        public void Email(string emailDestinatario, String mensagem, String Nome){
+
+            try
+            {
+                MailMessage mailMessage = new MailMessage("adm.tg02033sjrp@gmail.com", emailDestinatario);
+
+                mailMessage.Subject = "Alteração na escala: "+ Nome;
+                mailMessage.IsBodyHtml = true;
+                mailMessage.Body = "<p> "+ mensagem +" </p>";
+                mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
+                mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("adm.tg02033sjrp@gmail.com", "tg@123456");
+
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Send(mailMessage);
+
+                Console.WriteLine("Seu email foi enviado com sucesso! :)");
+                Console.ReadLine();
+                return;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Houve um erro no envio do email :(");
+                Console.ReadLine();
+                return;
+            }
+            finally {
+                Dispose();
+            }
+        }  
     }
 }
