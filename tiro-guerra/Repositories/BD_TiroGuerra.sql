@@ -1,7 +1,7 @@
 CREATE DATABASE BD_TiroGuerra ;
 GO 
 
-USE BD_TiroGuerra 
+USE BD_TiroGuerra
 GO 
 
 CREATE TABLE TB_Usuario 
@@ -316,10 +316,24 @@ END
 CREATE PROCEDURE update_chamada 
 ( 
     @Presenca BIT, 
-    @data DATE, 
     @id int 
 ) AS BEGIN 
     UPDATE TB_Chamada SET Presenca=@Presenca 
     FROM TB_Chamada as C inner join TB_Instrucao as I on C.Id_Instrucao = I.Id 
-    WHERE i.Data = @data and C.Id_Atirador=@id;     
+    WHERE CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23);     
 END 
+
+EXEC update_chamada 0,1;
+
+insert into TB_Pelotao values ('Caxias',2021)
+Select * from TB_Chamada 
+
+SELECT U.id, C.Presenca from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id Inner Join TB_Pelotao P ON A.Id_Pelotao = P.id Inner Join TB_Chamada C ON U.Id = C.Id_Atirador Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id where A.Id_Pelotao = 1
+               
+			   
+SELECT U.Nome from TB_Atirador A INNER Join TB_Usuario U ON A.Id_Usuario = U.Id Where U.Id = 1
+
+
+Insert into TB_Instrucao values (GETDATE())
+
+Select * from TB_Chamada AS C Inner Join TB_Instrucao I ON C.Id_Instrucao = I.Id Where CONVERT(varchar(10), I.Data, 23) = CONVERT(varchar(10), GETDATE(), 23)

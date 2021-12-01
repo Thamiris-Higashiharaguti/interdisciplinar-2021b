@@ -17,5 +17,9 @@ namespace TiroGuerra.Models
         #region Foreign Key
             public Atirador Responsavel { get; set; }
         #endregion
+
+        #region Foreign Key
+            public Usuario Usuario { get; set; }
+        #endregion
     }
 }

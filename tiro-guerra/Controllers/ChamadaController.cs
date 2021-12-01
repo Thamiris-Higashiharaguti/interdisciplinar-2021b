@@ -44,22 +44,50 @@ namespace TiroGuerra.Controllers
             return View(lista);
         }
 
-        [HttpPost]
-        public ActionResult index(int id_Pelotao)
+        [HttpGet]
+        public ActionResult update()
         {
             List<Chamada> lista = new List<Chamada>();
+            Chamada chamada = new Chamada();
             ViewBag.pelotoes = pelotaoRepository.ReadAll();
-            var atiradores = chamadaRepository.ReadByPelotao(id_Pelotao);
+            var atiradores = chamadaRepository.ReadAll();
             foreach(var i in atiradores){
-                lista.Add(new Chamada{
-                    IdAtirador = i.Atirador.Id,
-                    Atirador = i.Atirador,
-                    Presenca = false
-                    
+            
+                chamada.IdAtirador = i.IdAtirador;
+                chamada.Presenca = i.Presenca;
+                chamada.Atirador = repository.Read(i.IdAtirador);
 
-                });
+
+                lista.Add(chamada);
             }
+
+            
             return View(lista);
+        }
+
+        [HttpPost]
+        public ActionResult update([Bind("IdAtirador, Presenca","Email")]List<Chamada> model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Count();
+            }
+            
+            var id = HttpContext.Session.GetInt32("Id");
+            
+            Console.Write(model[0].IdAtirador);
+                
+            chamadaRepository.Update(model);
+            for(int i = 0; i < model.Count;i++)
+            {   
+                if(model[i].Presenca == false){
+                    usuarioRepository.Email(model[i].Atirador.Email);
+                }
+                
+                
+            }
+            
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
